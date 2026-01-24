@@ -14,6 +14,9 @@
     <meta property="og:description" content="マインクラフトのファンサイトへようこそ！サバイバル、PVP、建築など、様々なプレイスタイルを紹介しています。">
 </head>
 <body>
+    <div id="loadingBar-container">
+        <div id="loadingBar"></div>
+    </div>
     <header>
         <div class="container">
             <h1>Minecraft Fan Site</h1>
@@ -57,5 +60,11 @@
     <footer id="footer">
         <p>&copy; 2024 Minecraft Fan Site. All rights reserved.</p>
     </footer>
+    <!-- jQueryライブラリを読み込む -->
+    <script src="./js/jquery.min.js"></script>
+    <!-- ProgressBar.js を読み込む -->
+    <script src="./js/progressbar.min.js"></script>
+    <!-- 自分で作成したローディングバー制御用スクリプトを読み込む -->
+    <script src="./js/loading_progress_bar.js"></script>
 </body>
 </html>
