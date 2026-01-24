@@ -7,7 +7,7 @@ var bar = new ProgressBar.Line(loadingBar, {
     easing: "easeInOut",
 
   // アニメーションにかかる時間（ミリ秒）
-    duration: 2000,
+    duration: 1400,
 
   // ローディングバーの色
     color: "#555",
@@ -30,7 +30,7 @@ var bar = new ProgressBar.Line(loadingBar, {
         padding: "0",
         margin: "-30px 0 0 0",
         transform: "translate(-50%, -50%)",
-        "font-size": "1rem",
+        "font-size": "2rem",
         color: "#fff",
     },
     autoStyleContainer: false,
@@ -46,5 +46,5 @@ var bar = new ProgressBar.Line(loadingBar, {
 // ローディングバーをアニメーションさせる
 bar.animate(1.0, function () {
   // アニメーションが終了した後の処理
-    $("#loadingBar-container").delay(500).fadeOut(800);
+    $("#loadingBar-container").delay(100).fadeOut(1200);
 });
