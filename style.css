@@ -44,6 +44,12 @@ a {
     margin: 0 auto;
 }
 
+.fadein {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s;
+}
+
 header {
     position: fixed;
     z-index: 9999;
