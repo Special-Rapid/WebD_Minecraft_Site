@@ -1,5 +1,5 @@
 $(function ($) {
-    $(window).scroll(function () {
+    $(window).on("scroll load", function() {
         $(".fadein").each(function () {
             var targetElement = $(this).offset().top;
             var scroll = $(window).scrollTop();
