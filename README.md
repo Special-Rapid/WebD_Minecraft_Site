@@ -6,6 +6,10 @@
 
 このプロジェクトはMinecraftの異なるプレイモードの特徴や楽しさを紹介するウェブサイトです。
 
+## 🔗 サイト
+
+https://special-rapid.github.io/WebD_Minecraft_Site/
+
 ## 🎮 セクション
 
 - **Survival** - 資源を収集し、家を建て、モンスターと戦うことで生き延びるゲーム
