@@ -1,7 +1,5 @@
 # Minecraft Fan Site
 
-https://special-rapid.github.io/WebD_Minecraft_Site/
-
 マインクラフトの魅力を紹介するファンサイトです。サバイバル、PVP、建築など、様々なプレイスタイルを紹介しています。
 
 ## 📝 概要
