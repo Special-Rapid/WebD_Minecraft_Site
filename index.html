@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/vendor/slick.css">
+    <link rel="stylesheet" href="/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +34,10 @@
         <div class="gradation">
             <video src="img/WebD_Minecraft_Site.mp4" autoplay muted loop></video>
         </div>
-        <h1>Minecraft</h1>
+        <div class="firstview-text-container">
+            <h1>Minecraft</h1>
+            <p class="rotating-text"><span class="rotating-item">Explore</span></p>
+        </div>
     </section>
     <section id="survival" class="survival">
         <div class="gradation2">
@@ -46,11 +51,7 @@
     </section>
     <section class="about-survival">
         <div class="gradation5">
-            <img src="img/dirt_background6.png" alt="">
-        </div>
-        <div class="fadein">
-            <!-- <p class="about-survival-p1">サバイバルは、資源を収集し、家を建て、 <br>モンスターと戦うことで生き延びるゲームです。</p>
-            <p class="about-survival-p2">Explore the world of Minecraft survival mode,  <br>where you gather resources, build shelters, <br>and fend off monsters to thrive in a blocky universe.</p> -->
+            <img src="img/about_survival1.png" alt="" class="about-survival-bg">
         </div>
     </section>
     <section id="pvp" class="pvp">
@@ -75,14 +76,15 @@
     </section>
     <footer id="footer">
         <div class="footer-content">
-            <p>Icons provided by <a href="https://fontawesome.com/" target="_blank">Font Awesome</a></p>
-            <p><a href="https://github.com/special-rapid/WebD_Minecraft_Site" target="_blank"><i class="fab fa-github"></i> Source Code on GitHub</a></p>
-            <p>© This work is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal (Public Domain)</a></p>
+            <p>Icons provided by <a href="https://fontawesome.com/" target="_blank">Font Awesome</a><br>(Font Awesome Free – CC BY 4.0)</p>
+            <p><i class="fab fa-github"></i>The source code of this website is available on <a href="https://github.com/special-rapid/WebD_Minecraft_Site" target="_blank">Github</a>.</p>
+            <p>© The original contents of this website are licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal (Public Domain)</a></p>
         </div>
     </footer>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/progressbar.min.js"></script>
+    <script src="./js/vendor/jquery.min.js"></script>
+    <script src="./js/vendor/progressbar.min.js"></script>
     <script src="./js/loading_progress_bar.js"></script>
-    <script src="js/main.js"></script>
+    <script src="./js/vendor/slick.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
