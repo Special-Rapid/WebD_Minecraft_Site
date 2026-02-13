@@ -29,14 +29,4 @@ $(function ($) {
         $("html, body").animate({ scrollTop: position }, speed, "swing");
         return false;
     });
-
-    var rotatingBgs = ["img/about_survival1.png", "img/about_survival2.png", "img/about_survival3.png", "img/about_survival4.png", "img/about_survival5.png"];
-    var bgCurrentIndex = 0;
-    var rotatingElement = $(".about-survival-bg");
-    function updateRotatingBg() {
-        rotatingElement.attr("src", rotatingBgs[bgCurrentIndex]);
-        bgCurrentIndex = (bgCurrentIndex + 1) % rotatingBgs.length;
-    }
-    updateRotatingBg();
-    setInterval(updateRotatingBg, 6000);
 });
