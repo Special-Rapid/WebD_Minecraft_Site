@@ -19,6 +19,7 @@ https://special-rapid.github.io/WebD_Minecraft_Site/
 ## 特徴
 
 - ゲーム風ローディング画面
+- ローテーティングテキストによるサブタイトル
 - ナビゲーションバーによるセクション間のスムーズなスクロールアニメーション
 - ビデオバックグラウンドを使用したダイナミックなファーストビュー
 - グラデーションカラーによるセクション間の自然な区切り
@@ -62,4 +63,9 @@ WebD_Minecraft_Site/
 
 ---
 
-© This work is licensed under CC0 1.0 Universal (Public Domain)
+Icons provided by Font Awesome.
+(Font Awesome Free – CC BY 4.0)
+
+The source code of this website is available on Github.
+
+© The original contents of this website are licensed under CC0 1.0 Universal (Public Domain).
