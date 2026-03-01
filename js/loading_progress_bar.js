@@ -43,8 +43,10 @@ var bar = new ProgressBar.Line(loadingBar, {
     },
 });
 
-// ローディングバーをアニメーションさせる
-bar.animate(1.0, function () {
-  // アニメーションが終了した後の処理
-    $("#loadingBar-container").delay(100).fadeOut(1200);
-});
+// ページの読み込みが完了したらローディングバーをアニメーションさせる
+window.onload = function() {
+    bar.animate(1.0, function () {
+        // アニメーションが終了した後の処理
+        $("#loadingBar-container").delay(100).fadeOut(1200);
+    });
+};

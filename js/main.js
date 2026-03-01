@@ -1,14 +1,14 @@
 $(function ($) {
-    var rotatingTexts = ["Explore", "Create", "Survive", "Battle"];
-    var currentIndex = 0;
-    var rotatingElement = $(".rotating-item");
-    function updateRotatingText() {
-        rotatingElement.text(rotatingTexts[currentIndex]);
-        currentIndex = (currentIndex + 1) % rotatingTexts.length;
+    const texts = ["Explore", "Create", "Survive", "Battle"];
+    let index = 0;
+    const rotatingElement = document.querySelector(".rotating-item");
+    if (rotatingElement) {
+        rotatingElement.textContent = texts[index];
+        rotatingElement.addEventListener("animationiteration", () => {
+            index = (index + 1) % texts.length;
+            rotatingElement.textContent = texts[index];
+        });
     }
-    updateRotatingText();
-    setInterval(updateRotatingText, 4000);
-
     $(window).on("scroll load", function() {
         $(".fadein").each(function () {
             var targetElement = $(this).offset().top;
@@ -22,10 +22,10 @@ $(function ($) {
     });
     $(".container ul li a[href^='#']").click(function () {
         var adjust = 0;
-        var speed = 700;
+        var speed = 800;
         var href = $(this).attr("href");
         var target = $(href == "#" || href == "" ? "html" : href);
-        var position = target.offset().top;
+        var position = target.offset().top - adjust;
         $("html, body").animate({ scrollTop: position }, speed, "swing");
         return false;
     });
