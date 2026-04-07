@@ -20,7 +20,9 @@
     </div>
     <header>
         <div class="container">
-            <h1>Minecraft Fan Site</h1>
+            <a href="/">
+                <h1>Minecraft Fan Site</h1>
+            </a>
             <ul>
                 <li><a href="#survival" class="header-a1">survival</a></li>
                 <li><a href="#pvp" class="header-a2">pvp</a></li>
@@ -43,7 +45,7 @@
         </div>
         <div class="fadein">
             <div class="section1-container">
-            <h1>Survival</h1>
+            <a href="survival.html"><h1>Survival</h1></a>
             <p class="survival-p1">サバイバルは、資源を収集し、家を建て、 <br>モンスターと戦うことで生き延びるゲームです。</p>
             <p class="survival-p2">Explore the world of Minecraft survival mode,  <br>where you gather resources, build shelters, <br>and fend off monsters to thrive in a blocky universe.</p>
             </div>
@@ -55,7 +57,7 @@
         </div>
         <div class="fadein">
             <div class="section2-container">
-            <h1>PVP</h1>
+            <a href="pvp.html"><h1>PVP</h1></a>
             <p class="pvp-p1">PVPは、プレイヤー同士が戦うモードで、<br>戦略とスキルが求められます。</p>
             <p class="pvp-p2">Dive into Minecraft's PVP mode, <br>where players engage in thrilling battles against each other, <br>testing their strategies and skills in a competitive environment.</p>
             </div>
@@ -67,25 +69,23 @@
         </div>
         <div class="fadein">
             <div class="section3-container">
-            <h1>Build</h1>
+            <a href="build.html"><h1>Build</h1></a>
             <p class="build-p1">建築は、クリエイティブな側面を楽しむモードで、<br>自由に建物や構造物を作成できます。</p>
             <p class="build-p2">Unleash your creativity in Minecraft's Build mode, <br>where you can design and construct buildings and structures freely, <br>bringing your imaginative ideas to life.</p>
             </div>
         </div>
     </section>
-    <footer id="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 新快速(Special-Rapid)</p>
-            <p>This website is an independent fan-made informational website and is not affiliated with, endorsed by, or sponsored by Mojang Studios.<br>
-                Minecraft is a trademark of Mojang Studios. All Minecraft trademarks and intellectual property are the property of their respective owners.</p>
-            <p>This site is for informational and fan purposes only.</p>
-            <p>The original contents of this website are released under <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0 Universal (Public Domain)</a>.</p>
-            <p><a href="licenses.html">View all license information</a></p>
+    <!-- <section class="sns-link" id="sns-link">
+        <div class="sns-link-content">
+            <h1></h1>
         </div>
-    </footer>
+    </section> -->
+    <div id="footer" data-footer-links='[{"text":"View all license information","href":"/licenses.html"}]'></div>
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/progressbar.min.js"></script>
     <script src="js/loading_progress_bar.js"></script>
     <script src="js/main.js"></script>
+    <!-- <script src="js/header-include.js"></script> -->
+    <script src="js/footer-include.js"></script>
 </body>
 </html>

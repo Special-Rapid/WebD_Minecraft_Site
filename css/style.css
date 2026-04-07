@@ -26,6 +26,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light;
+}
+
 body {
     color: #333333;
     background-color: #ffffff;
@@ -54,7 +58,6 @@ a {
     transition: all 1.5s;
     display: flex;
 }
-
 @media (max-width: 786px) {
     .fadein {
         display: flex;
@@ -63,6 +66,7 @@ a {
         text-align: center;
     }
 }
+
 header {
     position: fixed;
     z-index: 998;
@@ -93,7 +97,7 @@ header ul {
     list-style: none;
 }
 
-header a {
+header ul a {
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -465,7 +469,6 @@ body.licenses-page h2 {
 }
 
 .license-item {
-    margin-bottom: 25px;
     padding: 15px;
     background-color: #f9f9f9;
     border-left: 4px solid #8B4513;
@@ -494,17 +497,6 @@ body.licenses-page a {
     word-break: break-word;
 }
 
-body.licenses-page footer {
-    text-align: center;
-    background-color: #ddd;
-    margin-top: 30px;
-}
-
 body.licenses-page footer a {
     color: #666;
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    line-height: 1.5;
-    margin: 0;
 }

@@ -41,31 +41,35 @@ https://special-rapid.github.io/WebD_Minecraft_Site/
 
 ```
 WebD_Minecraft_Site/
-├── index.html                    # メインのHTMLファイル
-├── style.css                     # スタイルシート
+├── index.html                    # トップページ
+├── 404.html                      # 404エラーページ
+├── licenses.html                 # ライセンスページ
+├── survival.html                 # サバイバルの詳細ページ(制作中)
+├── pvp.html                      # PVPの詳細ページ(制作中)
+├── build.html                    # 建築の詳細ページ(制作中)
+├── components/                   # コンポーネントファイル
+│   └── footer.html               # フッターコンポーネント
+├── css/                          # CSS ファイル
+│   └── style.css                 # メインスタイルシート
 ├── README.md                     # このファイル
 ├── img/                          # 画像アセット
-├── img_idea/                     # アイデア画像・参考画像
 ├── js/                           # JavaScript ファイル
-│   ├── jquery.min.js             # jQuery ライブラリ
-│   ├── progressbar.min.js        # ProgressBar.js
-│   ├── main.js                   # メインスクリプト
-│   └── loading_progress_bar.js   # ローディングバー制御
-├── School_Cup/                   # School Cup プロジェクト
-│   ├── 00export/
-│   ├── 01project/
-│   └── 02footage/
-└── videoproject/                 # ビデオプロジェクト
-    ├── 00export/
-    ├── 01project/
-    └── 02footage/
+    ├── main.js                   # メインスクリプト
+    ├── loading_progress_bar.js   # ローディングバー制御
+    ├── footer-include.js         # フッターインクルードスクリプト
+    └── vendor/                   # サードパーティライブラリ
+        ├── jquery.min.js         # jQuery ライブラリ
+        └──progressbar.min.js     # ProgressBar.js ライブラリ
 ```
 
 ---
 
-Icons provided by Font Awesome.
-(Font Awesome Free – CC BY 4.0)
+© 2026 新快速(Special-Rapid)
 
-The source code of this website is available on Github.
+https://special-rapid.github.io/WebD_Minecraft_Site/ (以下このウェブサイト) は、ファンが独自に作成した情報サイトであり、Mojang Studiosとは一切関係がなく、Mojang Studiosによる承認やスポンサーシップも受けていません。MinecraftはMojang Studiosの商標です。Minecraftに関するすべての商標および知的財産は、それぞれの所有者に帰属します。
 
-© The original contents of this website are licensed under CC0 1.0 Universal (Public Domain).
+このサイトは情報提供およびファン活動のみを目的としています。
+
+このウェブサイトのオリジナルコンテンツは、CC0 1.0 Universal (パブリックドメイン)ライセンスの下で公開されています。
+
+すべてのライセンス情報を表示するには、[こちら](https://special-rapid.github.io/WebD_Minecraft_Site/licenses.html)をご覧ください。

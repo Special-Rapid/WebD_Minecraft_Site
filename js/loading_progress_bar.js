@@ -43,7 +43,6 @@ var bar = new ProgressBar.Line(loadingBar, {
     },
 });
 
-// ページの読み込みが完了したらローディングバーをアニメーションさせる
 window.onload = function() {
     bar.animate(1.0, function () {
         // アニメーションが終了した後の処理
