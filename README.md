@@ -2,6 +2,8 @@
 
 Minecraftの多様な遊び方（サバイバル・PVP・建築）を紹介するウェブサイトです。
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d647bb0e-eee7-4dd6-9dd5-45265d3d27b9/deploy-status)](https://webd-minecraft-site.netlify.app)
+
 ## 目的
 
 このサイトはMinecraftの基本プレイや代表的な遊び方を、はじめての人にも楽しく伝えることを目的としています。 

@@ -12,16 +12,14 @@ $(function ($) {
     const loading = document.getElementById("loadingBar-container");
     const hasVisited = sessionStorage.getItem("hasVisited");
     if (hasVisited) {
-        // すでにこのタブで訪問済み → ローディング出さない
         loading.style.display = "none";
     } else {
-        // 初回訪問 → ローディング表示
         loading.style.display = "block";
-        // ここでアニメーション後に消す
+        window.addEventListener("load", () => {
         setTimeout(() => {
             loading.style.display = "none";
         }, 2000);
-        // 訪問済みフラグを保存
+        }, { once: true });
         sessionStorage.setItem("hasVisited", "true");
     }
 
