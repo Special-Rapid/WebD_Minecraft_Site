@@ -29,22 +29,26 @@ function renderFooterLinks(footerTarget) {
             return;
         }
 
+        const validLinks = links.filter((item) => {
+            return item && item.href && item.text && isSafeUrl(item.href);
+        });
+
+        if (validLinks.length === 0) {
+            linksContainer.style.display = "none";
+            return;
+        }
+
         linksContainer.style.display = "";
 
-        links.forEach((item, index) => {
-            if (!item.href || !item.text) return;
-
+        validLinks.forEach((item, index) => {
             const a = document.createElement("a");
-            a.href = item.href;
-            a.textContent = item.text;
+            applySafeLink(a, item);
+            if (a.style.display !== "none") {
+                linksContainer.appendChild(a);
 
-            if (item.target) a.target = item.target;
-            if (item.rel) a.rel = item.rel;
-
-            linksContainer.appendChild(a);
-
-            if (index < links.length - 1) {
-                linksContainer.appendChild(document.createTextNode(" | "));
+                if (index < validLinks.length - 1) {
+                    linksContainer.appendChild(document.createTextNode(" | "));
+                }
             }
         });
     } catch (error) {

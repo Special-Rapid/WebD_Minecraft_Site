@@ -1,26 +1,3 @@
-function applyLink(anchor, config) {
-    if (!anchor || !config || !config.href || !config.text) {
-        if (anchor) anchor.style.display = "none";
-        return;
-    }
-
-    anchor.style.display = "";
-    anchor.href = config.href;
-    anchor.textContent = config.text;
-
-    if (config.target) {
-        anchor.target = config.target;
-    } else {
-        anchor.removeAttribute("target");
-    }
-
-    if (config.rel) {
-        anchor.rel = config.rel;
-    } else {
-        anchor.removeAttribute("rel");
-    }
-}
-
 function renderCtaContent(ctaTarget) {
     let raw = ctaTarget.dataset.ctaConfig;
 
@@ -60,26 +37,26 @@ function renderCtaContent(ctaTarget) {
         if (kicker) {
             if (config.kicker) {
                 kicker.style.display = "";
-                kicker.textContent = config.kicker;
+                setSafeText(kicker, config.kicker);
             } else {
                 kicker.style.display = "none";
             }
         }
 
-        if (title && config.title) title.textContent = config.title;
-        if (body && config.body) body.textContent = config.body;
+        if (title && config.title) setSafeText(title, config.title);
+        if (body && config.body) setSafeText(body, config.body);
 
         if (sub) {
             if (config.sub) {
                 sub.style.display = "";
-                sub.textContent = config.sub;
+                setSafeText(sub, config.sub);
             } else {
                 sub.style.display = "none";
             }
         }
 
-        applyLink(primary, config.primary);
-        applyLink(secondary, config.secondary);
+        applySafeLink(primary, config.primary);
+        applySafeLink(secondary, config.secondary);
     } catch (error) {
         console.error("Invalid data-cta-config:", error);
     }
