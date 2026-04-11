@@ -1,4 +1,4 @@
-if (window.location.pathname.endsWith("pvp.html") || window.location.pathname.endsWith("survival.html") || window.location.pathname.endsWith("build.html")) {
+if (window.location.pathname.endsWith("pvp.html") || window.location.pathname.endsWith("build.html")) {
     window.location.replace("404.html");
 }
 // const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -9,20 +9,6 @@ if (window.location.pathname.endsWith("pvp.html") || window.location.pathname.en
 // document.documentElement.classList.remove("dark");
 // }
 $(function ($) {
-    const loading = document.getElementById("loadingBar-container");
-    const hasVisited = sessionStorage.getItem("hasVisited");
-    if (hasVisited) {
-        loading.style.display = "none";
-    } else {
-        loading.style.display = "block";
-        window.addEventListener("load", () => {
-        setTimeout(() => {
-            loading.style.display = "none";
-        }, 2000);
-        }, { once: true });
-        sessionStorage.setItem("hasVisited", "true");
-    }
-
     const texts = ["Explore", "Create", "Survive", "Battle"];
     let index = 0;
     const rotatingElement = document.querySelector(".rotating-item");

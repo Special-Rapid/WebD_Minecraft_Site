@@ -46,15 +46,16 @@ WebD_Minecraft_Site/
 ├── index.html                    # トップページ
 ├── 404.html                      # 404エラーページ
 ├── licenses.html                 # ライセンスページ
-├── survival.html                 # サバイバルの詳細ページ(制作中)
+├── survival.html                 # サバイバルの詳細ページ(BETA)
 ├── pvp.html                      # PVPの詳細ページ(制作中)
 ├── build.html                    # 建築の詳細ページ(制作中)
 ├── components/                   # コンポーネントファイル
-│   └── footer.html               # フッターコンポーネント
+│   ├── footer.html               # フッターコンポーネント
+│   ├── cta.html                  # CTAコンポーネント
+│   └── sns-link.html             # SNSリンクコンポーネント(製作中)
 ├── css/                          # CSS ファイル
 │   └── style.css                 # メインスタイルシート
 ├── README.md                     # このファイル
-├── img/                          # 画像アセット
 ├── js/                           # JavaScript ファイル
     ├── main.js                   # メインスクリプト
     ├── loading_progress_bar.js   # ローディングバー制御

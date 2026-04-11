@@ -3,14 +3,219 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Redirect</title>
-    <script>
-        // window.location.replace("404.html");
-    </script>
-    <script src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/fa8e121c-64b6-4c5d-b269-505cc3f15f4c.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <title>Survival Guide - Minecraft Fan Site</title>
+    <meta property="og:title" content="Survival Guide - Minecraft Fan Site">
+    <meta property="og:image" content="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/72ef72b7-ada6-4a91-8b3c-5ca7e7d39524.png">
+    <meta property="og:description" content="マインクラフトサバイバルの始め方からネザー・エンド攻略まで、長く使える実践ガイド。">
 </head>
 
-<body>
+<body class="survival-detail-page">
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <h1>Minecraft Fan Site</h1>
+            </a>
+            <ul class="survival-nav">
+                <li><a href="#overview" class="header-a1">概要</a></li>
+                <li><a href="#day1" class="header-a2">初日</a></li>
+                <li><a href="#base-gear" class="header-a3">拠点と装備</a></li>
+                <li><a href="#nether-end" class="header-a4">ネザーとエンド</a></li>
+                <li><a href="#recipes" class="header-a5">レシピ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="survival-hero" id="overview">
+            <div class="survival-hero-image-wrap">
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/2658da15-97aa-4e8d-97e2-1a50e92add12.png">
+            </div>
+            <div class="survival-hero-text container">
+                <div class="beta-badge">BETA PAGE</div>
+                <p class="survival-kicker">SURVIVAL MODE GUIDE</p>
+                <h1>マインクラフト<br>サバイバル完全ガイド</h1>
+                <p>
+                    完全初心者向けに、初日からエンド攻略準備までを「今なにをすればいいか」が分かる順番でまとめた実践ガイドです。
+                    各章は「やること」「理由」「失敗しやすい点」を1つずつ説明しているので、上から順に真似すれば進行できます。
+                </p>
+            </div>
+        </section>
+
+        <section class="survival-content container" id="early-game">
+            <article class="survival-block" id="day1">
+                <h2>1. 初日(1日目)を生き残る手順</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/3b3bd5f3-ab0c-4618-8fc6-c9aaaf88c78e.png" alt="最初の拠点の例">
+                <ol class="guide-steps">
+                    <li><strong>最初の30秒:</strong> 木を4〜6個叩いて丸太を回収する。理由は作業台と木の道具に必要だから。素手で石を掘ろうとしないこと。</li>
+                    <li><strong>クラフト開始:</strong> 丸太1個を木材4個に変換し、木材4個で作業台を作る。作業台を置いて木のツルハシを作る。</li>
+                    <li><strong>石ツールへ更新:</strong> 石を最低11個集め、石のツルハシ・石の斧・かまどを作る。木の道具のまま夜を迎えると採取が遅れて危険。</li>
+                    <li><strong>食料を確保:</strong> 羊・豚・牛を見つけたら先に食料を確保。空腹になる前に焼き肉を6個以上持つのが目安。</li>
+                    <li><strong>ベッドを最優先:</strong> 羊毛3個+木材3個でベッドを作る。日没前に寝られれば夜の戦闘をほぼ回避できる。</li>
+                    <li><strong>最初の夜:</strong> 3x3程度の小屋を作り、ドアを付けて中で待機。松明を1〜3本置いて暗闇湧きを防ぐ。</li>
+                </ol>
+                <p class="support-link-text">
+                    クラフトが初めてなら、補助として
+                    <a class="linkintext" href="https://youtu.be/c2ShEhytANE?si=wQV3qAM4wIs9k0PC" target="_blank" rel="noopener noreferrer">動画で見る</a>
+                    /
+                    <a class="linkintext" href="https://www.minecraft.net/ja-jp/article/how-craft" target="_blank" rel="noopener noreferrer">記事で見る</a>
+                </p>
+            </article>
+
+            <article class="survival-block" id="base-gear">
+                <h2>2. 拠点づくりと基本装備を固める</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/24cdab14-6e52-411b-bb3a-a7b9b99de7ab.png" alt="拠点づくりの例">
+                <ol class="guide-steps">
+                    <li><strong>帰還しやすい場所に拠点を固定:</strong> 平原・村の近く・水場の近くがおすすめ。迷子を減らせる。</li>
+                    <li><strong>最低限の設備を置く:</strong> ベッド、作業台、かまど2台、チェスト2個。これだけで採掘と料理と収納が回る。</li>
+                    <li><strong>チェスト整理を最初から分ける:</strong> 「鉱石」「建材」「食料」「道具」で分ける。探す時間を減らせる。</li>
+                    <li><strong>鉄を優先回収:</strong> まず24個を目標に集める。鉄ツルハシ、鉄防具(胴+脚優先)、盾、バケツを作れる。</li>
+                    <li><strong>湧き潰しを実施:</strong> 拠点周囲に松明を置き、夜の不意打ちを防ぐ。戦闘が苦手でも生存率が上がる。</li>
+                </ol>
+            </article>
+
+            <article class="survival-block">
+                <h2>3. 鉄装備からダイヤ・エンチャントへ</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/d90b3556-d4ec-4cf9-99f7-0dadbb3523c0.png" alt="エンチャントの例">
+                <ol class="guide-steps">
+                    <li><strong>ダイヤ探しの前に準備:</strong> 松明32本以上、食料16個以上、予備ツルハシ1本を持ってから採掘に行く。</li>
+                    <li><strong>ダイヤの使い道を固定:</strong> 最初のダイヤはツルハシを優先。黒曜石を掘れて進行が一気に広がる。</li>
+                    <li><strong>エンチャントテーブル作成:</strong> 本1冊+ダイヤ2個+黒曜石4個で作れる。作業効率を上げる土台になる。</li>
+                    <li><strong>狙うエンチャント:</strong> ツルハシは効率強化と耐久力、防具はダメージ軽減を優先。修繕は後からでもOK。</li>
+                </ol>
+            </article>
+
+            <article class="survival-block" id="nether-end">
+                <h2>4. ネザー進出からエンド準備まで</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/f1790b28-7ed9-41cc-a15c-4995b2561f7c.png" alt="ネザー探索の例">
+                <ol class="guide-steps">
+                    <li><strong>ネザー突入前の持ち物:</strong> 金装備1部位、火打石と打ち金、丸石2スタック、食料、弓、予備の防具。</li>
+                    <li><strong>最初の目標を1つに絞る:</strong> ブレイズロッド回収を優先。寄り道しすぎるとロストしやすい。</li>
+                    <li><strong>帰り道を必ずマーキング:</strong> 松明や丸石で目印を連続配置。座標メモも取り、迷子を防ぐ。</li>
+                    <li><strong>エンド準備:</strong> ブレイズパウダーとエンダーパールを集めてエンダーアイを作る。予備も含めて12個以上を目標。</li>
+                </ol>
+            </article>
+
+            <article class="survival-block">
+                <h2>5. エンド攻略前の最終チェック</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/e679b714-5ef2-44f4-9316-1d148faea67f.png" alt="エンド攻略の例">
+                <ol class="guide-steps">
+                    <li><strong>必須装備:</strong> フル鉄以上の防具、弓、矢、水バケツ、食料、足場ブロック2スタック。</li>
+                    <li><strong>開幕行動:</strong> まずエンドクリスタルを破壊してドラゴン回復を止める。ここを飛ばすと長期戦になる。</li>
+                    <li><strong>被ダメージ対策:</strong> 吹き飛ばしで落下死しやすいので、高所作業中は常に水バケツをホットバーに置く。</li>
+                    <li><strong>倒せない時の戻り方:</strong> ポータルの位置にチェストを置き、予備食料とブロックを残しておくと再挑戦が早い。</li>
+                </ol>
+            </article>
+
+            <article class="survival-block">
+                <h2>6. 失敗しにくい進行テンプレート</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/67695db9-46fd-485e-a8d2-3d975d88de79.png" alt="進行テンプレートの例">
+                <ol class="guide-steps">
+                    <li><strong>1日目:</strong> ベッド作成、小屋、石ツール化。目的は「死なない環境」を作ること。</li>
+                    <li><strong>2日目:</strong> 食料安定化(畑or動物)と鉄集め。目的は探索前の土台を固めること。</li>
+                    <li><strong>3日目:</strong> 鉄防具と盾を完成し、洞窟探索を開始。無理に深追いしない。</li>
+                    <li><strong>拠点常備セット:</strong> 石ツール、食料、松明、丸石、予備防具をチェストに固定。全ロス後の復帰が早い。</li>
+                </ol>
+            </article>
+
+            <article class="survival-block">
+                <h2>7. 効率化テクニックと仕様理解の基本</h2>
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/3d01e517-30cf-4269-8b4b-b142607b7d95.png" alt="仕様理解の例">
+                <ol class="guide-steps">
+                    <li><strong>採掘の目的を分ける:</strong> 「鉄だけ」「石炭だけ」のように分けると、持ち帰り後の整理が楽になる。</li>
+                    <li><strong>チャンクを意識する:</strong> 拠点機能を近くに置くと移動時間が減り、作業効率が安定する。</li>
+                    <li><strong>夜の危険を管理する:</strong> 暗い場所を作らないだけで敵湧き事故が減る。戦闘力より環境整備が重要。</li>
+                    <li><strong>運要素は回転率で解決:</strong> 良エンチャントや交易は1回勝負より、試行回数を増やす方が成功しやすい。</li>
+                </ol>
+            </article>
+        </section>
+
+        <section class="survival-content container" id="recipes">
+            <article class="survival-block recipe-catalog-block">
+                <h2>レシピミニカタログ(初心者向け必須クラフト)</h2>
+                <p>画像はあとで差し替えできるよう、いまはすべて共通の仮画像を表示しています。</p>
+                <div class="recipe-catalog-grid">
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="作業台レシピの仮画像">
+                        <h3>作業台</h3>
+                        <p><strong>必要素材:</strong> 木材4</p>
+                        <p><strong>用途:</strong> ほぼ全クラフトの起点</p>
+                        <p><strong>作るタイミング:</strong> スタート直後</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="棒レシピの仮画像">
+                        <h3>棒</h3>
+                        <p><strong>必要素材:</strong> 木材2(棒4本)</p>
+                        <p><strong>用途:</strong> ツール、武器、松明</p>
+                        <p><strong>作るタイミング:</strong> 作業台の直後</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="木のツルハシレシピの仮画像">
+                        <h3>木のツルハシ</h3>
+                        <p><strong>必要素材:</strong> 木材3 + 棒2</p>
+                        <p><strong>用途:</strong> 石採掘の解禁</p>
+                        <p><strong>作るタイミング:</strong> 初動1分以内</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="石のツルハシレシピの仮画像">
+                        <h3>石のツルハシ</h3>
+                        <p><strong>必要素材:</strong> 丸石3 + 棒2</p>
+                        <p><strong>用途:</strong> 鉄鉱石採掘</p>
+                        <p><strong>作るタイミング:</strong> 木のツルハシの直後</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="かまどレシピの仮画像">
+                        <h3>かまど</h3>
+                        <p><strong>必要素材:</strong> 丸石8</p>
+                        <p><strong>用途:</strong> 食料を焼く、鉱石を精錬</p>
+                        <p><strong>作るタイミング:</strong> 石確保後すぐ</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="ベッドレシピの仮画像">
+                        <h3>ベッド</h3>
+                        <p><strong>必要素材:</strong> 羊毛3 + 木材3</p>
+                        <p><strong>用途:</strong> 夜スキップ、リスポーン固定</p>
+                        <p><strong>作るタイミング:</strong> 日没前までに必須</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="チェストレシピの仮画像">
+                        <h3>チェスト</h3>
+                        <p><strong>必要素材:</strong> 木材8</p>
+                        <p><strong>用途:</strong> アイテム管理、ロスト対策</p>
+                        <p><strong>作るタイミング:</strong> 拠点を作った直後</p>
+                    </article>
+                    <article class="recipe-card">
+                        <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/59c39b4a-39c1-4214-ab30-c9e2d0a28c5a.png" alt="盾レシピの仮画像">
+                        <h3>盾</h3>
+                        <p><strong>必要素材:</strong> 木材6 + 鉄1</p>
+                        <p><strong>用途:</strong> 序盤戦闘の生存率アップ</p>
+                        <p><strong>作るタイミング:</strong> 鉄を1個入手したら即作成</p>
+                    </article>
+                </div>
+            </article>
+        </section>
+
+        <div id="cta" data-cta-config='{"kicker":"READY TO DROP IN?","title":"今すぐマインクラフトをプレイしよう",
+                                        "body":"ここまで読んだら、次は実戦です。最初の拠点を作るだけでも十分な一歩。たった1ワールドから、あなた専用の物語が始まります。",
+                                        "sub":"今日の目標はシンプルに「1日目を生き残る」。明日のあなたが続きを作ります。","primary":{"text":"公式サイトで始める",
+                                        "href":"https://www.minecraft.net/ja-jp","target":"_blank","rel":"noopener noreferrer"},
+                                        "secondary":{"text":"他のモードも見てみる",
+                                        "href":"index.html#pvp"}}'></div>
+    </main>
+
+    <div id="footer"
+        data-footer-links='[{"text":"Back to Home","href":"index.html"},{"text":"View all license information","href":"licenses.html"}]'>
+    </div>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cta-include.js"></script>
+    <script src="js/footer-include.js"></script>
 </body>
 
 </html>

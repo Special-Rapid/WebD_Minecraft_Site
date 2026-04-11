@@ -112,6 +112,12 @@ header .container ul li:nth-child(2) a:hover {
 header .container ul li:nth-child(3) a:hover {
     color: #0066ff;
 }
+header .container ul li:nth-child(4) a:hover {
+    color: #9b2eff;
+}
+header .container ul li:nth-child(5) a:hover {
+    color: #c06c00;
+}
 @media(max-width:786px) {
     header .container {
         justify-content: center;
@@ -233,6 +239,17 @@ header .container ul li:nth-child(3) a:hover {
     font-size: 120px;
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
+    transition: all 0.3s ease;
+}
+
+
+.survival h1 span {
+    /* display: inline-block; */
+    transition: all 0.3s ease;
+}
+.survival h1 span:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 8px #1eff00;
 }
 
 .survival-p1 {
@@ -303,6 +320,28 @@ header .container ul li:nth-child(3) a:hover {
     text-shadow: 2px 2px 4px #000000;
 }
 
+.pvp h1 span {
+    transition: all 0.3s ease;
+}
+.pvp h1 span:hover {
+    /* color: #ffffff; */
+    text-shadow: 2px 2px 4px #ff0000;
+    animation: pvpGlow 3s ease-in-out infinite;
+    animation-delay: 0.31s;
+}
+
+@keyframes pvpGlow {
+    0% {
+        text-shadow: 2px 2px 8px #ff0000;
+    }
+    50% {
+        text-shadow: 2px 2px 8px #ffe748;
+    }
+    100% {
+        text-shadow: 2px 2px 8px #ff0000;
+    }
+}
+
 .pvp-p1 {
     font-size: 18px;
     color: #ffffff;
@@ -370,7 +409,13 @@ header .container ul li:nth-child(3) a:hover {
 .build h1 {
     font-size: 160px;
     color: #000000;
-    text-shadow: 2px 2px 4px #ffffff;
+}
+
+.build h1 span {
+    transition: all 0.3s ease;
+}
+.build h1 span:hover {
+    text-shadow: 2px 2px 8px #119100;
 }
 
 .build-p1 {
@@ -499,4 +544,395 @@ body.licenses-page a {
 
 body.licenses-page footer a {
     color: #666;
+}
+
+/* survival.html styles */
+body.survival-detail-page {
+    background-color: #f4f8f2;
+}
+
+body.survival-detail-page header .container ul.survival-nav {
+    column-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+body.survival-detail-page header .container ul.survival-nav li a {
+    text-transform: none;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+body.survival-detail-page main {
+    padding-top: 80px;
+}
+
+.survival-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-bottom: 1px solid #dbe6d6;
+}
+
+.survival-hero-image-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+.survival-hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.1) contrast(1.05);
+}
+
+.survival-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(7, 17, 5, 0.82), rgba(17, 49, 14, 0.58));
+}
+
+.survival-hero-text {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.survival-kicker {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    margin-bottom: 14px;
+}
+
+.beta-badge {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+}
+
+.survival-hero-text h1 {
+    font-size: clamp(38px, 7vw, 88px);
+    line-height: 1;
+    margin-bottom: 22px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.survival-hero-text p {
+    max-width: 900px;
+    font-size: 20px;
+    line-height: 1.65;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.survival-content {
+    padding-top: 56px;
+    padding-bottom: 56px;
+    display: grid;
+    gap: 30px;
+}
+
+.survival-block {
+    background-color: #ffffff;
+    border: 1px solid #dde6da;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 24px rgba(18, 40, 16, 0.08);
+}
+
+.survival-block h2 {
+    font-size: clamp(28px, 4.5vw, 44px);
+    color: #184313;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.survival-block p {
+    color: #2f372d;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.survival-block p:last-child {
+    margin-bottom: 0;
+}
+
+.guide-steps {
+    padding-left: 1.4em;
+    margin: 18px 0 16px;
+}
+
+.guide-steps li {
+    color: #2f372d;
+    font-size: 18px;
+    line-height: 1.85;
+    margin-bottom: 11px;
+}
+
+.guide-steps li:last-child {
+    margin-bottom: 0;
+}
+
+.support-link-text {
+    margin-top: 8px;
+}
+
+.survival-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #d4dfcf;
+    margin-bottom: 16px;
+}
+
+.align-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.justify-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.survival-cta {
+    position: relative;
+    background:linear-gradient(135deg, #142716, #1e4c1e ,#317941, #309345);
+    padding: 64px 0;
+    overflow: hidden;
+}
+
+.survival-cta-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+}
+
+.survival-cta p.survival-cta-kicker {
+    max-width: none;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.survival-cta h2 {
+    font-size: clamp(34px, 6vw, 62px);
+    margin-bottom: 16px;
+    line-height: 1.1;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.survival-cta p {
+    max-width: 860px;
+    margin: 0 auto 24px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.survival-cta p.survival-cta-sub {
+    max-width: 920px;
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 28px;
+}
+
+.survival-cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.survival-cta-primary,
+.survival-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 20px;
+    line-height: 1;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.survival-cta-primary {
+    color: #1f441a;
+    background: linear-gradient(140deg, #ffffff, #d9ffb9);
+    box-shadow: 0 10px 26px rgba(11, 24, 8, 0.35);
+}
+
+.survival-cta-secondary {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.survival-cta-primary:hover,
+.survival-cta-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.survival-cta-primary:hover {
+    box-shadow: 0 14px 30px rgba(6, 16, 5, 0.4);
+}
+
+.survival-cta-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.24);
+    color: #ffffff;
+}
+
+.recipe-catalog-block > p {
+    margin-bottom: 20px;
+}
+
+.recipe-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.recipe-card {
+    background-color: #f8fbf6;
+    border: 1px solid #d9e4d2;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.recipe-card img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.recipe-card h3 {
+    color: #184313;
+    font-size: 24px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.recipe-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.recipe-card p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 786px) {
+    body.survival-detail-page header {
+        height: auto;
+    }
+
+    body.survival-detail-page header .container {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 4px 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    body.survival-detail-page header .container ul.survival-nav {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        column-gap: 14px;
+        padding-bottom: 4px;
+    }
+
+    body.survival-detail-page main {
+        padding-top: 118px;
+    }
+
+    .survival-hero {
+        min-height: 64vh;
+    }
+
+    .survival-hero-text {
+        padding-top: 70px;
+        padding-bottom: 48px;
+    }
+
+    .survival-hero-text p {
+        font-size: 17px;
+    }
+
+    .survival-content {
+        padding-top: 38px;
+        padding-bottom: 42px;
+        gap: 22px;
+    }
+
+    .survival-block {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .survival-block p {
+        font-size: 16px;
+    }
+
+    .guide-steps li {
+        font-size: 16px;
+    }
+
+    .recipe-catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-card h3 {
+        font-size: 22px;
+    }
+
+    .survival-cta {
+        padding: 48px 0;
+    }
+
+    .survival-cta p {
+        font-size: 16px;
+    }
+
+    .survival-cta p.survival-cta-sub {
+        margin-bottom: 22px;
+    }
+
+    .survival-cta-actions {
+        flex-direction: column;
+    }
+
+    .survival-cta-primary,
+    .survival-cta-secondary {
+        width: 100%;
+        max-width: 360px;
+        font-size: 18px;
+        min-height: 54px;
+        padding: 12px 20px;
+    }
+}
+
+.linkintext {
+    color: #288323;
+    text-decoration: underline;
 }
