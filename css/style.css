@@ -19,7 +19,34 @@
     color: #fff;
 }
 
-*{
+/* loading spinner アニメーション */
+#loading-spinner-container {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 20px #fff;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+* {
     font-family: "Pixelify Sans", sans-serif;
     margin: 0;
     padding: 0;
@@ -58,6 +85,7 @@ a {
     transition: all 1.5s;
     display: flex;
 }
+
 @media (max-width: 786px) {
     .fadein {
         display: flex;
@@ -103,28 +131,36 @@ header ul a {
     letter-spacing: 0.1em;
     transition: color 0.3s ease;
 }
+
 header .container ul li:nth-child(1) a:hover {
     color: #119100;
 }
+
 header .container ul li:nth-child(2) a:hover {
     color: #ff0000;
 }
+
 header .container ul li:nth-child(3) a:hover {
     color: #0066ff;
 }
+
 header .container ul li:nth-child(4) a:hover {
     color: #9b2eff;
 }
+
 header .container ul li:nth-child(5) a:hover {
     color: #c06c00;
 }
+
 @media(max-width:786px) {
     header .container {
         justify-content: center;
     }
+
     header h1 {
         margin: 0 0;
     }
+
     header ul {
         display: none;
     }
@@ -173,12 +209,15 @@ header .container ul li:nth-child(5) a:hover {
     0% {
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     85% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -190,14 +229,17 @@ header .container ul li:nth-child(5) a:hover {
     object-fit: cover;
     pointer-events: none;
 }
+
 @media (max-width: 786px) {
     .firstview h1 {
         font-size: 80px;
     }
 }
+
 .gradation {
     position: relative;
 }
+
 .gradation::before {
     content: "";
     position: absolute;
@@ -205,7 +247,7 @@ header .container ul li:nth-child(5) a:hover {
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent,  #ffffff);
+    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, #ffffff);
 }
 
 .survival {
@@ -247,6 +289,7 @@ header .container ul li:nth-child(5) a:hover {
     /* display: inline-block; */
     transition: all 0.3s ease;
 }
+
 .survival h1 span:hover {
     color: #ffffff;
     text-shadow: 2px 2px 8px #1eff00;
@@ -263,14 +306,18 @@ header .container ul li:nth-child(5) a:hover {
     color: #ffffff;
     text-shadow: 1px 1px 3px #000000;
 }
+
 @media (max-width: 786px) {
     .section1-container {
         position: static;
     }
+
     .survival h1 {
         font-size: 85px;
     }
-    .survival-p1, .survival-p2 {
+
+    .survival-p1,
+    .survival-p2 {
         font-size: 15px;
     }
 }
@@ -278,6 +325,7 @@ header .container ul li:nth-child(5) a:hover {
 .gradation2 {
     position: relative;
 }
+
 .gradation2::before {
     content: "";
     position: absolute;
@@ -323,6 +371,7 @@ header .container ul li:nth-child(5) a:hover {
 .pvp h1 span {
     transition: all 0.3s ease;
 }
+
 .pvp h1 span:hover {
     /* color: #ffffff; */
     text-shadow: 2px 2px 4px #ff0000;
@@ -334,9 +383,11 @@ header .container ul li:nth-child(5) a:hover {
     0% {
         text-shadow: 2px 2px 8px #ff0000;
     }
+
     50% {
         text-shadow: 2px 2px 8px #ffe748;
     }
+
     100% {
         text-shadow: 2px 2px 8px #ff0000;
     }
@@ -353,23 +404,30 @@ header .container ul li:nth-child(5) a:hover {
     color: #ffffff;
     text-shadow: 1px 1px 3px #000000;
 }
+
 @media (max-width: 786px) {
     .pvp img {
         object-position: -500px;
     }
+
     .section2-container {
         position: static;
     }
+
     .pvp h1 {
         font-size: 120px;
     }
-    .pvp-p1, .pvp-p2 {
+
+    .pvp-p1,
+    .pvp-p2 {
         font-size: 15px;
     }
 }
+
 .gradation3 {
     position: relative;
 }
+
 .gradation3::before {
     content: "";
     position: absolute;
@@ -377,7 +435,7 @@ header .container ul li:nth-child(5) a:hover {
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(180deg,#000000,transparent, transparent, transparent, transparent, transparent, #ffffff);
+    background: linear-gradient(180deg, #000000, transparent, transparent, transparent, transparent, transparent, #ffffff);
 }
 
 .build {
@@ -414,6 +472,7 @@ header .container ul li:nth-child(5) a:hover {
 .build h1 span {
     transition: all 0.3s ease;
 }
+
 .build h1 span:hover {
     text-shadow: 2px 2px 8px #119100;
 }
@@ -429,27 +488,34 @@ header .container ul li:nth-child(5) a:hover {
     color: #000000;
     text-shadow: 1px 1px 3px #ffffff;
 }
+
 @media (max-width: 786px) {
     .build img {
         width: 100%;
     }
+
     .section3-container {
         position: static;
     }
+
     .build h1 {
         color: #ffffff;
         font-size: 100px;
         text-shadow: 1px 1px 3px #000000;
     }
-    .build-p1, .build-p2 {
+
+    .build-p1,
+    .build-p2 {
         color: #ffffff;
         font-size: 14px;
         text-shadow: 1px 1px 3px #000000;
     }
 }
+
 .gradation4 {
     position: relative;
 }
+
 .gradation4::before {
     content: "";
     position: absolute;
@@ -457,7 +523,7 @@ header .container ul li:nth-child(5) a:hover {
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(180deg, #ffffff, transparent, transparent, transparent,transparent);
+    background: linear-gradient(180deg, #ffffff, transparent, transparent, transparent, transparent);
 }
 
 footer {
@@ -630,7 +696,7 @@ body.survival-detail-page main {
 }
 
 .survival-hero-text p {
-    max-width: 900px;
+    max-width: 1100px;
     font-size: 20px;
     line-height: 1.65;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
@@ -703,7 +769,7 @@ body.survival-detail-page main {
     gap: 20px;
 }
 
-.justify-container{
+.justify-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -711,7 +777,7 @@ body.survival-detail-page main {
 
 .survival-cta {
     position: relative;
-    background:linear-gradient(135deg, #142716, #1e4c1e ,#317941, #309345);
+    background: linear-gradient(135deg, #142716, #1e4c1e, #317941, #309345);
     padding: 64px 0;
     overflow: hidden;
 }
@@ -800,7 +866,7 @@ body.survival-detail-page main {
     color: #ffffff;
 }
 
-.recipe-catalog-block > p {
+.recipe-catalog-block>p {
     margin-bottom: 20px;
 }
 
@@ -935,4 +1001,90 @@ body.survival-detail-page main {
 .linkintext {
     color: #288323;
     text-decoration: underline;
+}
+
+/* Tooltip Styles */
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted #333333;
+    transition: color 0.2s ease;
+}
+
+.tooltip-trigger:hover {
+    color: #119100;
+}
+
+.tooltip-box {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333333;
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip-box::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #333333;
+}
+
+.tooltip-trigger:hover .tooltip-box {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip-trigger .tooltip-image {
+    /* min-width: 250px;
+    max-width: 300px; */
+    width: 250px;
+    height: auto;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tooltip-trigger .tooltip-video {
+    width: 250px;
+    height: auto;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Image only tooltip */
+.tooltip-box.image-only {
+    padding: 8px;
+    white-space: normal;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.tooltip-box.image-only::after {
+    display: none;
+}
+
+.tooltip-box.image-only img {
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Text in tooltip */
+.tooltip-text {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.4;
 }

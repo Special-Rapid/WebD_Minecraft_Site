@@ -1,13 +1,6 @@
 if (window.location.pathname.endsWith("pvp.html") || window.location.pathname.endsWith("build.html")) {
     window.location.replace("404.html");
 }
-// const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-// console.log("Dark mode: " + dark);
-// if (dark) {
-// document.documentElement.classList.add("dark");
-// } else {
-// document.documentElement.classList.remove("dark");
-// }
 $(function ($) {
     const texts = ["Explore", "Create", "Survive", "Battle"];
     let index = 0;
@@ -40,5 +33,57 @@ $(function ($) {
         var position = target.offset().top - adjust;
         $("html, body").animate({ scrollTop: position }, speed, "swing");
         return false;
+    });
+
+    const tooltipTriggers = document.querySelectorAll('[data-tooltip], [data-tooltip-img], [data-tooltip-video]');
+    console.log('Found tooltips:', tooltipTriggers.length);
+
+    tooltipTriggers.forEach(function (trigger) {
+        const tooltipText = trigger.getAttribute('data-tooltip');
+        const tooltipImg = trigger.getAttribute('data-tooltip-img');
+        const tooltipVideo = trigger.getAttribute('data-tooltip-video');
+
+        console.log('Processing tooltip - text:', tooltipText, 'img:', tooltipImg, 'video:', tooltipVideo);
+
+        trigger.style.position = 'relative';
+        trigger.style.display = 'inline-block';
+
+        let tooltipBox = document.createElement('div');
+        tooltipBox.className = 'tooltip-box';
+
+        if (tooltipVideo) {
+            let video = document.createElement('video');
+            video.src = tooltipVideo;
+            video.className = 'tooltip-video';
+            video.muted = true;
+            video.preload = 'metadata';
+            tooltipBox.appendChild(video);
+
+            // 再生制御
+            trigger.addEventListener('mouseenter', function() {
+                video.play().catch(e => console.log('Video play failed:', e));
+            });
+            trigger.addEventListener('mouseleave', function() {
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+
+        if (tooltipImg) {
+            let img = document.createElement('img');
+            img.src = tooltipImg;
+            img.className = 'tooltip-image';
+            tooltipBox.appendChild(img);
+        }
+
+        if (tooltipText) {
+            let textDiv = document.createElement('div');
+            textDiv.textContent = tooltipText;
+            textDiv.className = 'tooltip-text';
+            tooltipBox.appendChild(textDiv);
+        }
+
+        trigger.appendChild(tooltipBox);
+        console.log('Tooltip box appended');
     });
 });
