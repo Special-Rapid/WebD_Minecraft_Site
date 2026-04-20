@@ -70,7 +70,21 @@ async function includeCta(target, path) {
         }
 
         const html = await response.text();
-        target.innerHTML = html;
+
+        // DOMParserを使用してHTMLを安全にパース
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        // scriptタグを削除（セキュリティ対策）
+        const scripts = doc.querySelectorAll("script");
+        scripts.forEach((script) => script.remove());
+
+        // パースされたドキュメントのボディの内容をターゲットに移す
+        target.innerHTML = "";
+        while (doc.body.firstChild) {
+            target.appendChild(doc.body.firstChild);
+        }
+
         renderCtaContent(target);
     } catch (error) {
         console.error(error);

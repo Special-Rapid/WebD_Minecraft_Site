@@ -59,7 +59,7 @@ WebD_Minecraft_Site/
     ├── loading_progress_bar.js   # ローディングバー制御
     ├── footer-include.js         # フッターインクルードスクリプト
     ├── cta-include.js            # CTAインクルードスクリプト
-    ├── safe-dom.js                # 安全なDOM操作のためのユーティリティスクリプト
+    ├── safe-dom.js               # 安全なDOM操作のためのユーティリティスクリプト
     └── vendor/                   # サードパーティライブラリ
         ├── jquery.min.js         # jQuery ライブラリ
         └──progressbar.min.js     # ProgressBar.js ライブラリ
