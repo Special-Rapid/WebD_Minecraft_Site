@@ -3,14 +3,571 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Redirect</title>
-    <script>
-        // window.location.replace("404.html");
-    </script>
-    <script src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon"
+        href="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <title>PvP Guide - Minecraft Fan Site</title>
+    <meta property="og:site_name" content="Minecraft Fan Site">
+    <meta property="og:title" content="PvP Guide - Minecraft Fan Site">
+    <meta property="og:image"
+        content="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png">
+    <meta property="og:description"
+        content="マインクラフトPvPの技術を、初心者から上級者まで順に学べる実践ガイド。攻撃クールダウン・W-tap・クリスタルPvPまで網羅。">
+    <meta property="description"
+        content="マインクラフトPvPの技術を、初心者から上級者まで順に学べる実践ガイド。攻撃クールダウン・W-tap・クリスタルPvPまで網羅。" />
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body class="pvp-detail-page">
+    <div id="loading-spinner-container">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html">
+                <h1>Minecraft Fan Site</h1>
+            </a>
+            <ul class="pvp-nav">
+                <li><a href="#overview">概要</a></li>
+                <li><a href="#basic">基本</a></li>
+                <li><a href="#intermediate">中級</a></li>
+                <li><a href="#advanced">上級</a></li>
+                <li><a href="#gear">装備・設定</a></li>
+                <li><a href="#resources">参考</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="pvp-hero" id="overview">
+            <div class="pvp-hero-image-wrap">
+                <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                    alt="PvP hero background">
+            </div>
+            <div class="pvp-hero-text container">
+                <div class="pvp-beta-badge">BETA // COMBAT MANUAL</div>
+                <p class="pvp-kicker">PVP TECHNICAL GUIDE</p>
+                <h1>マインクラフト<br>PvP 完全攻略</h1>
+                <p>
+                    PvP (Player versus Player) は、プレイヤー同士が戦う対人戦モードの総称です。<br>
+                    このページでは「操作と仕様」に絞って、<span class="tooltip-trigger"
+                        data-tooltip="攻撃クールダウン・リーチ・ヒット判定など、ゲーム内部の数値・挙動">技術的な要素</span>だけを
+                    初心者 → 中級 → 上級の順に解説します。<br>
+                    各セクションは独立しているので、気になる項目だけを読むこともできます。用語には必ず注釈が付いているので、
+                    話が飛んで分からなくなる心配はありません。
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ QUICK MODE NAV ============ -->
+        <nav class="pvp-quick-nav" aria-label="Gameplay mode quick nav">
+            <div class="container pvp-quick-nav-inner">
+                <span class="pvp-quick-nav-label">MODE //</span>
+                <a class="pvp-mode-link is-active" href="pvp.html">PvP</a>
+                <a class="pvp-mode-link" href="survival.html">Survival</a>
+                <a class="pvp-mode-link" href="build.html">Build</a>
+                <a class="pvp-mode-link" href="index.html">Home</a>
+                <a class="pvp-mode-link" href="index.html#pvp">Overview</a>
+            </div>
+        </nav>
+
+        <!-- ============ §1 概要 ============ -->
+        <section class="pvp-content container">
+            <article class="pvp-block">
+                <span class="pvp-section-kicker">§1 / OVERVIEW</span>
+                <h2>1. PvPとは何か — 技術的な定義</h2>
+                <p>
+                    PvP は1対1・多対多・チーム戦などの形で行われますが、共通しているのは「プレイヤー同士の戦闘ルールが、サーバーとクライアントで同期した
+                    物理演算・ヒット判定・クールダウンの上で動いている」という点です。ここを理解すると、勝敗の9割が
+                    <span class="tooltip-trigger" data-tooltip="武器の種類・射程・攻撃速度・防具の耐性値など、ゲーム内部の数値">仕様の理解</span>
+                    で決まることが分かります。
+                </p>
+
+                <h3>1-1. エディションごとの違い</h3>
+                <p>
+                    Minecraft には主に2つのエディションがあり、PvPの挙動が細かく違います。
+                </p>
+                <div class="pvp-spec-grid">
+                    <div class="pvp-spec-card">
+                        <h4>Java Edition</h4>
+                        <p>
+                            PC版。攻撃判定は <span class="tooltip-trigger"
+                                data-tooltip="サーバーがヒットを決める方式。ping(通信遅延)の影響を受けやすい">サーバー側で処理</span>
+                            される。1.8系と1.9系以降で戦闘が大きく異なる。
+                        </p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>Bedrock Edition</h4>
+                        <p>
+                            統合版 (スマホ・Switch・Win10等)。ヒット判定は <span class="tooltip-trigger"
+                                data-tooltip="プレイヤーのクライアント側でヒットを決める方式。ping遅延の影響を受けにくい代わりに不正に弱い">クライアント権威</span>
+                            寄りで、クールダウンが存在しない。
+                        </p>
+                    </div>
+                </div>
+                <p class="pvp-note">
+                    <strong>Note — ping とは</strong>
+                    自分の操作がサーバーに届くまでの通信遅延 (ms単位)。ping が 50ms なら、クリックしてから 0.05秒後にサーバーへ届く、という意味。
+                    PvPでは低いほど有利。
+                </p>
+
+                <h3>1-2. 1.8 と 1.9 以降 — Combat Update</h3>
+                <ul>
+                    <li>
+                        <strong>1.8まで:</strong>
+                        攻撃にクールダウンなし。クリック連打 (いわゆる
+                        <span class="tooltip-trigger" data-tooltip="1秒あたりのクリック回数。CPS = Clicks Per Second">CPS</span>
+                        ) が重要で、盾の代わりに剣で右クリック防御 (block-hitting) が機能する。
+                    </li>
+                    <li>
+                        <strong>1.9以降 (Combat Update):</strong>
+                        <span class="tooltip-trigger"
+                            data-tooltip="攻撃後、次の全ダメージ攻撃まで必要な回復時間。剣で約0.6秒">攻撃クールダウン</span>
+                        が導入され、連打ではなく「タイミング」が主軸に。盾ブロックが追加。斧で盾を無効化できる。
+                    </li>
+                </ul>
+                <p class="pvp-note">
+                    <strong>Tips</strong>
+                    初心者はまず「今自分が遊んでいるバージョンが 1.8系 / 1.9系以降」のどちらかを把握しましょう。同じ戦術でも全く効かないことがあります。
+                </p>
+            </article>
+
+            <!-- ============ §2 BASIC ============ -->
+            <article class="pvp-block" id="basic">
+                <span class="pvp-section-kicker">§2 / BASIC</span>
+                <h2>2. 基本メカニクス — まずここだけ</h2>
+                <p>
+                    初心者が最初に押さえるべき5つの仕様です。これだけで、何も知らずに戦っているプレイヤーに勝てる確率が大幅に上がります。
+                </p>
+
+                <h3>2-1. 攻撃クールダウン (Attack Cooldown)</h3>
+                <p>
+                    1.9以降で最も重要な仕様。攻撃した直後の短時間は、次の攻撃が<strong>通常の数分の一のダメージ</strong>しか入りません。
+                    画面中央のクロスヘア下に表示される
+                    <span class="tooltip-trigger"
+                        data-tooltip="攻撃力が100%に戻るまでのゲージ。満タンで殴るとフル威力">クールダウンゲージ</span>
+                    が満タンになってから殴るのが基本です。
+                </p>
+                <p class="pvp-note">
+                    <strong>武器別のクールダウン (秒)</strong>
+                    剣: 約0.625s / 斧: 約1.0s / 素手: 約0.25s。<br>
+                    → 剣は「1秒に約1.6回」フル威力で振れる、と覚えておけばOK。
+                </p>
+
+                <h3>2-2. クリティカルヒット (Critical Hit)</h3>
+                <p>
+                    <span class="tooltip-trigger" data-tooltip="落下中(ジャンプ後の下降中)に攻撃すること。ダメージ1.5倍">ジャンプ攻撃</span>
+                    をすると、攻撃が1.5倍になります。ただし <strong>スプリント中はクリティカルが発生しません</strong>
+                    (1.9以降の仕様)。初心者はまず「走らず、軽くジャンプして振る」だけで火力が跳ね上がります。
+                </p>
+
+                <h3>2-3. スプリントとスニーク</h3>
+                <ul>
+                    <li>
+                        <strong>スプリント (走り):</strong>
+                        移動速度アップ + 攻撃時の
+                        <span class="tooltip-trigger" data-tooltip="攻撃を当てた相手を後方へ吹き飛ばす力">ノックバック</span>
+                        が追加で1段階増える。ただしクリティカルが出ない。
+                    </li>
+                    <li>
+                        <strong>スニーク (しゃがみ):</strong>
+                        端から落ちない、名前が見えにくくなる、一部のノックバック軽減に使える。
+                    </li>
+                </ul>
+
+                <h3>2-4. ノックバック (Knockback)</h3>
+                <p>
+                    攻撃を当てた相手は、自分の反対方向に吹き飛ばされます。ノックバックの強さは
+                    次の3要素で決まります:
+                </p>
+                <ol>
+                    <li>自分が <strong>スプリント中か</strong> (スプリント中は +1段階)</li>
+                    <li>武器の <span class="tooltip-trigger"
+                            data-tooltip="剣・斧に付けるノックバック強化。Knockback I / II の2段階">ノックバックエンチャント</span> の有無</li>
+                    <li>相手が <span class="tooltip-trigger"
+                            data-tooltip="地面に立っている時ほど強く、空中ではやや弱くなる">地上か空中か</span></li>
+                </ol>
+
+                <h3>2-5. リーチ (Reach / 射程)</h3>
+                <div class="pvp-spec-grid">
+                    <div class="pvp-spec-card">
+                        <h4>Java 攻撃リーチ</h4>
+                        <p>約 3.0 ブロック (サバイバル時)</p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>Bedrock 攻撃リーチ</h4>
+                        <p>約 3.0 ブロック(やや挙動が違う)</p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>ブロック設置リーチ</h4>
+                        <p>約 4.5 ブロック</p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>弓の有効射程</h4>
+                        <p>実用的には ~20 ブロック程度</p>
+                    </div>
+                </div>
+                <p class="pvp-note">
+                    <strong>覚え方</strong>
+                    「3ブロック以内なら殴れる / 外なら殴れない」。画面上で相手との距離感を掴む練習が有効です。
+                </p>
+            </article>
+
+            <!-- ============ §3 INTERMEDIATE ============ -->
+            <article class="pvp-block" id="intermediate">
+                <span class="pvp-section-kicker">§3 / INTERMEDIATE</span>
+                <h2>3. 中級テクニック — 差がつく操作</h2>
+                <p>
+                    基本が身についた人向け。入力操作だけで勝率が上がる「物理的に効くテク」を集めました。
+                </p>
+
+                <div class="pvp-tech-grid">
+                    <div class="pvp-tech-card">
+                        <span class="tech-level lv-inter">INTERMEDIATE</span>
+                        <h4>W-tap (スプリントリセット)</h4>
+                        <p>
+                            攻撃の直前に <kbd>W</kbd> を一瞬離してもう一度押す操作。スプリント状態をリセットしてから再取得することで、
+                            攻撃時に <span class="tooltip-trigger" data-tooltip="スプリント中の攻撃に付くノックバック強化ボーナス">sprint bonus</span>
+                            を毎回付与できます。結果としてノックバック量が増え、相手を押し込める。
+                        </p>
+                    </div>
+                    <div class="pvp-tech-card">
+                        <span class="tech-level lv-inter">INTERMEDIATE</span>
+                        <h4>S-tap (逆方向リセット)</h4>
+                        <p>
+                            <kbd>W</kbd> の代わりに <kbd>S</kbd> を一瞬押す派生。W-tapと比べて
+                            <span class="tooltip-trigger" data-tooltip="自分自身が受けるノックバックを小さく抑える効果">被ノックバック軽減</span>
+                            寄りの挙動になる。接近戦で押されにくくしたい時に使う。
+                        </p>
+                    </div>
+                    <div class="pvp-tech-card">
+                        <span class="tech-level lv-inter">INTERMEDIATE</span>
+                        <h4>Strafing (左右ステップ)</h4>
+                        <p>
+                            <kbd>A</kbd> / <kbd>D</kbd> を交互に押しながら、カーソルを相手に合わせ続ける動き。
+                            相手のクリティカルを当てにくくし、自分は当て続けられるのが目的。円を描くように動くのが理想。
+                        </p>
+                    </div>
+                    <div class="pvp-tech-card">
+                        <span class="tech-level lv-inter">INTERMEDIATE</span>
+                        <h4>Block-hitting (1.8限定)</h4>
+                        <p>
+                            剣を持った状態で右クリックすると、盾のように
+                            <span class="tooltip-trigger" data-tooltip="受けるダメージを約50%軽減">被ダメージ半減</span>
+                            になる仕様 (1.8以前)。殴った直後に即ブロックで守る動きが基本。1.9以降は盾を使います。
+                        </p>
+                    </div>
+                    <div class="pvp-tech-card">
+                        <span class="tech-level lv-inter">INTERMEDIATE</span>
+                        <h4>コンボ (Combo / Chain Hit)</h4>
+                        <p>
+                            相手がノックバックで動けない時間に、次の攻撃を重ねて当て続けること。
+                            1.8ならクリック連打、1.9以降なら
+                            <span class="tooltip-trigger" data-tooltip="攻撃クールダウン終了と、相手の無敵時間終了のタイミング">タイミング同期</span>
+                            で成立する。
+                        </p>
+                    </div>
+                    <div class="pvp-tech-card">
+                        <span class="tech-level lv-inter">INTERMEDIATE</span>
+                        <h4>クリック手法 (CPS up)</h4>
+                        <p>
+                            1.8で CPS を上げる操作方法の総称。
+                            <span class="tooltip-trigger"
+                                data-tooltip="マウスボタンの上で指を震わせて高速クリックする打法">jitter-click</span>
+                            や
+                            <span class="tooltip-trigger"
+                                data-tooltip="人差し指と中指を交互にクリックする打法">butterfly-click</span>
+                            など。1.9以降ではほぼ意味がないので無理に覚える必要はありません。
+                        </p>
+                    </div>
+                </div>
+
+                <p class="pvp-note">
+                    <strong>優先順位</strong>
+                    まずは「W-tap」と「Strafing」の2つだけでも意識すれば、中級帯への第一歩としては十分です。
+                </p>
+            </article>
+
+            <!-- ============ §4 ADVANCED ============ -->
+            <article class="pvp-block" id="advanced">
+                <span class="pvp-section-kicker">§4 / ADVANCED</span>
+                <h2>4. 上級テクニック — 仕様の裏を取る戦術</h2>
+                <p>
+                    ここからはアイテム・エンチャント・ブロック設置を絡めた、より深いテクニックです。
+                    サーバーによっては禁止されている要素も含まれるので、遊ぶ前にルールを確認してください。
+                </p>
+
+                <h3>4-1. Rod-combo (釣り竿コンボ)</h3>
+                <p>
+                    釣り竿で相手を引っ掛けると
+                    <span class="tooltip-trigger" data-tooltip="1ダメージ + わずかなノックバック">弱いヒット</span>
+                    が入り、相手の攻撃クールダウンを進めずに妨害できる。
+                    剣と釣り竿を交互に使い、ヒットを切らさないのが基本。
+                </p>
+
+                <h3>4-2. Axe shield-disable (斧で盾無効化)</h3>
+                <p>
+                    1.9以降、斧で相手の盾をヒットすると、一定時間その盾を
+                    <span class="tooltip-trigger" data-tooltip="約5秒間、右クリックしても盾として機能しなくなる">使用不可</span>
+                    にできる。剣相手に盾を構えられたら、一度斧に持ち替えるのが定石。
+                </p>
+
+                <h3>4-3. トーテム・ポップ (Totem Pop)</h3>
+                <p>
+                    オフハンドに
+                    <span class="tooltip-trigger"
+                        data-tooltip="体力0の致死ダメージを受けた瞬間、自動で発動してHP1で生き残るアイテム">不死のトーテム</span>
+                    を持っていると、致死ダメージで自動発動してHP1で生存します。
+                    発動直後は再生IIなどのバフが付くので、相手はすぐに追撃できないと逆転されます。
+                    逆に自分が攻撃側なら、「トーテム発動後に即クリスタル or 斧で再度削る」ところまでを1セットにすると良い。
+                </p>
+
+                <h3>4-4. Pearl / Chorus タクティクス</h3>
+                <ul>
+                    <li>
+                        <span class="tooltip-trigger"
+                            data-tooltip="投げた地点に瞬間移動できる。撤退・奇襲・高所取りに使う">エンダーパール</span>
+                        で距離を一気に詰める / 逃げる。
+                    </li>
+                    <li>
+                        <span class="tooltip-trigger" data-tooltip="食べるとランダムな近距離にテレポートする果実">コーラスフルーツ</span>
+                        で相手の狙いをずらす (短距離限定、屋内不可)。
+                    </li>
+                </ul>
+
+                <h3>4-5. Crystal PvP (クリスタルPvP)</h3>
+                <p>
+                    エンドクリスタルを
+                    <span class="tooltip-trigger" data-tooltip="黒曜石・基盤の上にしか置けない">設置</span>
+                    し、殴って即起爆する爆発ダメージで相手を削る戦術。
+                    手順は「黒曜石を置く → クリスタルを上に置く → 殴って爆破」の超高速ループ。
+                    ネザライト装備・耐火ポーション・トーテムがほぼ必須です。
+                </p>
+
+                <div class="pvp-spec-grid">
+                    <div class="pvp-spec-card">
+                        <h4>必須アイテム</h4>
+                        <p>黒曜石 / エンドクリスタル / ネザライト剣 or 斧 / トーテム×2</p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>推奨エフェクト</h4>
+                        <p>
+                            <span class="tooltip-trigger" data-tooltip="炎と爆発ダメージを大幅に軽減するステータス効果">耐火</span>
+                            / 再生 / 強化
+                        </p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>鍵となる仕様</h4>
+                        <p>クリスタル爆発は周囲の相手にも当たる。自分も巻き込まれないよう位置取りが重要。</p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>禁止されていないか確認</h4>
+                        <p>多くの通常サーバーではクリスタルPvPが禁止 / 制限されています。必ずルール確認を。</p>
+                    </div>
+                </div>
+
+                <h3>4-6. ネザライト Tier</h3>
+                <p>
+                    上級帯では
+                    <span class="tooltip-trigger"
+                        data-tooltip="ダイヤモンドの上位素材。ノックバック耐性・耐久力・攻撃力が全体的に上がる">ネザライト装備</span>
+                    が前提になります。特にネザライト装備には
+                    <span class="tooltip-trigger" data-tooltip="受ける全てのノックバックが自動で軽減される (+10%)">ノックバック耐性</span>
+                    が内蔵されているため、下位装備との差が非常に大きい。
+                </p>
+            </article>
+
+            <!-- ============ §5 GEAR & SETTINGS ============ -->
+            <article class="pvp-block" id="gear">
+                <span class="pvp-section-kicker">§5 / GEAR &amp; SETTINGS</span>
+                <h2>5. 装備・エンチャント・クライアント設定</h2>
+                <p>
+                    技術以前に「整えるだけで勝てる」領域です。PvPに入る前に必ず見直してください。
+                </p>
+
+                <h3>5-1. 優先エンチャント</h3>
+                <div class="pvp-spec-grid">
+                    <div class="pvp-spec-card">
+                        <h4>剣</h4>
+                        <p>
+                            <span class="tooltip-trigger" data-tooltip="近接攻撃ダメージを増加 (最大 Lv V)">Sharpness V</span>
+                            / Unbreaking III / Mending / Fire Aspect II (任意) / Looting III (任意)
+                        </p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>斧</h4>
+                        <p>Sharpness V / Unbreaking III / Mending (盾解除枠として重要)</p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>防具</h4>
+                        <p>
+                            <span class="tooltip-trigger" data-tooltip="全ダメージ軽減 (最大 Lv IV)。全身に付けると効果が大きい">Protection IV</span>
+                            / Unbreaking III / Mending / 頭のみ Respiration / 靴のみ Feather Falling IV
+                        </p>
+                    </div>
+                    <div class="pvp-spec-card">
+                        <h4>弓 / クロスボウ</h4>
+                        <p>
+                            <span class="tooltip-trigger" data-tooltip="矢のダメージを増加 (最大 Lv V)">Power V</span>
+                            / Punch II / Infinity (or Mending)
+                        </p>
+                    </div>
+                </div>
+
+                <h3>5-2. ホットバー配置の定番</h3>
+                <ol>
+                    <li>剣 (1スロ)</li>
+                    <li>斧 (2スロ)</li>
+                    <li>弓 / クロスボウ (3スロ)</li>
+                    <li>回復ポーション / ゴールデンアップル (4スロ)</li>
+                    <li>釣り竿 (5スロ)</li>
+                    <li>ブロック (6スロ) — 足場/壁用</li>
+                    <li>エンダーパール (7スロ)</li>
+                    <li>水バケツ (8スロ)</li>
+                    <li>オフハンド: 盾 or トーテム</li>
+                </ol>
+
+                <h3>5-3. クライアント設定</h3>
+                <ul>
+                    <li><strong>FPS:</strong> 安定 60fps 以上。可変より固定の方が狙いやすい。</li>
+                    <li>
+                        <strong>視野角 (FOV):</strong>
+                        広すぎると距離感がズレる、狭すぎると見切れる。
+                        <span class="tooltip-trigger" data-tooltip="Field Of View。画面に映る視界の広さ(度単位)">FOV</span>
+                        は 80–100 あたりが一般的。
+                    </li>
+                    <li><strong>マウス感度:</strong> 振り向きで画面1周に必要な距離が 20cm前後を目安に。低感度の方がエイムは安定しやすい。</li>
+                    <li>
+                        <strong>ping:</strong>
+                        100ms を超えると1.9系の戦闘は明らかに不利。有線LANと近いリージョンのサーバーを選ぶ。
+                    </li>
+                </ul>
+            </article>
+
+            <!-- ============ §6 PRACTICE & RESOURCES ============ -->
+            <article class="pvp-block" id="resources">
+                <span class="pvp-section-kicker">§6 / PRACTICE &amp; RESOURCES</span>
+                <h2>6. 練習方法と外部リソース</h2>
+                <p>
+                    実戦で負け続けても身につきにくい部分は、専用サーバーや1人練習で繰り返すのが一番早いです。
+                </p>
+
+                <h3>6-1. 1人でできる練習</h3>
+                <ul>
+                    <li>
+                        平地に Armor Stand (防具立て) を並べて、<strong>クールダウンゲージMAX時にだけ殴る</strong>練習。
+                    </li>
+                    <li>
+                        ゾンビ相手に W-tap → ヒット → 離脱 のループ。ノックバックで距離を作る癖がつく。
+                    </li>
+                    <li>
+                        段差のある地形で、ジャンプ着地中だけを狙ってクリティカルを入れる練習。
+                    </li>
+                </ul>
+
+                <h3>6-2. 公式・外部ドキュメント (深掘り用)</h3>
+                <ul class="pvp-resource-list">
+                    <li>
+                        <span class="res-tag">OFFICIAL</span>
+                        <a href="https://www.minecraft.net/ja-jp" target="_blank" rel="noopener noreferrer">
+                            Minecraft 公式サイト
+                        </a> — 最新バージョンの入手と基本情報。
+                    </li>
+                    <li>
+                        <span class="res-tag">WIKI</span>
+                        <a href="https://minecraft.wiki/w/Damage" target="_blank" rel="noopener noreferrer">
+                            Minecraft Wiki: Damage
+                        </a> — ダメージ計算式の一次情報。
+                    </li>
+                    <li>
+                        <span class="res-tag">WIKI</span>
+                        <a href="https://minecraft.wiki/w/Attack_cooldown" target="_blank" rel="noopener noreferrer">
+                            Minecraft Wiki: Attack cooldown
+                        </a> — 武器別のクールダウン値。
+                    </li>
+                    <li>
+                        <span class="res-tag">WIKI</span>
+                        <a href="https://minecraft.wiki/w/Knockback" target="_blank" rel="noopener noreferrer">
+                            Minecraft Wiki: Knockback
+                        </a> — ノックバック計算の詳細。
+                    </li>
+                    <li>
+                        <span class="res-tag">WIKI</span>
+                        <a href="https://minecraft.wiki/w/Enchanting/Levels" target="_blank" rel="noopener noreferrer">
+                            Minecraft Wiki: Enchanting
+                        </a> — エンチャントの最大レベルと効果。
+                    </li>
+                    <li>
+                        <span class="res-tag">PATCH</span>
+                        <a href="https://minecraft.wiki/w/Java_Edition_1.9" target="_blank" rel="noopener noreferrer">
+                            Java Edition 1.9 — Combat Update
+                        </a> — 戦闘仕様が変わった歴史的アップデートの全変更点。
+                    </li>
+                    <li>
+                        <span class="res-tag">GUIDE</span>
+                        <a href="https://minecraft.wiki/w/Tutorials/Combat" target="_blank" rel="noopener noreferrer">
+                            Tutorials: Combat (Minecraft Wiki)
+                        </a> — 公式Wikiの戦闘チュートリアル。
+                    </li>
+                </ul>
+
+                <h3>6-3. 次に読むとよいページ</h3>
+                <ul>
+                    <li>
+                        <a class="linkintext" href="survival.html">サバイバル完全ガイド</a>
+                        — 装備を揃えるための資源・エンチャント周りを先に整える。
+                    </li>
+                    <li>
+                        <a class="linkintext" href="build.html">建築ガイド (Build)</a>
+                        — Crystal PvP で活きる「ブロック設置の速さ」は建築練習で伸びる。
+                    </li>
+                    <li>
+                        <a class="linkintext" href="index.html">ホームに戻る</a> — 他モードの概要に戻る。
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- ============ CTA (re-themed, layout untouched) ============ -->
+        <div id="cta" data-cta-config='{
+            "kicker":"READY TO FIGHT?",
+            "title":"装備を整えて、PvPサーバーへ飛び込もう",
+            "body":"技術は覚えただけでは身につきません。まずは1本目の剣を手に、誰か1人とタイマンしてみるところから。負けた試合ほど、次につながります。",
+            "sub":"最初の目標は「W-tapとクールダウン同期を意識して1勝する」。それだけでOK。",
+            "primary":{
+                "text":"公式サイトで始める",
+                "href":"https://www.minecraft.net/ja-jp",
+                "target":"_blank",
+                "rel":"noopener noreferrer"
+            },
+            "secondary":{
+                "text":"他のモードも見てみる",
+                "href":"index.html#survival"
+            }
+        }'></div>
+    </main>
+
+    <!-- ============ FOOTER (re-themed, layout untouched) ============ -->
+    <div id="footer"
+        data-footer-links='[{"text":"Back to Home","href":"index.html"},{"text":"View all license information","href":"licenses.html"}]'>
+    </div>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/safe-dom.js"></script>
+    <script src="js/cta-include.js"></script>
+    <script src="js/footer-include.js"></script>
+    <script>
+        window.onload = function () {
+            $("#loading-spinner-container").fadeOut(1000);
+        }
+    </script>
 </body>
 
 </html>

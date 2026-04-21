@@ -1088,3 +1088,676 @@ body.survival-detail-page main {
     font-size: 14px;
     line-height: 1.4;
 }
+
+/* ==========================================================================
+   pvp.html — Cyber / Neon Red Theme
+   Scoped under body.pvp-detail-page so existing components (CTA / footer)
+   keep their original layout & margins — only colors are re-themed here.
+   ========================================================================== */
+
+body.pvp-detail-page {
+    background-color: #0a0608;
+    color: #e8e0e0;
+}
+
+body.pvp-detail-page header {
+    background-color: rgba(12, 6, 8, 0.78);
+    backdrop-filter: blur(10px);
+    border-bottom: 1.5px solid rgba(255, 30, 46, 0.35);
+    box-shadow: 0 0 24px rgba(255, 30, 46, 0.25);
+}
+
+body.pvp-detail-page header h1 {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 30, 46, 0.7), 0 0 18px rgba(255, 30, 46, 0.35);
+}
+
+body.pvp-detail-page header .container ul.pvp-nav {
+    column-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+body.pvp-detail-page header .container ul.pvp-nav li a {
+    color: #f2d7d7;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+body.pvp-detail-page header .container ul.pvp-nav li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px #ff1e2e, 0 0 16px #ff1e2e;
+}
+
+body.pvp-detail-page main {
+    padding-top: 80px;
+    position: relative;
+}
+
+/* Subtle scanline + grid overlay on the whole page for cyber feel */
+body.pvp-detail-page main::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        repeating-linear-gradient(0deg,
+            rgba(255, 30, 46, 0.035) 0px,
+            rgba(255, 30, 46, 0.035) 1px,
+            transparent 1px,
+            transparent 3px),
+        linear-gradient(180deg, rgba(255, 0, 0, 0.06), transparent 40%, rgba(255, 0, 0, 0.06));
+    mix-blend-mode: screen;
+}
+
+body.pvp-detail-page main > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* -------- HERO -------- */
+.pvp-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 30, 46, 0.3);
+}
+
+.pvp-hero-image-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+.pvp-hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.25) contrast(1.1) brightness(0.55) hue-rotate(-10deg);
+}
+
+.pvp-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(255, 30, 46, 0.35), transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(120, 0, 10, 0.55), transparent 60%),
+        linear-gradient(120deg, rgba(7, 2, 4, 0.85), rgba(40, 2, 8, 0.7));
+    z-index: 1;
+}
+
+.pvp-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.25) 0px,
+            rgba(0, 0, 0, 0.25) 1px,
+            transparent 1px,
+            transparent 4px);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.pvp-hero-text {
+    position: relative;
+    z-index: 3;
+    color: #ffffff;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.pvp-kicker {
+    font-size: 14px;
+    letter-spacing: 0.28em;
+    margin-bottom: 14px;
+    color: #ff8a92;
+    text-shadow: 0 0 8px rgba(255, 30, 46, 0.65);
+}
+
+.pvp-beta-badge {
+    display: inline-block;
+    background-color: transparent;
+    color: #ff4757;
+    border: 1px solid #ff1e2e;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.18em;
+    margin-bottom: 18px;
+    box-shadow: 0 0 12px rgba(255, 30, 46, 0.55), inset 0 0 8px rgba(255, 30, 46, 0.2);
+    animation: pvpBadgePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pvpBadgePulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(255, 30, 46, 0.4), inset 0 0 4px rgba(255, 30, 46, 0.15); }
+    50%      { box-shadow: 0 0 20px rgba(255, 30, 46, 0.8), inset 0 0 10px rgba(255, 30, 46, 0.3); }
+}
+
+.pvp-hero-text h1 {
+    font-size: clamp(42px, 8vw, 108px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+    color: #ffffff;
+    text-shadow:
+        0 0 6px #ff1e2e,
+        0 0 18px #ff1e2e,
+        0 0 36px rgba(255, 30, 46, 0.7),
+        2px 2px 0 rgba(0, 0, 0, 0.6);
+    animation: pvpHeroGlow 3.4s ease-in-out infinite;
+}
+
+@keyframes pvpHeroGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 6px #ff1e2e,
+            0 0 18px #ff1e2e,
+            0 0 36px rgba(255, 30, 46, 0.7),
+            2px 2px 0 rgba(0, 0, 0, 0.6);
+    }
+    50% {
+        text-shadow:
+            0 0 8px #ffcf33,
+            0 0 22px #ff1e2e,
+            0 0 48px rgba(255, 30, 46, 0.85),
+            2px 2px 0 rgba(0, 0, 0, 0.6);
+    }
+}
+
+.pvp-hero-text p {
+    max-width: 1100px;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #f0dada;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* -------- QUICK NAV (mode switch) -------- */
+.pvp-quick-nav {
+    background-color: #120509;
+    border-top: 1px solid rgba(255, 30, 46, 0.3);
+    border-bottom: 1px solid rgba(255, 30, 46, 0.3);
+    padding: 20px 0;
+}
+
+.pvp-quick-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pvp-quick-nav-label {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: #ff8a92;
+    text-transform: uppercase;
+    margin-right: 4px;
+}
+
+.pvp-mode-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 20px;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffd0d4;
+    background-color: rgba(255, 30, 46, 0.08);
+    border: 1px solid rgba(255, 30, 46, 0.5);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+.pvp-mode-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 30, 46, 0.22);
+    box-shadow: 0 0 14px rgba(255, 30, 46, 0.65);
+    transform: translateY(-1px);
+}
+
+.pvp-mode-link.is-active {
+    color: #ffffff;
+    background-color: rgba(255, 30, 46, 0.3);
+    border-color: #ff1e2e;
+    box-shadow: 0 0 12px rgba(255, 30, 46, 0.55);
+}
+
+/* -------- CONTENT SECTIONS -------- */
+.pvp-content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: grid;
+    gap: 30px;
+}
+
+.pvp-section-kicker {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.26em;
+    color: #ff4757;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-left: 2px solid #ff1e2e;
+    margin-bottom: 10px;
+}
+
+.pvp-block {
+    background: linear-gradient(140deg, rgba(24, 8, 12, 0.92), rgba(14, 4, 8, 0.95));
+    border: 1px solid rgba(255, 30, 46, 0.35);
+    border-left: 3px solid #ff1e2e;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow:
+        0 0 0 1px rgba(255, 30, 46, 0.05),
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        inset 0 0 40px rgba(255, 30, 46, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.pvp-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff1e2e, transparent);
+    opacity: 0.6;
+}
+
+.pvp-block h2 {
+    font-size: clamp(26px, 4.2vw, 40px);
+    color: #ffffff;
+    margin-bottom: 18px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 8px rgba(255, 30, 46, 0.55);
+}
+
+.pvp-block h3 {
+    font-size: 22px;
+    color: #ff8a92;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 6px rgba(255, 30, 46, 0.35);
+}
+
+.pvp-block p {
+    color: #e0d0d0;
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+}
+
+.pvp-block p:last-child { margin-bottom: 0; }
+
+.pvp-block ol,
+.pvp-block ul {
+    padding-left: 1.4em;
+    margin: 16px 0;
+}
+
+.pvp-block li {
+    color: #e0d0d0;
+    font-size: 17px;
+    line-height: 1.85;
+    margin-bottom: 10px;
+}
+
+.pvp-block li strong {
+    color: #ffcf33;
+    letter-spacing: 0.02em;
+}
+
+.pvp-block a.linkintext {
+    color: #ff8a92;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 30, 46, 0.5);
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.pvp-block a.linkintext:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 30, 46, 0.7);
+}
+
+/* Term tooltip trigger override for dark theme */
+body.pvp-detail-page .tooltip-trigger {
+    border-bottom: 1px dashed #ff4757;
+    color: #ffcf33;
+    cursor: help;
+}
+
+body.pvp-detail-page .tooltip-trigger:hover {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255, 207, 51, 0.7);
+}
+
+body.pvp-detail-page .tooltip-box {
+    background-color: #180408;
+    color: #ffd0d4;
+    border: 1px solid rgba(255, 30, 46, 0.55);
+    box-shadow: 0 0 18px rgba(255, 30, 46, 0.35);
+    white-space: normal;
+    max-width: 280px;
+}
+
+body.pvp-detail-page .tooltip-box::after {
+    border-top-color: #180408;
+}
+
+/* Inline definition note (under a term, inside its block) */
+.pvp-note {
+    display: block;
+    margin: 6px 0 14px;
+    padding: 10px 14px;
+    background-color: rgba(255, 30, 46, 0.06);
+    border-left: 2px solid #ff1e2e;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d4c0c0;
+}
+
+.pvp-note strong {
+    color: #ffcf33;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Key-value spec rows (e.g., cooldown table, enchant priority) */
+.pvp-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.pvp-spec-card {
+    background-color: rgba(255, 30, 46, 0.05);
+    border: 1px solid rgba(255, 30, 46, 0.25);
+    border-radius: 4px;
+    padding: 14px 16px;
+}
+
+.pvp-spec-card h4 {
+    color: #ff8a92;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.pvp-spec-card p {
+    color: #e0d0d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Tier / technique cards grid */
+.pvp-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.pvp-tech-card {
+    background-color: rgba(10, 4, 6, 0.7);
+    border: 1px solid rgba(255, 30, 46, 0.3);
+    border-radius: 4px;
+    padding: 18px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pvp-tech-card:hover {
+    transform: translateY(-2px);
+    border-color: #ff1e2e;
+    box-shadow: 0 0 18px rgba(255, 30, 46, 0.5);
+}
+
+.pvp-tech-card .tech-level {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.pvp-tech-card .tech-level.lv-basic {
+    color: #7fffa9;
+    border: 1px solid rgba(127, 255, 169, 0.5);
+    background-color: rgba(0, 120, 40, 0.15);
+}
+
+.pvp-tech-card .tech-level.lv-inter {
+    color: #ffcf33;
+    border: 1px solid rgba(255, 207, 51, 0.5);
+    background-color: rgba(120, 80, 0, 0.15);
+}
+
+.pvp-tech-card .tech-level.lv-adv {
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.6);
+    background-color: rgba(255, 30, 46, 0.15);
+}
+
+.pvp-tech-card h4 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+}
+
+.pvp-tech-card p {
+    color: #d4c0c0;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* External resource list */
+.pvp-resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: grid;
+    gap: 10px;
+}
+
+.pvp-resource-list li {
+    background-color: rgba(255, 30, 46, 0.05);
+    border: 1px solid rgba(255, 30, 46, 0.25);
+    border-left: 3px solid #ff1e2e;
+    border-radius: 2px;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0d0d0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.pvp-resource-list li:hover {
+    background-color: rgba(255, 30, 46, 0.12);
+    border-left-color: #ffcf33;
+}
+
+.pvp-resource-list li a {
+    color: #ff8a92;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 30, 46, 0.4);
+}
+
+.pvp-resource-list li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 30, 46, 0.6);
+}
+
+.pvp-resource-list li .res-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #ffcf33;
+    border: 1px solid rgba(255, 207, 51, 0.45);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-right: 8px;
+    text-transform: uppercase;
+    vertical-align: 1px;
+}
+
+/* -------- CTA re-theme (layout/margins untouched — only colors) -------- */
+body.pvp-detail-page .survival-cta {
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(255, 30, 46, 0.55), transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(120, 0, 10, 0.65), transparent 60%),
+        linear-gradient(135deg, #12040a, #2a0610, #5a0a16, #8a0f20);
+}
+
+body.pvp-detail-page .survival-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.25) 0px,
+            rgba(0, 0, 0, 0.25) 1px,
+            transparent 1px,
+            transparent 4px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.pvp-detail-page .survival-cta h2 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 30, 46, 0.85), 0 6px 18px rgba(0, 0, 0, 0.55);
+}
+
+body.pvp-detail-page .survival-cta-primary {
+    color: #ffffff;
+    background: linear-gradient(140deg, #ff1e2e, #b3121e);
+    box-shadow: 0 0 18px rgba(255, 30, 46, 0.6), 0 10px 26px rgba(0, 0, 0, 0.55);
+    border-color: #ffcf33;
+}
+
+body.pvp-detail-page .survival-cta-primary:hover {
+    box-shadow: 0 0 26px rgba(255, 207, 51, 0.7), 0 14px 30px rgba(0, 0, 0, 0.55);
+}
+
+body.pvp-detail-page .survival-cta-secondary {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+body.pvp-detail-page .survival-cta-secondary:hover {
+    background-color: rgba(255, 30, 46, 0.25);
+    border-color: #ff1e2e;
+}
+
+/* -------- FOOTER re-theme (layout/margins untouched — only colors) -------- */
+body.pvp-detail-page footer {
+    background-color: #0a0406;
+    border-top: 1px solid rgba(255, 30, 46, 0.3);
+}
+
+body.pvp-detail-page footer p {
+    color: #8a7a7a;
+}
+
+body.pvp-detail-page footer a {
+    color: #ff8a92;
+}
+
+body.pvp-detail-page footer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255, 30, 46, 0.7);
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 786px) {
+    body.pvp-detail-page header {
+        height: auto;
+    }
+
+    body.pvp-detail-page header .container {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 4px 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    body.pvp-detail-page header .container ul.pvp-nav {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        column-gap: 14px;
+        padding-bottom: 4px;
+    }
+
+    body.pvp-detail-page main {
+        padding-top: 118px;
+    }
+
+    .pvp-hero {
+        min-height: 62vh;
+    }
+
+    .pvp-hero-text {
+        padding-top: 60px;
+        padding-bottom: 50px;
+    }
+
+    .pvp-hero-text p {
+        font-size: 16px;
+    }
+
+    .pvp-content {
+        padding-top: 38px;
+        padding-bottom: 42px;
+        gap: 22px;
+    }
+
+    .pvp-block {
+        padding: 20px;
+    }
+
+    .pvp-block p,
+    .pvp-block li {
+        font-size: 16px;
+    }
+
+    .pvp-spec-grid,
+    .pvp-tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pvp-quick-nav-inner {
+        gap: 10px;
+    }
+
+    .pvp-mode-link {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}

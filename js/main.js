@@ -1,4 +1,4 @@
-if (window.location.pathname.endsWith("pvp.html") || window.location.pathname.endsWith("build.html")) {
+if (window.location.pathname.endsWith("build.html")) {
     window.location.replace("404.html");
 }
 $(function ($) {
