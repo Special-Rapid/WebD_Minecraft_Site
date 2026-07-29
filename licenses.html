@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon"
-        href="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
@@ -14,9 +16,12 @@
 </head>
 
 <body class="licenses-page">
+    <div id="site-header"
+        data-header-config='{"homeHref":"index.html","links":[{"text":"Third-Party Libraries","href":"#third-party-libraries"},{"text":"MIT License","href":"#mit-license"},{"text":"Original Content","href":"#original-content"},{"text":"Source Code","href":"#source-code"}]}'>
+    </div>
     <div class="container">
         <h1>Licenses</h1>
-        <h2>Third-Party Libraries & Resources</h2>
+        <h2 id="third-party-libraries">Third-Party Libraries & Resources</h2>
         <div class="license-item">
             <h3>jQuery</h3>
             <p><strong>License:</strong> <a href="https://opensource.org/licenses/MIT" target="_blank"
@@ -36,7 +41,7 @@
             <p>ProgressBar.js is licensed under the MIT License. You are free to use, modify, and distribute this
                 software.</p>
         </div>
-        <h2>MIT License</h2>
+        <h2 id="mit-license">MIT License</h2>
         <div class="license-item">
             <p>The third‑party libraries used on this site (jQuery, ProgressBar.js, etc.) are released under the <a
                     href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT
@@ -65,30 +70,30 @@
                 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             </p>
         </div>
-        <h2>Original Content</h2>
+        <h2 id="original-content">Original Content</h2>
         <div class="license-item">
             <h3 class="license-original-code-title">Code (HTML/CSS/JavaScript)</h3>
             <p><strong>License:</strong> CC0 1.0 Universal (Public Domain)</p>
-            <p><strong>License URL:</strong> <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank"
-                    rel="noopener noreferrer">http://creativecommons.org/publicdomain/zero/1.0/</a></p>
+            <p><strong>License URL:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/"
+                    target="_blank" rel="noopener noreferrer">https://creativecommons.org/publicdomain/zero/1.0/</a></p>
             <p>The HTML, CSS, and JavaScript code for this website (excluding the third-party libraries listed above) is
                 licensed under Creative Commons Zero and is in the public domain.</p>
         </div>
         <div class="license-item">
             <h3>Images</h3>
             <p><strong>License:</strong> CC0 1.0 Universal (Public Domain)</p>
-            <p><strong>License URL:</strong> <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank"
-                    rel="noopener noreferrer">http://creativecommons.org/publicdomain/zero/1.0/</a></p>
+            <p><strong>License URL:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/"
+                    target="_blank" rel="noopener noreferrer">https://creativecommons.org/publicdomain/zero/1.0/</a></p>
             <p>All original images used on this website are self-captured and licensed under Creative Commons Zero.</p>
         </div>
         <div class="license-item">
             <h3>Video</h3>
             <p><strong>License:</strong> CC0 1.0 Universal (Public Domain)</p>
-            <p><strong>License URL:</strong> <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank"
-                    rel="noopener noreferrer">http://creativecommons.org/publicdomain/zero/1.0/</a></p>
+            <p><strong>License URL:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/"
+                    target="_blank" rel="noopener noreferrer">https://creativecommons.org/publicdomain/zero/1.0/</a></p>
             <p>All original videos used on this website are self-captured and licensed under Creative Commons Zero.</p>
         </div>
-        <h2>Source Code</h2>
+        <h2 id="source-code">Source Code</h2>
         <div class="license-item">
             <p>The source code of this website is available on <a
                     href="https://github.com/special-rapid/WebD_Minecraft_Site" target="_blank"
@@ -96,9 +101,14 @@
         </div>
     </div>
     <div id="footer" data-footer-links='[{"text":"Back to Home","href":"index.html"}]'></div>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/ui-motion.js"></script>
+    <script src="js/anchor-scroll.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/safe-dom.js"></script>
+    <script src="js/header-include.js"></script>
     <script src="js/footer-include.js"></script>
-    <!-- <script src="js/header-include.js"></script> -->
 </body>
 
 </html>

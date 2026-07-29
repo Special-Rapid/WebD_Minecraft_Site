@@ -54,7 +54,17 @@ function applySafeLink(anchor, config) {
         anchor.removeAttribute("target");
     }
 
-    if (config.rel) {
+    if (anchor.target === "_blank") {
+        const relTokens = new Set(
+            String(config.rel || "")
+                .split(/\s+/)
+                .map((token) => token.trim().toLowerCase())
+                .filter(Boolean)
+        );
+        relTokens.add("noopener");
+        relTokens.add("noreferrer");
+        anchor.rel = [...relTokens].join(" ");
+    } else if (config.rel) {
         anchor.rel = String(config.rel);
     } else {
         anchor.removeAttribute("rel");

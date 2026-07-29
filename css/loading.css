@@ -1,0 +1,405 @@
+/* 01 Loading Overlay */
+/* loading_progressBar アニメーション */
+[data-loading-overlay] {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    color: #fff;
+    text-align: center;
+}
+
+[data-loading-overlay-type="bar"] [data-loading-progress] {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: #fff;
+}
+
+/* loading spinner アニメーション */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 02 Shared View Transitions */
+@view-transition {
+    navigation: auto;
+}
+
+/*
+ Keep the current loading overlay semantics unchanged.
+ On slower navigations, the full-screen overlay can partially mask the root reveal,
+ so the named card-to-hero transition is the primary effect we optimize for here.
+*/
+.view-card-shell,
+.view-hero-shell {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.view-hero-shell {
+    min-height: inherit;
+}
+
+[data-view-card="survival"] {
+    view-transition-name: card-survival;
+}
+
+[data-view-card="pvp"] {
+    view-transition-name: card-pvp;
+}
+
+[data-view-card="build"] {
+    view-transition-name: card-build;
+}
+
+html[data-view-theme="home"]::view-transition-old(root) {
+    animation: homeRootOut 0.42s cubic-bezier(0.33, 0, 0.18, 1) both;
+}
+
+html[data-view-theme="survival"]::view-transition-new(root) {
+    animation: survivalRootIn 0.68s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html[data-view-theme="pvp"]::view-transition-new(root) {
+    animation: pvpRootIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html[data-view-theme="build"]::view-transition-new(root) {
+    animation: buildRootIn 0.82s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+::view-transition-group(card-survival),
+::view-transition-group(card-pvp),
+::view-transition-group(card-build) {
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(card-survival) {
+    animation: cardSurvivalOut 0.54s cubic-bezier(0.55, 0, 0.4, 1) both;
+}
+
+::view-transition-new(card-survival) {
+    animation: cardSurvivalIn 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+::view-transition-old(card-pvp) {
+    animation: cardPvpOut 0.42s cubic-bezier(0.7, 0, 0.35, 1) both;
+}
+
+::view-transition-new(card-pvp) {
+    animation: cardPvpIn 0.56s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+::view-transition-old(card-build) {
+    animation: cardBuildOut 0.58s cubic-bezier(0.55, 0, 0.4, 1) both;
+}
+
+::view-transition-new(card-build) {
+    animation: cardBuildIn 0.92s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes homeRootOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 0.18;
+        transform: scale(0.985);
+        filter: blur(6px);
+    }
+}
+
+@keyframes survivalRootIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(1.015);
+        filter: saturate(0.9) blur(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: saturate(1) blur(0);
+    }
+}
+
+@keyframes pvpRootIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(1.01);
+        filter: contrast(1.2) saturate(1.25) blur(8px);
+    }
+
+    52% {
+        opacity: 0.94;
+        transform: translateX(-6px) skewX(-1.2deg);
+        filter: contrast(1.12) saturate(1.15) blur(1px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) skewX(0);
+        filter: contrast(1) saturate(1) blur(0);
+    }
+}
+
+@keyframes buildRootIn {
+    from {
+        opacity: 0;
+        transform: translateY(34px) scale(1.03);
+        filter: brightness(0.8) saturate(0.85) blur(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: brightness(1) saturate(1) blur(0);
+    }
+}
+
+@keyframes cardSurvivalOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: saturate(1) blur(0);
+    }
+
+    to {
+        opacity: 0.22;
+        transform: translateY(-10px) scale(0.97);
+        filter: saturate(0.92) blur(5px);
+    }
+}
+
+@keyframes cardSurvivalIn {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.93);
+        filter: saturate(0.88) blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: saturate(1) blur(0);
+    }
+}
+
+@keyframes cardPvpOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1) skewX(0);
+        filter: brightness(1) blur(0);
+    }
+
+    to {
+        opacity: 0.12;
+        transform: translateX(16px) scale(0.965) skewX(-2deg);
+        filter: brightness(1.12) blur(4px);
+    }
+}
+
+@keyframes cardPvpIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.94) skewX(2deg);
+        filter: brightness(1.18) saturate(1.24) blur(10px);
+        box-shadow: 0 0 0 rgba(255, 45, 74, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateX(4px) scale(1.01) skewX(-0.6deg);
+        filter: brightness(1.06) saturate(1.08) blur(1px);
+        box-shadow: 0 0 32px rgba(255, 45, 74, 0.22);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1) skewX(0);
+        filter: brightness(1) saturate(1) blur(0);
+        box-shadow: 0 0 0 rgba(255, 45, 74, 0);
+    }
+}
+
+@keyframes cardBuildOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: brightness(1) blur(0);
+    }
+
+    to {
+        opacity: 0.16;
+        transform: translateY(-16px) scale(0.972);
+        filter: brightness(0.9) blur(7px);
+    }
+}
+
+@keyframes cardBuildIn {
+    from {
+        opacity: 0;
+        transform: translateY(42px) scale(0.9);
+        filter: brightness(0.76) saturate(0.82) blur(14px);
+    }
+
+    62% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.01);
+        filter: brightness(1.03) saturate(1.02) blur(1px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: brightness(1) saturate(1) blur(0);
+    }
+}
+
+/* 03 Skeleton UI */
+body.is-initial-loading {
+    overflow: hidden;
+}
+
+.skeleton-media {
+    --skeleton-ratio: auto;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.skeleton-media[data-skeleton-ratio] {
+    aspect-ratio: var(--skeleton-ratio);
+}
+
+.skeleton-media>img,
+.skeleton-media>video {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.skeleton-media__placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: none;
+    pointer-events: none;
+    overflow: hidden;
+    background: #11161c;
+    --skeleton-shimmer-line: linear-gradient(90deg,
+            rgba(17, 22, 28, 0) 0%,
+            rgba(62, 73, 86, 0.18) 24%,
+            rgba(104, 121, 139, 0.72) 50%,
+            rgba(62, 73, 86, 0.18) 76%,
+            rgba(17, 22, 28, 0) 100%);
+}
+
+.skeleton-media__placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 -60%;
+    width: 60%;
+    background: var(--skeleton-shimmer-line);
+    transform: translateX(-100%);
+    animation: skeletonShimmer 1.45s linear infinite;
+}
+
+.skeleton-media__retry {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 7;
+    min-width: 92px;
+    min-height: 32px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 4px;
+    background: rgba(5, 8, 12, 0.82);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.skeleton-media__retry:hover,
+.skeleton-media__retry:focus-visible {
+    background: rgba(21, 29, 38, 0.94);
+}
+
+.skeleton-media__retry:disabled {
+    cursor: wait;
+    opacity: 0.68;
+}
+
+.skeleton-media.is-skeleton-active .skeleton-media__placeholder,
+.skeleton-media.is-media-error .skeleton-media__placeholder {
+    display: block;
+}
+
+.skeleton-media.is-media-loaded .skeleton-media__placeholder {
+    display: none;
+}
+
+.skeleton-media.is-media-error .skeleton-media__placeholder {
+    background: #22191a;
+    --skeleton-shimmer-line: linear-gradient(90deg,
+            rgba(34, 25, 26, 0) 0%,
+            rgba(122, 54, 58, 0.18) 24%,
+            rgba(193, 86, 92, 0.7) 50%,
+            rgba(122, 54, 58, 0.18) 76%,
+            rgba(34, 25, 26, 0) 100%);
+}
+
+@keyframes skeletonShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(280%);
+    }
+}
+
+/* 04 Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    ::view-transition-group(root),
+    ::view-transition-old(root),
+    ::view-transition-new(root),
+    ::view-transition-group(card-survival),
+    ::view-transition-old(card-survival),
+    ::view-transition-new(card-survival),
+    ::view-transition-group(card-pvp),
+    ::view-transition-old(card-pvp),
+    ::view-transition-new(card-pvp),
+    ::view-transition-group(card-build),
+    ::view-transition-old(card-build),
+    ::view-transition-new(card-build) {
+        animation: none !important;
+    }
+
+    .skeleton-media__placeholder,
+    .skeleton-media__placeholder::before {
+        animation: none;
+    }
+}

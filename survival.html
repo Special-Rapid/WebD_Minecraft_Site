@@ -1,305 +1,455 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-view-theme="survival">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon"
-        href="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image"
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/d34d83ad-77e7-4283-b365-43e6a881acf0.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
     <title>Survival Guide - Minecraft Fan Site</title>
     <meta property="og:site_name" content="Minecraft Fan Site">
     <meta property="og:title" content="Survival Guide - Minecraft Fan Site">
     <meta property="og:image"
-        content="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/f1790b28-7ed9-41cc-a15c-4995b2561f7c.png">
-    <meta property="og:description" content="マインクラフトサバイバルの始め方からネザー・エンド攻略まで、長く使える実践ガイド。">
-    <meta property="description" content="マインクラフトサバイバルの始め方からネザー・エンド攻略まで、長く使える実践ガイド。" />
+        content="https://images.snkisk.com/WebD_Minecraft_Site/images/d34d83ad-77e7-4283-b365-43e6a881acf0.png">
+    <meta property="og:description" content="生き延びるための基礎から、拠点づくりや探索のコツまでを一気に学べるサバイバルポータル。">
+    <meta property="description" content="生き延びるための基礎から、拠点づくりや探索のコツまでを一気に学べるサバイバルポータル。">
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="survival-detail-page">
-    <div id="loading-spinner-container">
-        <div class="spinner"></div>
+    <div data-loading-overlay data-loading-overlay-type="bar">
+        <div data-loading-progress></div>
     </div>
-    <header>
-        <div class="container">
-            <a href="index.html">
-                <h1>Minecraft Fan Site</h1>
-            </a>
-            <ul class="survival-nav">
-                <li><a href="#overview" class="header-a1">概要</a></li>
-                <li><a href="#day1" class="header-a2">初日</a></li>
-                <li><a href="#base-gear" class="header-a3">拠点と装備</a></li>
-                <li><a href="#nether-end" class="header-a4">ネザーとエンド</a></li>
-                <li><a href="#recipes" class="header-a5">レシピ</a></li>
-            </ul>
-        </div>
-    </header>
+    <div id="site-header"
+        data-header-config='{"homeHref":"index.html","navClass":"survival-nav","links":[{"text":"スタートガイド","href":"#quickstart","className":"header-a1"},{"text":"注目カード","href":"#featured-guides","className":"header-a2"},{"text":"進行ルート","href":"#progression","className":"header-a3"},{"text":"地形別ガイド","href":"#biomes","className":"header-a4"},{"text":"実践テーマ","href":"#techniques","className":"header-a5"}]}'>
+    </div>
 
-    <main>
+    <main class="survival-portal">
         <section class="survival-hero" id="overview">
-            <div class="survival-hero-image-wrap">
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/2658da15-97aa-4e8d-97e2-1a50e92add12.png">
-            </div>
-            <div class="survival-hero-text container">
-                <div class="beta-badge">BETA PAGE</div>
-                <p class="survival-kicker">SURVIVAL MODE GUIDE</p>
-                <h1>マインクラフト<br>サバイバル完全ガイド</h1>
-                <p>
-                    完全初心者向けに、初日からエンド攻略準備までを「今なにをすればいいか」が分かる順番でまとめた実践ガイドです。<br>
-                    各章は「やること」「理由」「失敗しやすい点」を1つずつ説明しているので、上から順に真似すれば進行できます。<br>
-                    これからサバイバルを始める人も、やり込んでるけどいつも途中で挫折しちゃう人も、ぜひ参考にしてみてください。<br>
-                    最後には序盤の重要レシピもまとめています。見てみてください。
-                </p>
+            <div class="view-hero-shell" data-view-card="survival">
+                <div class="survival-hero-image-wrap skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/d34d83ad-77e7-4283-b365-43e6a881acf0.png"
+                        fetchpriority="high" data-initial-load-media>
+                </div>
+                <div class="survival-hero-content container">
+                    <div class="survival-hero-panel">
+                        <p class="survival-kicker">PICK YOUR NEXT ROUTE</p>
+                        <h1>次の冒険先を、<br>カードで選ぼう</h1>
+                        <p class="survival-hero-copy">
+                            最初の夜を越える準備から、拠点づくり、資源集め、次の遠征先まで。<br>
+                            今の進み具合に合わせて入口を選べるサバイバルガイドです。
+                        </p>
+                        <div class="survival-hero-actions">
+                            <a class="survival-hero-primary" href="#quickstart">スタートガイドを見る</a>
+                            <a class="survival-hero-secondary" href="#featured-guides">注目カードを開く</a>
+                        </div>
+                        <dl class="survival-hero-stats">
+                            <div>
+                                <dt>ROUTES</dt>
+                                <dd>5 つの入口</dd>
+                            </div>
+                            <div>
+                                <dt>FOCUS</dt>
+                                <dd>初日・拠点・探索</dd>
+                            </div>
+                            <div>
+                                <dt>NEXT</dt>
+                                <dd>悩み別に読む</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="survival-content container" id="early-game">
-            <article class="survival-block" id="day1">
-                <h2>1. 初日(1日目)を生き残る手順</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/3b3bd5f3-ab0c-4618-8fc6-c9aaaf88c78e.png">
-                <ol class="guide-steps">
-                    <li><strong>最初の30秒:</strong> 木を4〜6個掘って原木を回収する。理由は作業台と木の道具を作るのに必要だから。素手で石は掘れません！</li>
-                    <li><strong>クラフト開始:</strong> インベントリを開いて <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/efc7b694-5aa0-44f1-881a-0a057c324625.png"
-                            data-tooltip="原木1個を木材4個に変換できます">原木1個を木材4個に変換</span>
-                        し、変換した木材4個で
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/e8be8eec-3665-4b38-8f2d-6d30a93b68bd.png"
-                            data-tooltip="木材4">作業台</span>
-                        を作る。作業台を置いて
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/7157656f-9bec-4f44-a1c7-4004214a3041.png"
-                            data-tooltip="木材3+棒2">木のツルハシ</span>
-                        を作る。
-                    </li>
-                    <p class="support-link-text">
-                        クラフトの仕方を、
-                        <a class="linkintext" href="https://youtu.be/c2ShEhytANE?si=wQV3qAM4wIs9k0PC" target="_blank"
-                            rel="noopener noreferrer">動画で見る</a>
-                        /
-                        <a class="linkintext" href="https://www.minecraft.net/ja-jp/article/how-craft" target="_blank"
-                            rel="noopener noreferrer">記事で見る</a>
-                    </p>
-                    <li><strong>石ツールへ更新:</strong> 石(丸石)を最低11個集め、<span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/995e33f3-7ddb-4cdb-8a27-4d4afa36d5c8.png"
-                            data-tooltip="棒2+丸石3">石のツルハシ</span>
-                        ・
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/02126ebc-af2b-4356-843b-d8a507b2e8d0.png"
-                            data-tooltip="棒2+丸石3">石の斧</span>
-                        ・
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/2aa99291-c712-457e-a49c-fedf02d7c18f.png"
-                            data-tooltip="丸石8">
-                            かまど</span>
-                        を作る。木の道具のまま夜を迎えると採取が遅れて危険。
-                    </li>
-                    <li><strong>食料を確保:</strong> 羊・豚・牛を見つけたら先に食料を確保。攻撃ツール(斧、剣)で倒そう。空腹になる前に <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/dcb8b779-9696-4d10-9612-3659630e077f.png"
-                            data-tooltip="かまどで、石炭や原木を燃料に生肉を焼けます">焼き肉</span>を6個以上持つのが目安。食料を確保するためだけでなく、夜になると湧いてくるモンスターから身を守るためにもモブの倒す必要があります。
-                    </li>
-                    <p class="support-link-text">
-                        モブの倒し方を、
-                        <a class="linkintext" href="https://youtu.be/Y40yXj3hH5s?si=Oa9lvbvxIxO-AU2k" target="_blank"
-                            rel="noopener noreferrer">動画で見る</a>
-                        /
-                        <a class="linkintext" href="https://game8.jp/minecraft/609272" target="_blank"
-                            rel="noopener noreferrer">記事で見る</a>
-                    </p>
-                    <li><strong>ベッドを最優先:</strong> 羊毛3個+木材3個で <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/a78618d6-0189-47e5-894e-7abdd4517430.png"
-                            data-tooltip="羊毛3+木材3">ベッド</span>を作る。日没前に寝られれば夜の戦闘をほぼ回避できる。</li>
-                    <li><strong>最初の夜:</strong> 縦5ブロックx横5ブロック程度の簡易的な家を作り、ドアを付ける。<span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/1bb9298f-f665-4f94-8b6f-67dcbe154aae.png"
-                            data-tooltip="棒1+石炭1">松明</span>を1〜3本置いて家を明るくしよう。</li>
-                </ol>
-
-            </article>
-
-            <article class="survival-block" id="base-gear">
-                <h2>2. 拠点づくりと基本装備を固める</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/24cdab14-6e52-411b-bb3a-a7b9b99de7ab.png">
-                <ol class="guide-steps">
-                    <li><strong>帰還しやすい場所に拠点を固定:</strong> <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/d1e1e1e5-79df-4eba-950f-be22cbee8d8d.png">
-                            平原
-                        </span>
-                        ・
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/5ade6da5-7e8b-4ed3-9755-25ddd0a9e228.png">
-                            村の近く
-                        </span>
-                        ・
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/c73c6e53-b222-4bfa-983d-5254118e3723.png">
-                            水場の近く
-                        </span>
-                        <!-- これ以降のtooltipは準備実装予定 -->
-                        がおすすめ。迷子を減らせる。
-                    </li>
-                    <li><strong>最低限の設備を置く:</strong> ベッド、作業台、かまど2個、チェスト4個。これだけで採掘と収納が回る。</li>
-                    <li><strong>チェスト整理を最初から分ける:</strong> 「鉱石」「建材」「食料」「道具」で分ける。探す時間を減らせる。</li>
-                    <li><strong>鉄を優先回収:</strong> まず31個を目標に集める。<span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/1315db96-11bb-4c02-bd91-53fb6faf9040.png"
-                            data-tooltip="暗い洞窟は、モンスターがいるので注意！">鉄鉱石</span>
-                        を洞窟などから見つけて、石以上のツルハシで掘ることで
-                        <span class="tooltip-trigger"
-                            data-tooltip-img="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/81a07b67-53b3-46e0-81ff-d2c168956b64.png"
-                            data-tooltip="まだこの状態だとクラフトできないよ！">鉄の原石</span>
-                        が手に入る。かまどで鉄の原石を焼くことで、鉄インゴットが手に入りクラフトすることができる。31個の鉄インゴットで、鉄ツルハシ、鉄防具、盾、バケツを作れる。
-                    </li>
-                    <li><strong>湧き潰しを実施:</strong> 拠点周囲に松明を置き、夜の不意打ちを防ぐ。戦闘が苦手でも生存率が上がる。</li>
-                </ol>
-            </article>
-
-            <article class="survival-block">
-                <h2>3. 鉄装備からダイヤ・エンチャントへ</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/d90b3556-d4ec-4cf9-99f7-0dadbb3523c0.png">
-                <ol class="guide-steps">
-                    <li><strong>ダイヤ探しの前に準備:</strong> 松明32本以上、食料16個以上、予備ツルハシ1本を持ってから採掘に行く。</li>
-                    <li><strong>ダイヤの使い道を固定:</strong> 最初のダイヤはツルハシを優先。黒曜石を掘れて進行が一気に広がる。</li>
-                    <li><strong>エンチャントテーブル作成:</strong> 本1冊+ダイヤ2個+黒曜石4個で作れる。作業効率を上げる土台になる。</li>
-                    <li><strong>狙うエンチャント:</strong> ツルハシは効率強化と耐久力、防具はダメージ軽減を優先。修繕は後からでもOK。</li>
-                </ol>
-            </article>
-
-            <article class="survival-block" id="nether-end">
-                <h2>4. ネザー進出からエンド準備まで</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/f1790b28-7ed9-41cc-a15c-4995b2561f7c.png">
-                <ol class="guide-steps">
-                    <li><strong>ネザー突入前の持ち物:</strong> 金装備1部位、火打石と打ち金、丸石2スタック、食料、弓、予備の防具。</li>
-                    <li><strong>最初の目標を1つに絞る:</strong> ブレイズロッド回収を優先。寄り道しすぎるとロストしやすい。</li>
-                    <li><strong>帰り道を必ずマーキング:</strong> 松明や丸石で目印を連続配置。座標メモも取り、迷子を防ぐ。</li>
-                    <li><strong>エンド準備:</strong> ブレイズパウダーとエンダーパールを集めてエンダーアイを作る。予備も含めて12個以上を目標。</li>
-                </ol>
-            </article>
-
-            <article class="survival-block">
-                <h2>5. エンド攻略前の最終チェック</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/e679b714-5ef2-44f4-9316-1d148faea67f.png">
-                <ol class="guide-steps">
-                    <li><strong>必須装備:</strong> フル鉄以上の防具、弓、矢、水バケツ、食料、足場ブロック2スタック。</li>
-                    <li><strong>開幕行動:</strong> まずエンドクリスタルを破壊してドラゴン回復を止める。ここを飛ばすと長期戦になる。</li>
-                    <li><strong>被ダメージ対策:</strong> 吹き飛ばしで落下死しやすいので、高所作業中は常に水バケツをホットバーに置く。</li>
-                    <li><strong>倒せない時の戻り方:</strong> ポータルの位置にチェストを置き、予備食料とブロックを残しておくと再挑戦が早い。</li>
-                </ol>
-            </article>
-
-            <article class="survival-block">
-                <h2>6. 失敗しにくい進行テンプレート</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/67695db9-46fd-485e-a8d2-3d975d88de79.png">
-                <ol class="guide-steps">
-                    <li><strong>1日目:</strong> ベッド作成、小屋、石ツール化。目的は「死なない環境」を作ること。</li>
-                    <li><strong>2日目:</strong> 食料安定化(畑or動物)と鉄集め。目的は探索前の土台を固めること。</li>
-                    <li><strong>3日目:</strong> 鉄防具と盾を完成し、洞窟探索を開始。無理に深追いしない。</li>
-                    <li><strong>拠点常備セット:</strong> 石ツール、食料、松明、丸石、予備防具をチェストに固定。全ロス後の復帰が早い。</li>
-                </ol>
-            </article>
-
-            <article class="survival-block">
-                <h2>7. 効率化テクニックと仕様理解の基本</h2>
-                <img
-                    src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/3d01e517-30cf-4269-8b4b-b142607b7d95.png">
-                <ol class="guide-steps">
-                    <li><strong>採掘の目的を分ける:</strong> 「鉄だけ」「石炭だけ」のように分けると、持ち帰り後の整理が楽になる。</li>
-                    <li><strong>チャンクを意識する:</strong> 拠点機能を近くに置くと移動時間が減り、作業効率が安定する。</li>
-                    <li><strong>夜の危険を管理する:</strong> 暗い場所を作らないだけで敵湧き事故が減る。戦闘力より環境整備が重要。</li>
-                    <li><strong>運要素は回転率で解決:</strong> 良エンチャントや交易は1回勝負より、試行回数を増やす方が成功しやすい。</li>
-                </ol>
-            </article>
+        <section class="survival-mobile-toc" aria-label="サバイバルページ内メニュー">
+            <div class="container">
+                <a href="#quickstart">スタートガイド</a>
+                <a href="#featured-guides">注目カード</a>
+                <a href="#progression">進行ルート</a>
+                <a href="#biomes">地形別ガイド</a>
+                <a href="#techniques">実践テーマ</a>
+            </div>
         </section>
 
-        <section class="survival-content container" id="recipes">
-            <article class="survival-block recipe-catalog-block">
-                <h2>レシピミニカタログ(初心者向け必須クラフト)</h2>
-                <div class="recipe-catalog-grid">
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/e8be8eec-3665-4b38-8f2d-6d30a93b68bd.png">
-                        <h3>作業台</h3>
-                        <p><strong>必要素材:</strong> 木材4</p>
-                        <p><strong>用途:</strong> ほぼ全クラフトの起点</p>
-                        <p><strong>作るタイミング:</strong> スタート直後</p>
+        <section class="survival-portal__section container" id="quickstart" aria-labelledby="quickstart-heading">
+            <div class="survival-section-heading">
+                <p>Start Guide</p>
+                <h2 id="quickstart-heading">まず開くスタートガイド</h2>
+                <p class="survival-section-lead">最初の夜、食料、拠点、装備。迷いやすい入口をカードから選べます。</p>
+            </div>
+            <div class="survival-quickstart-grid">
+                <article class="survival-card survival-card--quickstart">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/10">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/2658da15-97aa-4e8d-97e2-1a50e92add12.png"
+                            alt="草原でサバイバルを始めるプレイヤーの風景" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__eyebrow">01</span>
+                        <h3>最初の10分でやること</h3>
+                        <p>原木、作業台、石ツール。夜までに必要な土台を最短で揃える流れです。</p>
+                        <a class="survival-card__action" href="#progression">初日ルートを見る</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--quickstart">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/10">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/81a07b67-53b3-46e0-81ff-d2c168956b64.png"
+                            alt="洞窟で鉄鉱石を見つけたサバイバルの序盤" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__eyebrow">02</span>
+                        <h3>最初の夜を越える</h3>
+                        <p>食料、ベッド、安全な足場を先に確保し、夜の事故を減らす順番を整理します。</p>
+                        <a class="survival-card__action" href="#featured-guides">序盤の注目カードへ</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--quickstart">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/10">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/0d32b2c6-bd3b-4848-b984-a89dc93126c5.png"
+                            alt="畑と家畜が揃ったサバイバル農場" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__eyebrow">03</span>
+                        <h3>食料を安定させる</h3>
+                        <p>焼き肉でしのぐ段階から、畑と家畜で回復を切らさない形へつなげます。</p>
+                        <a class="survival-card__action" href="#featured-guides">食料カードを開く</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--quickstart">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/10">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/de617b26-f153-48ca-a4ef-f80c7e35c0b3.png"
+                            alt="たいまつで照らされた安全な洞窟探索ルート" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__eyebrow">04</span>
+                        <h3>安全に洞窟へ入る</h3>
+                        <p>たいまつ、退路、引き返しライン。無理に深追いしない探索の基本を確認します。</p>
+                        <a class="survival-card__action" href="#biomes">地形別ガイドへ進む</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--quickstart">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/10">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/3b3bd5f3-ab0c-4618-8fc6-c9aaaf88c78e.png"
+                            alt="木造のスターターハウスと小さな拠点" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__eyebrow">05</span>
+                        <h3>帰りやすい拠点を作る</h3>
+                        <p>収納、かまど、寝床の位置を整え、戻るたびに立て直せる拠点を作ります。</p>
+                        <a class="survival-card__action" href="#featured-guides">拠点カードを開く</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--quickstart">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/10">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/d90b3556-d4ec-4cf9-99f7-0dadbb3523c0.png"
+                            alt="装備強化に向けたエンチャント周辺のサバイバル風景" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__eyebrow">06</span>
+                        <h3>鉄装備へ更新する</h3>
+                        <p>盾、バケツ、鉄防具を優先し、中盤に入る前の生存力を底上げします。</p>
+                        <a class="survival-card__action" href="#techniques">装備テーマを見る</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="survival-portal__section container" id="featured-guides"
+            aria-labelledby="featured-guides-heading">
+            <div class="survival-section-heading">
+                <p>Featured Cards</p>
+                <h2 id="featured-guides-heading">注目カード</h2>
+                <p class="survival-section-lead">迷ったらここから。人気テーマを、次の行き先つきでまとめています。</p>
+            </div>
+            <div class="survival-feature-grid">
+                <article class="survival-card survival-card--feature">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/de617b26-f153-48ca-a4ef-f80c7e35c0b3.png"
+                            alt="たいまつで照らされた安全な洞窟探索ルート" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__tag">人気</span>
+                        <h3>洞窟探索のすすめ</h3>
+                        <p>鉄や石炭を持ち帰るための照明、退路、撤退基準を短く押さえます。</p>
+                        <a class="survival-card__action" href="#progression">進行ルートから開く</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--feature">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/0d32b2c6-bd3b-4848-b984-a89dc93126c5.png"
+                            alt="畑と家畜が揃った春のサバイバル農場" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__tag">人気</span>
+                        <h3>食料と農業の基本</h3>
+                        <p>空腹で行動が止まらないよう、畑と家畜をどの順に整えるかをまとめます。</p>
+                        <a class="survival-card__action" href="#quickstart">スタートガイドへ戻る</a>
+                    </div>
+                </article>
+                <article class="survival-card survival-card--feature">
+                    <div class="survival-card__media skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/d34d83ad-77e7-4283-b365-43e6a881acf0.png"
+                            alt="花に囲まれた木造のスターターハウス" decoding="async">
+                    </div>
+                    <div class="survival-card__body">
+                        <span class="survival-card__tag">人気</span>
+                        <h3>拠点建築のコツ</h3>
+                        <p>見た目より先に、寝る・しまう・焼くが回る配置を作る考え方です。</p>
+                        <a class="survival-card__action" href="#techniques">実践テーマへ進む</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="survival-portal__section container" id="progression" aria-labelledby="progression-heading">
+            <div class="survival-section-heading">
+                <p>Progression Route</p>
+                <h2 id="progression-heading">進行ルート</h2>
+                <p class="survival-section-lead">初日からエンド攻略まで、次に何を揃えるかだけを短く追える導線です。</p>
+            </div>
+            <div class="survival-progression-grid">
+                <article class="survival-step">
+                    <span class="survival-step__label">STEP 01</span>
+                    <h3>木材を確保</h3>
+                    <p>原木と石材を先に確保し、作業台と石ツールまで更新。たいまつ素材が見えたら夜対策へ進みます。</p>
+                </article>
+                <article class="survival-step">
+                    <span class="survival-step__label">STEP 02</span>
+                    <h3>夜の安全を固める</h3>
+                    <p>食料と仮拠点を整え、ベッドか安全な避難場所を確保。夜を越せる準備ができたら探索へ進みます。</p>
+                </article>
+                <article class="survival-step">
+                    <span class="survival-step__label">STEP 03</span>
+                    <h3>食料を安定</h3>
+                    <p>焼き肉や畑で満腹度を安定させ、長めの採掘や移動に備えます。回復が止まらなくなったら鉄探しへ。</p>
+                </article>
+                <article class="survival-step">
+                    <span class="survival-step__label">STEP 04</span>
+                    <h3>鉄装備を揃える</h3>
+                    <p>盾、バケツ、鉄防具を優先して事故を減らします。防具が揃ったら深い洞窟や遠征が安定します。</p>
+                </article>
+                <article class="survival-step">
+                    <span class="survival-step__label">STEP 05</span>
+                    <h3>拠点を育てる</h3>
+                    <p>収納、かまど、畑、作業台を近くにまとめ、戻るたびに立て直せる拠点へ育てます。交易やエンチャント準備もこの段階です。</p>
+                </article>
+                <article class="survival-step">
+                    <span class="survival-step__label">STEP 06</span>
+                    <h3>ネザーとエンドへ</h3>
+                    <p>黒曜石、火打石と打ち金、十分な食料をそろえてネザーへ。補給が整ったら要塞探索とエンド攻略の入口です。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="survival-portal__section container" id="biomes" aria-labelledby="biomes-heading">
+            <div class="survival-section-heading">
+                <p>Biome Guides</p>
+                <h2 id="biomes-heading">地形別ガイド</h2>
+                <p class="survival-section-lead">拠点向きか、資源向きか。地形ごとの進めやすさをカードで比べられます。</p>
+            </div>
+            <div class="survival-biome-rail" data-biome-rail>
+                <button class="survival-biome-rail__control survival-biome-rail__control--prev" type="button"
+                    aria-label="前のバイオームへ" data-biome-rail-prev>&lsaquo;</button>
+                <div class="survival-biome-rail__track" data-biome-rail-track>
+                    <article class="survival-card survival-biome-card">
+                        <div class="survival-card__media skeleton-media" data-skeleton-media
+                            data-skeleton-ratio="16/10">
+                            <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                            <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                            <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/a76a82d5-b4fc-4cd6-a8e5-94692320faba.png"
+                                alt="緑に囲まれた森のバイオーム" decoding="async">
+                        </div>
+                        <div class="survival-card__body">
+                            <span class="survival-card__tag">拠点向き</span>
+                            <h3>森のバイオーム</h3>
+                            <p>木材と食料を揃えやすく、最初の拠点候補に最適です。視界は狭いので、夜はたいまつで帰り道を残しておくと安心です。</p>
+                            <a class="survival-card__action" href="#quickstart">初動カードへ</a>
+                            <span class="survival-card__resource">おすすめ資源: 木材・動物・花</span>
+                        </div>
                     </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/e829c930-d5c0-4753-8bbe-af801a78492d.png">
-                        <h3>棒</h3>
-                        <p><strong>必要素材:</strong> 木材2</p>
-                        <p><strong>用途:</strong> ツール、武器、松明</p>
-                        <p><strong>作るタイミング:</strong> 作業台の直後</p>
+                    <article class="survival-card survival-biome-card">
+                        <div class="survival-card__media skeleton-media" data-skeleton-media
+                            data-skeleton-ratio="16/10">
+                            <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                            <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                            <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/5ade6da5-7e8b-4ed3-9755-25ddd0a9e228.png"
+                                alt="夜に明かりが灯る村のある平原" decoding="async">
+                        </div>
+                        <div class="survival-card__body">
+                            <span class="survival-card__tag">生活圏</span>
+                            <h3>村のある平原</h3>
+                            <p>ベッド、畑、交易の入口を一気に確保できる地形です。開けているぶん、夜は周囲の湧き潰しを早めに進めます。</p>
+                            <a class="survival-card__action" href="#featured-guides">暮らしのカードへ</a>
+                            <span class="survival-card__resource">おすすめ資源: ベッド・畑・交易</span>
+                        </div>
                     </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/7157656f-9bec-4f44-a1c7-4004214a3041.png">
-                        <h3>木のツルハシ</h3>
-                        <p><strong>必要素材:</strong> 木材3 + 棒2</p>
-                        <p><strong>用途:</strong> 石採掘の解禁</p>
-                        <p><strong>作るタイミング:</strong> 初動1分以内</p>
+                    <article class="survival-card survival-biome-card">
+                        <div class="survival-card__media skeleton-media" data-skeleton-media
+                            data-skeleton-ratio="16/10">
+                            <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                            <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                            <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/c73c6e53-b222-4bfa-983d-5254118e3723.png"
+                                alt="海辺に建てた小さなサバイバル拠点" decoding="async">
+                        </div>
+                        <div class="survival-card__body">
+                            <span class="survival-card__tag">遠征向き</span>
+                            <h3>海辺のバイオーム</h3>
+                            <p>船移動と釣りが強く、遠征拠点に向いた地形です。陸の資材が薄いこともあるので、木材だけは先に十分確保します。</p>
+                            <a class="survival-card__action" href="#techniques">移動テーマへ</a>
+                            <span class="survival-card__resource">おすすめ資源: 釣り・砂・海路</span>
+                        </div>
                     </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/995e33f3-7ddb-4cdb-8a27-4d4afa36d5c8.png">
-                        <h3>石のツルハシ</h3>
-                        <p><strong>必要素材:</strong> 丸石3 + 棒2</p>
-                        <p><strong>用途:</strong> 鉄鉱石採掘</p>
-                        <p><strong>作るタイミング:</strong> 木のツルハシの直後</p>
+                    <article class="survival-card survival-biome-card">
+                        <div class="survival-card__media skeleton-media" data-skeleton-media
+                            data-skeleton-ratio="16/10">
+                            <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                            <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                            <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/b978fbf7-0ce8-4cc8-bbdf-513a5556abca.png"
+                                alt="小さな拠点が見える雪山のバイオーム" decoding="async">
+                        </div>
+                        <div class="survival-card__body">
+                            <span class="survival-card__tag">装備準備</span>
+                            <h3>雪山のバイオーム</h3>
+                            <p>見晴らしは良いですが高低差の事故が起きやすい地形です。足場ブロックと食料を多めに持つと探索が安定します。</p>
+                            <a class="survival-card__action" href="#progression">進行ルートを見る</a>
+                            <span class="survival-card__resource">おすすめ資源: 氷雪・石材・見晴らし</span>
+                        </div>
                     </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/2aa99291-c712-457e-a49c-fedf02d7c18f.png">
-                        <h3>かまど</h3>
-                        <p><strong>必要素材:</strong> 丸石8</p>
-                        <p><strong>用途:</strong> 食料を焼く、石炭を燃料に鉱石を精錬</p>
-                        <p><strong>作るタイミング:</strong> 石確保後すぐ</p>
-                    </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/a78618d6-0189-47e5-894e-7abdd4517430.png">
-                        <h3>ベッド</h3>
-                        <p><strong>必要素材:</strong> 同じ色の羊毛3(どんな色でも可) + 木材3</p>
-                        <p><strong>用途:</strong> 夜スキップ、リスポーン固定</p>
-                        <p><strong>作るタイミング:</strong> 日没前までに必須</p>
-                    </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/8babe678-d9c6-4e18-be84-c73fcad996c1.png">
-                        <h3>チェスト</h3>
-                        <p><strong>必要素材:</strong> 木材8</p>
-                        <p><strong>用途:</strong> アイテム管理、ロスト対策</p>
-                        <p><strong>作るタイミング:</strong> 拠点を作った直後</p>
-                    </article>
-                    <article class="recipe-card">
-                        <img
-                            src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/97e8f021-c4c4-45cd-84bd-1117752602fe.png">
-                        <h3>盾</h3>
-                        <p><strong>必要素材:</strong> 木材6 + 鉄1</p>
-                        <p><strong>用途:</strong> 序盤戦闘の生存率アップ</p>
-                        <p><strong>作るタイミング:</strong> <a class="linkintext"
-                                href="https://game.conoha.jp/media/mine-semi/iron-ingot/" target="_blank"
-                                rel="noopener noreferrer">鉄インゴットを入手</a>したら即作成</p>
+                    <article class="survival-card survival-biome-card">
+                        <div class="survival-card__media skeleton-media" data-skeleton-media
+                            data-skeleton-ratio="16/10">
+                            <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                            <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                            <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/20b19545-6078-450a-a8ed-3d203e0d8108.png"
+                                alt="水辺と湿地が広がる沼地のサバイバル風景" decoding="async">
+                        </div>
+                        <div class="survival-card__body">
+                            <span class="survival-card__tag">資源採集</span>
+                            <h3>沼地のバイオーム</h3>
+                            <p>粘土やスライムを狙える一方、足元が悪く夜は危険になりがちです。船とたいまつで動線を切ると無駄な戦闘を減らせます。</p>
+                            <a class="survival-card__action" href="#techniques">実践テーマへ進む</a>
+                            <span class="survival-card__resource">おすすめ資源: 粘土・スライム・葦</span>
+                        </div>
                     </article>
                 </div>
-            </article>
+                <button class="survival-biome-rail__control survival-biome-rail__control--next" type="button"
+                    aria-label="次のバイオームへ" data-biome-rail-next>&rsaquo;</button>
+            </div>
         </section>
 
-        <div id="cta" data-cta-config='{"kicker":"READY TO DROP IN?","title":"今すぐマインクラフトをプレイしよう",
-                                        "body":"ここまで読んだら、次は実戦です。最初の拠点を作るだけでも十分な一歩。たった1ワールドから、あなた専用の物語が始まります。",
-                                        "sub":"今日の目標はシンプルに「1日目を生き残る」。明日のあなたが続きを作ります。","primary":{"text":"公式サイトで始める",
-                                        "href":"https://www.minecraft.net/ja-jp","target":"_blank","rel":"noopener noreferrer"},
-                                        "secondary":{"text":"他のモードも見てみる",
-                                        "href":"index.html#pvp"}}'></div>
+        <section class="survival-portal__section container" id="techniques" aria-labelledby="techniques-heading">
+            <div class="survival-section-heading">
+                <p>Practical Themes</p>
+                <h2 id="techniques-heading">実践テーマ</h2>
+                <p class="survival-section-lead">装備、対策、回復、採集、発展。困りごと別にすぐ辿れるテーマ集です。</p>
+            </div>
+            <div class="survival-technique-grid">
+                <article class="survival-card survival-card--technique">
+                    <div class="survival-card__media survival-card__media--compact skeleton-media" data-skeleton-media
+                        data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/97e8f021-c4c4-45cd-84bd-1117752602fe.png"
+                            alt="盾を作るクラフトのイメージ" decoding="async">
+                    </div>
+                    <span class="survival-card__eyebrow">装備</span>
+                    <h3>装備を更新する</h3>
+                    <p>盾、鉄ツール、バケツの順で揃えると、被弾と事故死が一気に減ります。</p>
+                    <a class="survival-card__action" href="#progression">装備ルートを見る</a>
+                </article>
+                <article class="survival-card survival-card--technique">
+                    <div class="survival-card__media survival-card__media--compact skeleton-media" data-skeleton-media
+                        data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/1bb9298f-f665-4f94-8b6f-67dcbe154aae.png"
+                            alt="たいまつ作成のイメージ" decoding="async">
+                    </div>
+                    <span class="survival-card__eyebrow">対策</span>
+                    <h3>明るさを管理する</h3>
+                    <p>洞窟や拠点周りの暗所を減らすと、戦わなくていい場面が増えて探索が安定します。</p>
+                    <a class="survival-card__action" href="#featured-guides">洞窟カードへ進む</a>
+                </article>
+                <article class="survival-card survival-card--technique">
+                    <div class="survival-card__media survival-card__media--compact skeleton-media" data-skeleton-media
+                        data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/8babe678-d9c6-4e18-be84-c73fcad996c1.png"
+                            alt="チェスト作成のイメージ" decoding="async">
+                    </div>
+                    <span class="survival-card__eyebrow">回復</span>
+                    <h3>拠点を整える</h3>
+                    <p>食料、予備ツール、回収品の置き場を決めると、戻った直後に次の行動へ移りやすくなります。</p>
+                    <a class="survival-card__action" href="#quickstart">食料の入口へ戻る</a>
+                </article>
+                <article class="survival-card survival-card--technique">
+                    <div class="survival-card__media survival-card__media--compact skeleton-media" data-skeleton-media
+                        data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/d90b3556-d4ec-4cf9-99f7-0dadbb3523c0.png"
+                            alt="エンチャント部屋のイメージ" decoding="async">
+                    </div>
+                    <span class="survival-card__eyebrow">採集</span>
+                    <h3>資源を回収する</h3>
+                    <p>今日は鉄、今日は石炭というように目的を決めて掘ると、持ち帰りと整理がぶれません。</p>
+                    <a class="survival-card__action" href="#biomes">地形別ガイドを見る</a>
+                </article>
+                <article class="survival-card survival-card--technique">
+                    <div class="survival-card__media survival-card__media--compact skeleton-media" data-skeleton-media
+                        data-skeleton-ratio="16/9">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/f1790b28-7ed9-41cc-a15c-4995b2561f7c.png"
+                            alt="ネザー準備のイメージ" decoding="async">
+                    </div>
+                    <span class="survival-card__eyebrow">発展</span>
+                    <h3>次の世界へ進む</h3>
+                    <p>ネザーやエンドに進む前に、補給、予備装備、帰還手段の抜け漏れを確認します。</p>
+                    <a class="survival-card__action" href="#cta">次に開くカードを決める</a>
+                </article>
+            </div>
+        </section>
+
+        <div id="cta" data-cta-variant="survival-portal" data-cta-config='{
+            "kicker":"SURVIVAL HUB",
+            "title":"次に開くカードを決めよう",
+            "body":"初日の立ち上がり、洞窟探索、拠点づくり、次の遠征準備まで。今いちばん困っている場面から読み進められるサバイバルハブです。",
+            "sub":"迷ったらスタートガイド、次の目標を決めたいなら進行ルートから読むのがおすすめです。",
+            "primary":{"text":"スタートガイドへ戻る","href":"#quickstart"},
+            "secondary":{"text":"トップへ戻る","href":"#overview"}
+        }'></div>
     </main>
 
     <div id="footer"
@@ -307,15 +457,20 @@
     </div>
 
     <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/progressbar.min.js"></script>
+    <script src="js/media-ready.js"></script>
+    <script src="js/initial-loading.js"></script>
+    <script src="js/loading-overlay.js"></script>
+    <script src="js/skeleton-ui.js"></script>
+    <script src="js/ui-motion.js"></script>
+    <script src="js/anchor-scroll.js"></script>
+    <script src="js/tooltips.js"></script>
     <script src="js/main.js"></script>
     <script src="js/safe-dom.js"></script>
+    <script src="js/header-include.js"></script>
     <script src="js/cta-include.js"></script>
     <script src="js/footer-include.js"></script>
-    <script>
-        window.onload = function () {
-            $("#loading-spinner-container").fadeOut(1000);
-        }
-    </script>
+    <script src="js/survival-page.js"></script>
 </body>
 
 </html>

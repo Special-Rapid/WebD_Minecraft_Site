@@ -1,0 +1,694 @@
+/* 01 PVP Page Shell */
+.pvp-detail-page {
+    background: var(--pvp-bg);
+    color: var(--pvp-text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.pvp-detail-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.06) 2px,
+            rgba(0, 0, 0, 0.06) 4px);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.pvp-detail-page ::selection {
+    background-color: #910000;
+    color: #ffffff;
+    text-shadow: #142716 1px 1px 2px;
+}
+
+.pvp-detail-page ::-moz-selection {
+    background-color: #910000;
+    color: #ffffff;
+    text-shadow: #142716 1px 1px 2px;
+}
+
+/* 02 PVP Header And Footer Overrides */
+.pvp-detail-page header {
+    top: 0;
+    background: rgba(7, 8, 13, 0.5);
+    border-bottom: 1px solid var(--pvp-border);
+    box-shadow: rgba(255, 30, 46, 0.25) 0px 0px 24px;
+}
+
+.pvp-detail-page header h1:hover {
+    color: var(--pvp-heading);
+}
+
+.pvp-detail-page header h1 {
+    font-family: var(--font-display);
+    color: var(--pvp-text-dim);
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+.pvp-detail-page header ul {
+    list-style: none;
+    display: flex;
+    gap: 6px;
+}
+
+.pvp-detail-page header ul li a {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--pvp-border);
+    color: var(--pvp-text-dim);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pvp-detail-page header .container ul li a:hover {
+    border-color: var(--pvp-cyan-dim);
+    box-shadow: var(--glow-cyan);
+}
+
+.pvp-detail-page footer {
+    background-color: var(--pvp-surface);
+    border-top: 1px solid var(--pvp-border);
+}
+
+.pvp-detail-page footer p,
+.pvp-detail-page footer a {
+    color: var(--pvp-text-dim) !important;
+}
+
+.pvp-detail-page .footer-social-link:hover,
+.pvp-detail-page .footer-social-link:focus-visible {
+    color: var(--pvp-heading) !important;
+}
+
+/* 03 PVP Detail Theme */
+.pvp-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.pvp-hero-image-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+.pvp-hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.35) saturate(0.6);
+}
+
+.pvp-hero-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(255, 45, 74, 0.18) 0%, transparent 70%),
+        linear-gradient(to top, rgba(7, 8, 13, 0.95) 0%, rgba(7, 8, 13, 0.4) 50%, rgba(7, 8, 13, 0.1) 100%);
+}
+
+.pvp-hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px 72px;
+    width: 100%;
+}
+
+.pvp-kicker {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pvp-red);
+    text-shadow: var(--glow-red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pvp-kicker::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--pvp-red);
+    box-shadow: var(--glow-red);
+}
+
+.pvp-hero-text h1 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 7vw, 84px);
+    font-weight: 700;
+    color: var(--pvp-heading);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    text-shadow:
+        2px 0 0 rgba(255, 45, 74, 0.5),
+        -2px 0 0 rgba(0, 229, 255, 0.3),
+        0 0 40px rgba(255, 45, 74, 0.2);
+}
+
+.pvp-hero-text p {
+    max-width: 580px;
+    color: var(--pvp-text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.pvp-hero-scanbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pvp-red), var(--pvp-cyan), transparent);
+    animation: scanbar 3s ease-in-out infinite;
+    opacity: 0.7;
+    z-index: 98;
+}
+
+@keyframes scanbar {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.pvp-stat-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.pvp-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pvp-stat-val {
+    font-family: var(--font-ui);
+    font-size: 28px;
+    color: var(--pvp-cyan);
+    text-shadow: var(--glow-cyan);
+    line-height: 1;
+}
+
+.pvp-stat-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pvp-text-dim);
+}
+
+.pvp-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--pvp-border);
+    align-self: center;
+}
+
+.threat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 12px 5px 10px;
+    border: 1px solid var(--pvp-red-dim);
+    color: var(--pvp-red);
+    background: rgba(255, 45, 74, 0.06);
+    margin-bottom: 20px;
+}
+
+.threat-badge::before {
+    content: "\25b2";
+    font-size: 8px;
+    animation: blink 1.2s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.pvp-detail-page main {
+    background: var(--pvp-bg);
+}
+
+.pvp-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.pvp-block {
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.pvp-block h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--pvp-heading);
+    letter-spacing: 0.03em;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--pvp-border);
+    position: relative;
+}
+
+.pvp-block h2::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: var(--pvp-red);
+    box-shadow: var(--glow-red);
+}
+
+.pvp-block h2 .step-num {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--pvp-red);
+    margin-right: 10px;
+    vertical-align: middle;
+    letter-spacing: 0.1em;
+}
+
+.pvp-section-lead {
+    margin: 0 0 22px;
+    color: var(--pvp-text-dim);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.pvp-block>img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 32px;
+    border: 1px solid var(--pvp-border);
+    filter: brightness(0.8) saturate(0.7);
+}
+
+.pvp-block>.skeleton-media {
+    width: 100%;
+    height: 320px;
+    margin-bottom: 32px;
+    border: 1px solid var(--pvp-border);
+}
+
+.pvp-block>.skeleton-media>img {
+    object-fit: cover;
+    filter: brightness(0.8) saturate(0.7);
+}
+
+.pvp-guide-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    counter-reset: pvp-step;
+}
+
+.pvp-guide-steps li {
+    padding: 20px 20px 20px 72px;
+    border: 1px solid var(--pvp-border);
+    border-top: none;
+    position: relative;
+    background: var(--pvp-surface);
+    transition: background 0.2s;
+}
+
+.pvp-guide-steps li:first-child {
+    border-top: 1px solid var(--pvp-border);
+}
+
+.pvp-guide-steps li:hover {
+    background: #141828;
+}
+
+.pvp-guide-steps li::before {
+    counter-increment: pvp-step;
+    content: counter(pvp-step, decimal-leading-zero);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-ui);
+    font-size: 20px;
+    color: var(--pvp-red-dim);
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.pvp-guide-steps li:hover::before {
+    color: var(--pvp-red);
+    text-shadow: var(--glow-red);
+}
+
+.pvp-guide-steps li strong {
+    color: var(--pvp-heading);
+    font-weight: 600;
+}
+
+.pvp-guide-steps li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--pvp-red);
+    box-shadow: var(--glow-red);
+    transform: scaleY(0);
+    transition: transform 0.2s;
+    transform-origin: bottom;
+}
+
+.pvp-guide-steps li:hover::after {
+    transform: scaleY(1);
+}
+
+.pvp-gear-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--pvp-border);
+    border: 1px solid var(--pvp-border);
+    margin-top: 32px;
+}
+
+.pvp-gear-card {
+    background: var(--pvp-surface);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+}
+
+.pvp-gear-card:hover {
+    background: #141828;
+}
+
+.pvp-gear-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: brightness(0.9);
+}
+
+.pvp-gear-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--pvp-heading);
+    letter-spacing: 0.03em;
+}
+
+.pvp-gear-card p {
+    font-size: 14px;
+    color: var(--pvp-text-dim);
+    line-height: 1.6;
+}
+
+.pvp-gear-card p strong {
+    color: var(--pvp-text);
+}
+
+.pvp-tier {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 2px 8px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.tier-s {
+    color: var(--pvp-gold);
+    border: 1px solid rgba(245, 196, 0, 0.3);
+    background: rgba(245, 196, 0, 0.06);
+}
+
+.tier-a {
+    color: var(--pvp-cyan);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    background: rgba(0, 229, 255, 0.06);
+}
+
+.tier-b {
+    color: var(--pvp-text);
+    border: 1px solid var(--pvp-border);
+    background: transparent;
+}
+
+.pvp-gear-card:has(.tier-s)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at top right, rgba(245, 196, 0, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+.pvp-tip {
+    border: 1px solid var(--pvp-cyan-dim);
+    background: rgba(0, 229, 255, 0.04);
+    padding: 20px 24px;
+    margin: 32px 0;
+    position: relative;
+    padding-left: 52px;
+}
+
+.pvp-tip::before {
+    content: "!";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-ui);
+    font-size: 20px;
+    color: var(--pvp-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.pvp-tip strong {
+    color: var(--pvp-cyan);
+}
+
+.pvp-warning {
+    border-color: var(--pvp-red-dim);
+    background: rgba(255, 45, 74, 0.04);
+}
+
+.pvp-warning::before {
+    content: "\25b2";
+    font-size: 16px;
+    color: var(--pvp-red);
+    text-shadow: var(--glow-red);
+}
+
+.pvp-warning strong {
+    color: var(--pvp-red);
+}
+
+.pvp-warning-spacing-lg {
+    margin-top: 32px;
+}
+
+.pvp-warning-spacing-sm {
+    margin-top: 16px;
+}
+
+.pvp-table-wrap {
+    overflow-x: auto;
+    margin-top: 32px;
+}
+
+.pvp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.pvp-table thead tr {
+    background: var(--pvp-surface);
+    border-bottom: 1px solid var(--pvp-red-dim);
+}
+
+.pvp-table thead th {
+    padding: 14px 20px;
+    text-align: left;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pvp-red);
+}
+
+.pvp-table tbody tr {
+    border-bottom: 1px solid var(--pvp-border);
+    transition: background 0.15s;
+}
+
+.pvp-table tbody tr:hover {
+    background: var(--pvp-surface);
+}
+
+.pvp-table td {
+    padding: 16px 20px;
+    color: var(--pvp-text);
+    vertical-align: top;
+}
+
+.pvp-table td:first-child {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--pvp-heading);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.pvp-detail-page .survival-cta {
+    background: linear-gradient(135deg, #0a0b10, #12040a, #2a0610, #1a0208) !important;
+    border-top: 1px solid var(--pvp-red-dim);
+    position: relative;
+    overflow: hidden;
+}
+
+.pvp-detail-page .survival-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255, 45, 74, 0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 40% at 50% 0%, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.pvp-detail-page .cta-kicker {
+    font-family: var(--font-ui) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.25em !important;
+    color: var(--pvp-red) !important;
+    text-shadow: var(--glow-red) !important;
+    opacity: 1 !important;
+}
+
+.pvp-detail-page .cta-title {
+    font-family: var(--font-display) !important;
+    color: #eceef5 !important;
+    text-shadow:
+        2px 0 0 rgba(255, 45, 74, 0.4),
+        -1px 0 0 rgba(0, 229, 255, 0.2),
+        0 0 40px rgba(255, 45, 74, 0.15) !important;
+}
+
+.pvp-detail-page .cta-body,
+.pvp-detail-page .cta-sub {
+    color: #9499b0 !important;
+    max-width: 680px !important;
+}
+
+.pvp-detail-page .cta-primary {
+    color: #07080d !important;
+    background: linear-gradient(140deg, #ff2d4a, #ff6b7a) !important;
+    box-shadow: 0 0 18px rgba(255, 45, 74, 0.45), 0 8px 24px rgba(255, 45, 74, 0.2) !important;
+    border: none !important;
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+}
+
+.pvp-detail-page .cta-primary:hover {
+    box-shadow: 0 0 28px rgba(255, 45, 74, 0.65), 0 12px 32px rgba(255, 45, 74, 0.3) !important;
+}
+
+.pvp-detail-page .cta-secondary {
+    color: var(--pvp-green) !important;
+    background-color: rgba(40, 131, 35, 0.2) !important;
+    border-color: rgba(40, 131, 35, 0.5) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em !important;
+}
+
+.pvp-detail-page .cta-secondary:hover {
+    background-color: rgba(40, 131, 35, 0.4) !important;
+    box-shadow: 0 0 16px rgba(40, 131, 35, 0.25) !important;
+}
+
+.pvp-detail-page [data-loading-overlay] {
+    background: var(--pvp-bg);
+}
+
+@media (max-width: 768px) {
+    .pvp-hero-text h1 {
+        font-size: 40px;
+    }
+
+    .pvp-stat-row {
+        gap: 16px;
+    }
+
+    .pvp-stat-divider {
+        display: none;
+    }
+
+    .pvp-content {
+        padding: 48px 16px;
+    }
+
+    .pvp-block>img {
+        height: 200px;
+    }
+
+    .pvp-block>.skeleton-media {
+        height: 200px;
+    }
+
+    .pvp-gear-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

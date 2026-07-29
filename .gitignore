@@ -7,3 +7,8 @@ WebD_feedback.pdf
 img/
 upload-api.html
 .vscode/
+test-results/
+.hintrc
+async_cloudflareworkers/
+docs/
+.wrangler/

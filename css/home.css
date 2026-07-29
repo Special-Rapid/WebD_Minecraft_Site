@@ -1,0 +1,377 @@
+/* 01 Home Intro Motion */
+.fadein {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.5s;
+    display: flex;
+}
+
+@media (max-width: 786px) {
+    .fadein {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* 02 Home Sections */
+.firstview {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.firstview-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.firstview h1 {
+    font-size: 100px;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.rotating-text {
+    font-size: 36px;
+    margin-top: 20px;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotating-item {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.firstview video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+@media (max-width: 786px) {
+    .firstview h1 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+    }
+}
+
+.gradation {
+    position: relative;
+}
+
+.gradation::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, #ffffff);
+}
+
+
+
+.survival,
+.pvp,
+.build {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.survival {
+    margin-top: 50px;
+    background-color: #000000;
+}
+
+.pvp {
+    background-color: #1a1a1a;
+}
+
+.build {
+    margin-top: 50px;
+    background-color: #ffffff;
+}
+
+.survival .view-card-shell,
+.pvp .view-card-shell,
+.build .view-card-shell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.survival .skeleton-media,
+.pvp .skeleton-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.build .skeleton-media {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 50%;
+    height: 100%;
+}
+
+.firstview>.skeleton-media {
+    height: 100vh;
+}
+
+.firstview>.skeleton-media[data-skeleton-ratio],
+.survival .skeleton-media[data-skeleton-ratio],
+.pvp .skeleton-media[data-skeleton-ratio],
+.build .skeleton-media[data-skeleton-ratio] {
+    aspect-ratio: auto;
+}
+
+.survival img,
+.pvp img,
+.build img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.build img {
+    display: block;
+}
+
+.section1-container,
+.section2-container,
+.section3-container {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+}
+
+.section1-container,
+.section2-container {
+    top: 45%;
+    left: 4%;
+}
+
+.section3-container {
+    top: 30%;
+    left: 55%;
+}
+
+.survival h1,
+.pvp h1,
+.build h1 {
+    transition: all 0.3s ease;
+}
+
+.survival h1 {
+    font-size: 120px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.pvp h1 {
+    font-size: 160px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.build h1 {
+    font-size: 160px;
+    color: #000000;
+}
+
+.survival h1 span,
+.pvp h1 span,
+.build h1 span {
+    transition: all 0.3s ease;
+}
+
+.survival h1 span:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 8px #1eff00;
+}
+
+.pvp h1 span:hover {
+    text-shadow: 2px 2px 4px #ff0000;
+    animation: pvpGlow 3s ease-in-out infinite;
+    animation-delay: 0.31s;
+}
+
+.build h1 span:hover {
+    text-shadow: 2px 2px 8px #119100;
+}
+
+@keyframes pvpGlow {
+    0% {
+        text-shadow: 2px 2px 8px #ff0000;
+    }
+
+    50% {
+        text-shadow: 2px 2px 8px #ffe748;
+    }
+
+    100% {
+        text-shadow: 2px 2px 8px #ff0000;
+    }
+}
+
+.survival-p1,
+.survival-p2,
+.pvp-p1,
+.pvp-p2 {
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000000;
+}
+
+.build-p1 {
+    font-size: 16px;
+    color: #000000;
+    text-shadow: 1px 1px 3px #ffffff;
+}
+
+.build-p2 {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: #000000;
+    text-shadow: 1px 1px 3px #ffffff;
+    max-width: 540px;
+}
+
+.gradation2,
+.gradation3,
+.gradation4 {
+    position: relative;
+}
+
+.gradation2::before,
+.gradation3::before,
+.gradation4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.gradation2::before {
+    background: linear-gradient(180deg, #ffffff, transparent, transparent, transparent, #000000);
+}
+
+.gradation3::before {
+    background: linear-gradient(180deg, #000000, transparent, transparent, transparent, transparent, transparent, #ffffff);
+}
+
+.gradation4::before {
+    background: linear-gradient(180deg, #ffffff, transparent, transparent, transparent, transparent);
+}
+
+@media (max-width: 1024px) {
+    .survival h1 {
+        font-size: 104px;
+    }
+
+    .pvp h1,
+    .build h1 {
+        font-size: 132px;
+    }
+
+    .build .skeleton-media {
+        width: 52%;
+    }
+
+    .section3-container {
+        left: 54%;
+    }
+}
+
+@media (max-width: 786px) {
+
+    .survival .skeleton-media,
+    .pvp .skeleton-media,
+    .build .skeleton-media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pvp img {
+        object-position: -500px center;
+    }
+
+    .section1-container,
+    .section2-container,
+    .section3-container {
+        position: static;
+    }
+
+    .survival h1 {
+        font-size: 85px;
+    }
+
+    .pvp h1 {
+        font-size: 120px;
+    }
+
+    .build h1 {
+        font-size: 100px;
+        color: #ffffff;
+        text-shadow: 1px 1px 3px #000000;
+    }
+
+    .survival-p1,
+    .survival-p2,
+    .pvp-p1,
+    .pvp-p2 {
+        font-size: 15px;
+    }
+
+    .build-p1,
+    .build-p2 {
+        color: #ffffff;
+        font-size: 14px;
+        text-shadow: 1px 1px 3px #000000;
+    }
+}

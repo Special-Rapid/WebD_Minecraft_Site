@@ -8,17 +8,27 @@ Minecraftの多様な遊び方（サバイバル・PVP・建築）を紹介す�
 
 ## サイト
 
-https://special-rapid.github.io/WebD_Minecraft_Site/
+https://mc.snkisk.com
 
 ## セクション
 
-- **Survival** - 資源を収集し、家を建て、モンスターと戦うことで生き延びるゲーム
-- **PVP** - プレイヤー同士が戦うモードで、戦略とスキルが求められます
-- **Build** - クリエイティブな側面を楽しむモードで、自由に建物や構造物を作成できます
+- **Survival** - カード導線でサバイバルの進行ルートを選べる情報設計ページ
+- **PVP** - 戦闘の基礎から実践テクニックまでをまとめた対人戦ガイドページ
+- **Build** - 建築の世界観と手順をビジュアル重視で見せるガイドページ
 
 ## 特徴
 
 - ゲーム風ローディング画面
+- 初期待機対象メディアに限定したローディング制御
+- `js/media-ready.js` で初期待機とSkeleton UIのメディア完了条件を共通化
+- 動画の progress 表示は段階的に前進するが、待機解除条件は厳格動画判定のまま維持
+- ヒーロー動画の再生維持は通常時の再試行を避け、初回開始・初期待機完了・可視復帰時だけ再確認
+- `js/deferred-media.js` で非クリティカル画像を初期待機完了後かつ可視近傍で挿入できる
+- `data-initial-load-media` を付けたメディアは優先コンテンツとして扱い、画像は `fetchpriority="high"` と対応する `preload` をセット
+- 画像・動画領域ごとのSkeleton UIと失敗時の再読み込みボタン
+- `components/header.html` / `components/cta.html` / `components/footer.html` を各ページ設定つきで差し込む共通コンポーネント構成
+- `css/style.css` をエントリにした CSS 分割構成
+- `js/main.js` を bootstrap に絞り、`ui-motion.js` / `anchor-scroll.js` / `tooltips.js` / `home-page.js` へ責務分割した共通 UI スクリプト構成
 - ローテーティングテキストによるサブタイトル
 - ナビゲーションバーによるセクション間のスムーズなスクロールアニメーション
 - ビデオバックグラウンドを使用したダイナミックなファーストビュー
@@ -44,22 +54,39 @@ WebD_Minecraft_Site/
 ├── index.html                    # トップページ
 ├── 404.html                      # 404エラーページ
 ├── licenses.html                 # ライセンスページ
-├── survival.html                 # サバイバルの詳細ページ(BETA)
-├── pvp.html                      # PVPの詳細ページ(制作中)
-├── build.html                    # 建築の詳細ページ(制作中)
+├── survival.html                 # サバイバルの情報設計ページ
+├── pvp.html                      # PVPのガイドページ
+├── build.html                    # 建築のガイドページ
 ├── components/                   # コンポーネントファイル
-│   ├── footer.html               # フッターコンポーネント
+│   ├── header.html               # ヘッダーコンポーネント
 │   ├── cta.html                  # CTAコンポーネント
-│   └── sns-link.html             # SNSリンクコンポーネント(製作中)
+│   └── footer.html               # フッターコンポーネント
 ├── css/                          # CSS ファイル
-│   └── style.css                 # メインスタイルシート
+│   ├── style.css                 # CSS エントリポイント（分割 CSS の読み込み元）
+│   ├── base.css                  # 共通レイアウト・header/footer・共通ユーティリティ
+│   ├── loading.css               # Loading overlay / Skeleton UI / View Transition
+│   ├── home.css                  # index.html 専用スタイル
+│   ├── standalone.css            # licenses / 404 向けスタイル
+│   ├── survival.css              # survival.html 専用スタイル
+│   ├── pvp.css                   # pvp.html 専用スタイル
+│   └── build.css                 # build.html 専用スタイル
 ├── README.md                     # このファイル
 ├── js/                           # JavaScript ファイル
-    ├── main.js                   # メインスクリプト
-    ├── loading_progress_bar.js   # ローディングバー制御
-    ├── footer-include.js         # フッターインクルードスクリプト
-    ├── cta-include.js            # CTAインクルードスクリプト
+    ├── main.js                   # 共通 UI の bootstrap
+    ├── ui-motion.js              # reduced motion 判定と fade-in 制御
+    ├── anchor-scroll.js          # header ナビのアンカースクロール制御
+    ├── tooltips.js               # tooltip 生成とメディア URL 制御
+    ├── home-page.js              # index.html の rotating text 制御
+    ├── media-ready.js            # 初期待機とSkeleton UIで共有するメディア完了判定
+    ├── initial-loading.js        # 初期待機対象メディアの読み込み制御
+    ├── loading-overlay.js        # ローディングオーバーレイ表示制御
+    ├── skeleton-ui.js            # メディア単位のSkeleton UIと再読み込み制御
+    ├── deferred-media.js         # 非クリティカル画像の遅延挿入制御
     ├── safe-dom.js               # 安全なDOM操作のためのユーティリティスクリプト
+    ├── header-include.js         # ヘッダーインクルードスクリプト
+    ├── cta-include.js            # CTAインクルードスクリプト
+    ├── footer-include.js         # フッターインクルードスクリプト
+    ├── survival-page.js          # Survivalページ固有の補助スクリプト
     └── vendor/                   # サードパーティライブラリ
         ├── jquery.min.js         # jQuery ライブラリ
         └──progressbar.min.js     # ProgressBar.js ライブラリ
@@ -69,10 +96,10 @@ WebD_Minecraft_Site/
 
 © 2026 新快速(Special-Rapid)
 
-https://special-rapid.github.io/WebD_Minecraft_Site/ (以下このウェブサイト) は、ファンが独自に作成した情報サイトであり、Mojang Studiosとは一切関係がなく、Mojang Studiosによる承認やスポンサーシップも受けていません。MinecraftはMojang Studiosの商標です。Minecraftに関するすべての商標および知的財産は、それぞれの所有者に帰属します。
+https://mc.snkisk.com (以下このウェブサイト) は、ファンが独自に作成した情報サイトであり、Mojang Studiosとは一切関係がなく、Mojang Studiosによる承認やスポンサーシップも受けていません。MinecraftはMojang Studiosの商標です。Minecraftに関するすべての商標および知的財産は、それぞれの所有者に帰属します。
 
-このサイトは情報提供およびファン活動のみを目的としています。
+このウェブサイトは情報提供およびファン活動のみを目的としています。
 
 このウェブサイトのオリジナルコンテンツは、CC0 1.0 Universal (パブリックドメイン)ライセンスの下で公開されています。
 
-すべてのライセンス情報を表示するには、[こちら](https://special-rapid.github.io/WebD_Minecraft_Site/licenses.html)をご覧ください。
+すべてのライセンス情報を表示するには、[こちら](https://mc.snkisk.com/licenses.html)をご覧ください。

@@ -1,16 +1,288 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-view-theme="pvp">
 
 <head>
     <meta charset="UTF-8">
-    <title>Redirect</title>
-    <script>
-        // window.location.replace("404.html");
-    </script>
-    <script src="js/main.js"></script>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon"
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image"
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    <title>PVP Guide - Minecraft Fan Site</title>
+    <meta property="og:site_name" content="Minecraft Fan Site">
+    <meta property="og:title" content="PVP Guide - Minecraft Fan Site">
+    <meta property="og:image"
+        content="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png">
+    <meta property="og:description" content="マインクラフトPVPの基本から上級テクニックまで。戦場を制するための実践ガイド。">
+    <meta property="description" content="マインクラフトPVPの基本から上級テクニックまで。戦場を制するための実践ガイド。">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body class="pvp-detail-page">
+    <div data-loading-overlay data-loading-overlay-type="bar">
+        <div data-loading-progress></div>
+    </div>
+
+    <div id="site-header"
+        data-header-config='{"homeHref":"index.html","navClass":"pvp-nav","links":[{"text":"概要","href":"#overview"},{"text":"基本戦闘","href":"#combat-basics"},{"text":"装備","href":"#loadout"},{"text":"戦術","href":"#tactics"},{"text":"上級テクニック","href":"#advanced"}]}'>
+    </div>
+
+    <main>
+        <section class="pvp-hero" id="overview">
+            <div class="pvp-hero-scanbar"></div>
+            <div class="view-hero-shell" data-view-card="pvp">
+                <div class="pvp-hero-image-wrap skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                        alt="マインクラフトのPVP戦闘シーン" fetchpriority="high" data-initial-load-media>
+                </div>
+                <div class="pvp-hero-text container">
+                    <div class="threat-badge">COMBAT ZONE - PROCEED WITH CAUTION</div>
+                    <p class="pvp-kicker">PVP COMBAT GUIDE</p>
+                    <h1>マインクラフト<br>PVP完全攻略</h1>
+                    <p>
+                        対人戦で勝ちやすくなる判断を、基礎操作から実戦の立て直しまで順番に整理したガイドです。<br>
+                        クリック速度だけではなく、初撃、距離管理、回復のタイミングを安定させたい初心者〜中級者向けにまとめています。
+                    </p>
+                    <div class="pvp-stat-row">
+                        <div class="pvp-stat">
+                            <span class="pvp-stat-val">FIRST</span>
+                            <span class="pvp-stat-label">クールダウン重視</span>
+                        </div>
+                        <div class="pvp-stat-divider"></div>
+                        <div class="pvp-stat">
+                            <span class="pvp-stat-val">SPACE</span>
+                            <span class="pvp-stat-label">横移動で間合い維持</span>
+                        </div>
+                        <div class="pvp-stat-divider"></div>
+                        <div class="pvp-stat">
+                            <span class="pvp-stat-val">RESET</span>
+                            <span class="pvp-stat-label">半分前に一度引く</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pvp-content">
+            <article class="pvp-block" id="combat-basics">
+                <h2><span class="step-num">01 //</span>基本的な戦闘の仕組みを理解する</h2>
+                <div class="skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                        loading="lazy" decoding="async">
+                </div>
+
+                <p class="pvp-section-lead">最初の章では、まず「強く振る」より「外さない・欲張らない」を安定させることを目標にします。</p>
+                <ol class="pvp-guide-steps">
+                    <li><strong>攻撃クールダウンを見る:</strong>
+                        Java版の近接戦は連打より、剣のクールダウンが戻った瞬間に当てる方がダメージ効率が高い。まずは速さより、1発をしっかり通す感覚を覚える。</li>
+                    <li><strong>間合いを固定する:</strong> 相手に密着しすぎると視点が暴れ、離れすぎると空振りしやすい。相手の当たり判定の外周をなぞるように横移動し、一定の距離を保つ。</li>
+                    <li><strong>ノックバックを読む:</strong> 高所や崖際では1発の価値が大きくなる。自分が押し出される位置と、相手を落とせる位置を毎回意識するだけで勝率が上がる。</li>
+                    <li><strong>食料と回復を後回しにしない:</strong>
+                        不利になってから回復しようとすると追撃で潰されやすい。体力が半分を切る前に一度距離を作る判断を持つ。ここが安定すると、次の装備選択も活きやすくなります。</li>
+                </ol>
+
+                <div class="pvp-tip">
+                    <strong>TIPS:</strong> 勝てないときはクリック速度より先に、距離管理と引き際を見直すと改善しやすいです。
+                </div>
+            </article>
+
+            <article class="pvp-block" id="loadout">
+                <h2><span class="step-num">02 //</span>PVP装備の選び方とエンチャント</h2>
+                <div class="skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/97e8f021-c4c4-45cd-84bd-1117752602fe.png"
+                        loading="lazy" decoding="async">
+                </div>
+
+                <p class="pvp-section-lead">基本のテンポが分かったら、次は「何を持つと判断しやすいか」を装備単位で固めていきます。</p>
+                <div class="pvp-gear-grid">
+                    <div class="pvp-gear-card">
+                        <span class="pvp-tier tier-s">S-TIER</span>
+                        <h3>ダイヤ剣 / ネザライト剣</h3>
+                        <p><strong>必要素材:</strong> ダイヤまたはネザライト、棒</p>
+                        <p><strong>推奨エンチャント:</strong> 鋭さ、耐久力、修繕。まずは完璧な1本より、使い慣れた主力武器を1本決める意識で十分です。</p>
+                    </div>
+                    <div class="pvp-gear-card">
+                        <span class="pvp-tier tier-s">S-TIER</span>
+                        <h3>盾</h3>
+                        <p><strong>必要素材:</strong> 木材6 + 鉄インゴット1</p>
+                        <p><strong>推奨運用:</strong> 弓対策、距離調整、再展開の時間稼ぎ。攻め急がず、立て直しの時間を作る道具として持つと安定します。</p>
+                    </div>
+                    <div class="pvp-gear-card">
+                        <span class="pvp-tier tier-a">A-TIER</span>
+                        <h3>弓</h3>
+                        <p><strong>必要素材:</strong> 糸3 + 棒3</p>
+                        <p><strong>推奨エンチャント:</strong> パワー、無限、耐久力</p>
+                    </div>
+                    <div class="pvp-gear-card">
+                        <span class="pvp-tier tier-a">A-TIER</span>
+                        <h3>水入りバケツ</h3>
+                        <p><strong>必要素材:</strong> 鉄インゴット3</p>
+                        <p><strong>用途:</strong> 落下対策、火消し、距離リセット。操作に慣れるまでは「逃げの一手」として使えるだけでも十分強いです。</p>
+                    </div>
+                    <div class="pvp-gear-card">
+                        <span class="pvp-tier tier-b">B-TIER</span>
+                        <h3>金のリンゴ</h3>
+                        <p><strong>効果:</strong> 追加体力と再生で打ち合いに強くなる</p>
+                        <p><strong>使いどころ:</strong> 仕掛ける前か、不利からの立て直し</p>
+                    </div>
+                    <div class="pvp-gear-card">
+                        <span class="pvp-tier tier-b">B-TIER</span>
+                        <h3>満腹度の高い食料</h3>
+                        <p><strong>回復量:</strong> ステーキ、豚肉、金ニンジンが安定</p>
+                        <p><strong>用途:</strong> 逃げながらの自然回復を止めない</p>
+                    </div>
+                </div>
+
+                <div class="pvp-warning pvp-tip pvp-warning-spacing-lg">
+                    <strong>WARNING:</strong> 強い装備だけで押し切ろうとすると、回復タイミングと盾管理の差で逆転されやすいです。
+                </div>
+            </article>
+
+            <article class="pvp-block" id="tactics">
+                <h2><span class="step-num">03 //</span>状況別の立ち回り・戦術</h2>
+                <div class="skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                        loading="lazy" decoding="async">
+                </div>
+
+                <p class="pvp-section-lead">装備が決まったら、ここからは状況別に「何を優先するか」を整理していきます。</p>
+                <ol class="pvp-guide-steps">
+                    <li><strong>1対1:</strong> 相手の初撃を盾で受けるか、横移動で外してから反撃すると展開を作りやすい。焦って正面から連打しない。</li>
+                    <li><strong>多人数戦:</strong> 一番近い相手ではなく、一番削れている相手か弓を持っている相手を優先して処理する。</li>
+                    <li><strong>逃げ方:</strong> 真っすぐ逃げるより、ブロック設置や水バケツで視線を切って回復時間を作る方が安全。</li>
+                    <li><strong>地形利用:</strong> 水場、段差、狭い通路では武器性能より位置取りの差が大きい。相手のジャンプ先を先読みして置きエイムする。</li>
+                    <li><strong>チーム戦:</strong> 同じ敵を一気に削る、回復に入る味方の前に出る、追いすぎない。この3つだけでも連携の質が変わる。</li>
+                </ol>
+
+                <div class="pvp-table-wrap">
+                    <table class="pvp-table">
+                        <thead>
+                            <tr>
+                                <th>シチュエーション</th>
+                                <th>推奨行動</th>
+                                <th>注意点</th>
+                                <th>難易度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>剣 vs 剣</td>
+                                <td>横移動で初撃を外させてから最大火力で差し込む</td>
+                                <td>正面の殴り合いだけにしない</td>
+                                <td>★★☆</td>
+                            </tr>
+                            <tr>
+                                <td>剣 vs 弓</td>
+                                <td>盾を使って接近し、障害物で射線を切る</td>
+                                <td>ジャンプしすぎると狙われやすい</td>
+                                <td>★★★</td>
+                            </tr>
+                            <tr>
+                                <td>崖際の戦闘</td>
+                                <td>無理に前進せず、ノックバック方向を優先して調整</td>
+                                <td>1発の落下が致命傷になる</td>
+                                <td>★★★</td>
+                            </tr>
+                            <tr>
+                                <td>体力不利</td>
+                                <td>水、盾、ブロックで距離を切ってから回復</td>
+                                <td>振り返り連打で止まらない</td>
+                                <td>★☆☆</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="pvp-block" id="advanced">
+                <h2><span class="step-num">04 //</span>上級テクニックと練習方法</h2>
+                <div class="skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                        alt="マインクラフトPVPの上級者イメージ" loading="lazy" decoding="async">
+                </div>
+
+                <p class="pvp-section-lead">上級テクニックは、基本戦闘と回復判断が崩れなくなってから少しずつ足すのが近道です。</p>
+                <ol class="pvp-guide-steps">
+                    <li><strong>クリティカルヒット:</strong> ジャンプの頂点ではなく、落下し始めた瞬間に当てる。無駄ジャンプを減らし、意図して差し込めるようにする。</li>
+                    <li><strong>ストレイフ:</strong> 一定方向に逃げ続けるのではなく、短く切り返して相手のエイムをずらす。近距離では視線誘導の効果が大きい。</li>
+                    <li><strong>コンボ管理:</strong> 連続ヒットを狙うときは、自分が前に出すぎて距離を潰さないこと。1歩ずつ追う意識の方が安定する。</li>
+                    <li><strong>盾割りの判断:</strong> 斧があるなら盾破壊を狙う価値があるが、外した直後は反撃を受けやすい。確実に触れる距離でだけ振る。</li>
+                    <li><strong>練習サーバー活用:</strong> 1試合ごとに「初撃」「回復」「引き際」のどれが悪かったか1つだけ振り返ると改善点が見えやすい。</li>
+                </ol>
+
+                <div class="pvp-tip">
+                    <strong>PRACTICE TIP:</strong> 練習は「勝つこと」より、毎回1つだけ成功条件を決めて試す方が上達が早いです。
+                </div>
+
+                <div class="pvp-warning pvp-tip pvp-warning-spacing-sm">
+                    <strong>WARNING:</strong> 上級テクニックを増やしすぎると判断が遅れます。まずは基本戦闘と回復の精度を優先してください。
+                </div>
+            </article>
+
+            <article class="pvp-block" id="mindset">
+                <h2><span class="step-num">05 //</span>負けから学ぶ - メンタルと成長サイクル</h2>
+                <div class="skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                        alt="PVPの振り返りイメージ" loading="lazy" decoding="async">
+                </div>
+
+                <ol class="pvp-guide-steps">
+                    <li><strong>負け方を分類する:</strong> 初撃負け、装備差、回復ミス、地形負けに分けると、何を直すべきかがすぐ見える。</li>
+                    <li><strong>感情で連戦しない:</strong> 連敗直後は視野が狭くなりやすい。1分でも良いので間を空けて、次の試合で試すことを1つ決める。</li>
+                    <li><strong>録画やリプレイを見る:</strong> 自分では押しているつもりでも、実際は不用意に前へ出ていることが多い。見返すと癖が分かる。</li>
+                    <li><strong>成長の基準を変える:</strong> 今日は勝率より、初撃を3回取れたか、回復判断を遅らせなかったかで評価すると継続しやすい。</li>
+                </ol>
+            </article>
+        </div>
+
+        <div id="cta" data-cta-config='{
+            "kicker":"READY TO FIGHT?",
+            "title":"今すぐ戦場へ",
+            "body":"知識は武器ですが、最初は初撃・距離・回復の3点だけでも勝ち筋は見えやすくなります。あとは実戦で一つずつ精度を上げていきましょう。",
+            "sub":"まだ装備が揃ってない？サバイバルガイドで基礎を固めてから戻ってこよう。",
+            "primary":{"text":"公式サイトで始める","href":"https://www.minecraft.net/ja-jp","target":"_blank","rel":"noopener noreferrer"},
+            "secondary":{"text":"サバイバルガイドを見る","href":"survival.html"}
+        }'></div>
+    </main>
+
+    <div id="footer"
+        data-footer-links='[{"text":"Back to Home","href":"index.html"},{"text":"View all license information","href":"licenses.html"}]'>
+    </div>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/progressbar.min.js"></script>
+    <script src="js/media-ready.js"></script>
+    <script src="js/initial-loading.js"></script>
+    <script src="js/loading-overlay.js"></script>
+    <script src="js/skeleton-ui.js"></script>
+    <script src="js/ui-motion.js"></script>
+    <script src="js/anchor-scroll.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/safe-dom.js"></script>
+    <script src="js/header-include.js"></script>
+    <script src="js/cta-include.js"></script>
+    <script src="js/footer-include.js"></script>
 </body>
 
 </html>

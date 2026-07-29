@@ -1,47 +1,42 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-view-theme="home">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon"
-        href="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image"
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png">
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Minecraft Fan Site</title>
     <meta property="og:site_name" content="Minecraft Fan Site">
     <meta property="og:title" content="Home - Minecraft Fan Site">
     <meta property="og:image"
-        content="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png">
+        content="https://images.snkisk.com/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png">
     <meta property="og:description" content="マインクラフトのファンサイトへようこそ！サバイバル、PVP、建築など、様々なプレイスタイルを紹介しています。">
-    <meta property="description" content="マインクラフトのファンサイトへようこそ！サバイバル、PVP、建築など、様々なプレイスタイルを紹介しています。" />
+    <meta property="description" content="マインクラフトのファンサイトへようこそ！サバイバル、PVP、建築など、様々なプレイスタイルを紹介しています。">
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
-    <div id="loadingBar-container">
-        <div id="loadingBar"></div>
+    <div data-loading-overlay data-loading-overlay-type="bar">
+        <div data-loading-progress></div>
     </div>
-    <header>
-        <div class="container">
-            <a href="index.html">
-                <h1>Minecraft Fan Site</h1>
-            </a>
-            <ul>
-                <li><a href="#survival" class="header-a1">survival</a></li>
-                <li><a href="#pvp" class="header-a2">pvp</a></li>
-                <li><a href="#build" class="header-a3">build</a></li>
-            </ul>
-        </div>
-    </header>
+    <div id="site-header"
+        data-header-config='{"homeHref":"index.html","links":[{"text":"survival","href":"#survival","className":"header-a1"},{"text":"pvp","href":"#pvp","className":"header-a2"},{"text":"build","href":"#build","className":"header-a3"}]}'>
+    </div>
     <section class="firstview" id="firstview">
-        <div class="gradation">
-            <video
-                src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/videos/1a28edf6-e6cc-4e0f-9d9b-3254bc8a721f.mp4"
-                autoplay muted loop playsinline disablepictureinpicture></video>
+        <div class="gradation skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+            <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+            <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+            <video src="https://images.snkisk.com/WebD_Minecraft_Site/videos/1a28edf6-e6cc-4e0f-9d9b-3254bc8a721f.mp4"
+                preload="auto" autoplay muted loop playsinline disablepictureinpicture data-initial-load-media></video>
         </div>
         <div class="firstview-text-container">
             <h1>Minecraft</h1>
@@ -49,69 +44,86 @@
         </div>
     </section>
     <section id="survival" class="survival">
-        <div class="gradation2">
-            <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png"
-                alt="">
-        </div>
-        <div class="fadein">
-            <div class="section1-container">
-                <a href="survival.html">
-                    <h1><span>Survival</span></h1>
-                </a>
-                <p class="survival-p1">サバイバルは、資源を収集し、家を建て、 <br>モンスターと戦うことで生き延びるゲームです。</p>
-                <p class="survival-p2">Explore the world of Minecraft survival mode, <br>where you gather resources,
-                    build shelters, <br>and fend off monsters to thrive in a blocky universe.</p>
+        <div class="view-card-shell" data-view-card="survival">
+            <div class="gradation2 skeleton-media" data-skeleton-media data-skeleton-ratio="16/9">
+                <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png"
+                    alt="" data-initial-load-media>
+            </div>
+            <div class="fadein">
+                <div class="section1-container">
+                    <a href="survival.html">
+                        <h1><span>Survival</span></h1>
+                    </a>
+                    <p class="survival-p1">初日の動き方、拠点づくり、探索の順番まで、<br>迷いやすい判断をまとめて学べます。</p>
+                    <p class="survival-p2">最初に何を集め、どこで止まり、次に何を目指すか。<br>初心者でも動きやすい実用ガイドです。</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="pvp" class="pvp">
-        <div class="gradation3">
-            <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
-                alt="">
-        </div>
-        <div class="fadein">
-            <div class="section2-container">
-                <a href="pvp.html">
-                    <h1><span>PVP</span></h1>
-                </a>
-                <p class="pvp-p1">PVPは、プレイヤー同士が戦うモードで、<br>戦略とスキルが求められます。</p>
-                <p class="pvp-p2">Dive into Minecraft's PVP mode, <br>where players engage in thrilling battles against
-                    each other, <br>testing their strategies and skills in a competitive environment.</p>
+        <div class="view-card-shell" data-view-card="pvp">
+            <div class="gradation3 skeleton-media" data-skeleton-media data-deferred-media data-skeleton-ratio="16/9"
+                data-media-src="https://images.snkisk.com/WebD_Minecraft_Site/images/a87e7010-7a01-4611-9a08-134d490ffbae.png"
+                data-media-alt="" data-media-loading="lazy" data-media-decoding="async">
+                <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+            </div>
+            <div class="fadein">
+                <div class="section2-container">
+                    <a href="pvp.html">
+                        <h1><span>PVP</span></h1>
+                    </a>
+                    <p class="pvp-p1">初撃、距離管理、回復の判断など、<br>勝敗を分ける基本を実戦の流れに沿って学べます。</p>
+                    <p class="pvp-p2">クリック速度だけに頼らず、引き際と立て直しまで整理した<br>対人戦ガイドです。</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="build" class="build">
-        <div class="gradation4">
-            <img src="https://pub-20b6359682f5478c96f1a1097e616fa9.r2.dev/WebD_Minecraft_Site/images/2a919bb9-afeb-4a49-b003-6b3953b9dabd.png"
-                alt="">
-        </div>
-        <div class="fadein">
-            <div class="section3-container">
-                <a href="build.html">
-                    <h1><span>Build</span></h1>
-                </a>
-                <p class="build-p1">建築は、クリエイティブな側面を楽しむモードで、<br>自由に建物や構造物を作成できます。</p>
-                <p class="build-p2">Unleash your creativity in Minecraft's Build mode, <br>where you can design and
-                    construct buildings and structures freely, <br>bringing your imaginative ideas to life.</p>
+        <div class="view-card-shell" data-view-card="build">
+            <div class="gradation4 skeleton-media" data-skeleton-media data-deferred-media data-skeleton-ratio="1/1"
+                data-media-src="https://images.snkisk.com/WebD_Minecraft_Site/images/2a919bb9-afeb-4a49-b003-6b3953b9dabd.png"
+                data-media-alt="" data-media-loading="lazy" data-media-decoding="async">
+                <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+            </div>
+            <div class="fadein">
+                <div class="section3-container">
+                    <a href="build.html">
+                        <h1><span>Build</span></h1>
+                    </a>
+                    <p class="build-p1">シルエット、素材、光の置き方を通して、<br>大きな作品をまとめる順番を学べます。</p>
+                    <p class="build-p2">どこから決めて、どこを後回しにするか。<br>景色として映える建物づくりの考え方を短く整理しています。</p>
+                </div>
             </div>
         </div>
     </section>
     <div id="cta" data-cta-config='{"kicker":"Want to know more?","title":"もうちょっと知りたい？",
-                                        "body":"まだ迷ってる？このサイトには、マインクラフトの魅力をもっと知るための情報がたくさん詰まっています。サバイバルのコツや建築のアイデア、PVPの戦略など、あなたのプレイをさらに楽しくする内容が満載です。公式サイトで始める前に、もう少しだけこの世界を覗いてみませんか？",
-                                        "sub":"少し戻って気になるプレイ方法をクリックしてみて？",
+                                        "body":"サバイバルで初日を安定させるか、PVPで勝ち筋を覚えるか、建築で形づくりの順番を学ぶか。気になる入口から、次の行動に直結する内容だけをまとめています。",
+                                        "sub":"初めてならサバイバル、勝負がしたいならPVP、作りたいならBuildから読むのがおすすめ。",
                                         "primary":{"text":"公式サイトで始める",
                                         "href":"https://www.minecraft.net/ja-jp",
                                         "target":"_blank",
                                         "rel":"noopener noreferrer"},
-                                        "secondary":{"text":"サバイバルを見てみる",
+                                        "secondary":{"text":"サバイバルから始める",
                                         "href":"survival.html"}}'></div>
     <div id="footer" data-footer-links='[{"text":"View all license information","href":"licenses.html"}]'></div>
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/progressbar.min.js"></script>
-    <script src="js/loading_progress_bar.js"></script>
+    <script src="js/media-ready.js"></script>
+    <script src="js/initial-loading.js"></script>
+    <script src="js/loading-overlay.js"></script>
+    <script src="js/skeleton-ui.js"></script>
+    <script src="js/deferred-media.js"></script>
+    <script src="js/ui-motion.js"></script>
+    <script src="js/anchor-scroll.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/home-page.js"></script>
     <script src="js/main.js"></script>
-    <!-- <script src="js/header-include.js"></script> -->
     <script src="js/safe-dom.js"></script>
+    <script src="js/header-include.js"></script>
     <script src="js/cta-include.js"></script>
     <script src="js/footer-include.js"></script>
 </body>

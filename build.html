@@ -1,16 +1,214 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-view-theme="build">
 
 <head>
     <meta charset="UTF-8">
-    <title>Redirect</title>
-    <script>
-        // window.location.replace("404.html");
-    </script>
-    <script src="js/main.js"></script>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon"
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image"
+        href="https://images.snkisk.com/WebD_Minecraft_Site/images/8ac3a8a0-10c2-48f6-9ec7-31f2162b898b.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
+    <title>Build Guide - Minecraft Fan Site</title>
+    <meta property="og:site_name" content="Minecraft Fan Site">
+    <meta property="og:title" content="Build Guide - Minecraft Fan Site">
+    <meta property="og:image"
+        content="https://images.snkisk.com/WebD_Minecraft_Site/images/2a919bb9-afeb-4a49-b003-6b3953b9dabd.png">
+    <meta property="og:description" content="巨大神殿をテーマに、マインクラフト建築のスケール感と世界観づくりを没入感あるビジュアルで紹介するページ。">
+    <meta property="description" content="巨大神殿をテーマに、マインクラフト建築のスケール感と世界観づくりを没入感あるビジュアルで紹介するページ。">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body class="build-detail-page">
+    <div data-loading-overlay data-loading-overlay-type="bar">
+        <div data-loading-progress></div>
+    </div>
+
+    <div id="site-header"
+        data-header-config='{"homeHref":"index.html","headerClass":"build-site-header","brandClass":"build-brand","brandAriaLabel":"Minecraft Fan Site home","navClass":"build-nav","links":[{"text":"ギャラリー","href":"#gallery"},{"text":"建築ガイド","href":"#guide"},{"text":"はじめる","href":"#cta"}]}'>
+    </div>
+
+    <main>
+        <section class="build-hero" id="overview">
+            <div class="view-hero-shell" data-view-card="build">
+                <div class="build-hero-image-wrap build-loaded-content skeleton-media" data-skeleton-media
+                    data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/8ac3a8a0-10c2-48f6-9ec7-31f2162b898b.png"
+                        alt="夕暮れの湖畔にそびえる巨大なマインクラフト建築" fetchpriority="high" data-initial-load-media>
+                </div>
+                <div class="build-hero-text build-loaded-content">
+                    <h1>想像を、<br>ブロックに。</h1>
+                    <p>景色として映える建築を、形・素材・光の順で整える。</p>
+                    <a class="build-hero-link" href="#guide">
+                        <span aria-hidden="true"></span>
+                        5つの手順を見る
+                    </a>
+                </div>
+            </div>
+            <a class="build-scroll-cue build-loaded-content" href="#story">
+                <span aria-hidden="true"></span>
+                SCROLL
+            </a>
+        </section>
+
+        <section class="build-story" id="story">
+            <div class="build-story-inner">
+                <div class="build-loaded-content">
+                    <h2>大きな建物ほど、最初に決める順番で仕上がりが変わる。</h2>
+                    <p>
+                        テーマを決め、遠景の輪郭を置き、最後に入口まわりを締める。<br>
+                        順番を意識するだけで、巨大建築でも迷いが減ります。
+                    </p>
+                    <span aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="build-gallery" id="gallery" aria-labelledby="gallery-heading">
+            <div class="build-section-heading">
+                <p>Gallery</p>
+                <h2 id="gallery-heading">景色として残る建築を、切り取る。</h2>
+            </div>
+
+            <div class="build-gallery-feature">
+                <div class="build-gallery-image build-gallery-image-wide build-loaded-content skeleton-media"
+                    data-skeleton-media data-skeleton-ratio="16/9">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/8ac3a8a0-10c2-48f6-9ec7-31f2162b898b.png"
+                        alt="巨大な城郭と湖畔の建築を広く見渡す" loading="lazy" decoding="async">
+                </div>
+                <div class="build-gallery-caption build-loaded-content">
+                    <span>01 / Scale</span>
+                    <h3>最初は細部より、遠景で残る輪郭を決める。</h3>
+                    <p>塔の高さ、屋根の角度、基壇の幅を先に置くと、建築の主役がぶれません。装飾はシルエットが固まってから重ねます。</p>
+                </div>
+            </div>
+
+            <div class="build-gallery-rhythm">
+                <article class="build-crop-panel">
+                    <div class="build-crop-image build-crop-image-left build-loaded-content skeleton-media"
+                        data-skeleton-media data-skeleton-ratio="4/3">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/8ac3a8a0-10c2-48f6-9ec7-31f2162b898b.png"
+                            alt="夕暮れの光を受ける建築の左側ディテール" loading="lazy" decoding="async">
+                    </div>
+                    <div class="build-crop-copy build-loaded-content">
+                        <span>02 / Light</span>
+                        <h3>明るい面と影の面を分けて、石の表情を作る。</h3>
+                        <p>光源を置く前に、どこを暗く残すかを決めると、同じ素材でも建物に深さが出ます。夕暮れや夜景を意識すると配置が決めやすいです。</p>
+                    </div>
+                </article>
+                <article class="build-crop-panel build-crop-panel-tall">
+                    <div class="build-crop-image build-crop-image-right build-loaded-content skeleton-media"
+                        data-skeleton-media data-skeleton-ratio="3/4">
+                        <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                        <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                        <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/8ac3a8a0-10c2-48f6-9ec7-31f2162b898b.png"
+                            alt="近景で見る建築の街並みディテール" loading="lazy" decoding="async">
+                    </div>
+                    <div class="build-crop-copy build-loaded-content">
+                        <span>03 / Detail</span>
+                        <h3>入口まわりから密度を足して、近景の説得力を作る。</h3>
+                        <p>通路、階段、柵、灯りを入口の近くから整えると、全部を飾り切らなくても「使われている建築」に見えます。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="build-guide" id="guide" aria-labelledby="guide-heading">
+            <div class="build-guide-visual">
+                <div class="build-guide-image build-loaded-content skeleton-media" data-skeleton-media
+                    data-skeleton-ratio="4/5">
+                    <div class="skeleton-media__placeholder" aria-hidden="true"></div>
+                    <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
+                    <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/8ac3a8a0-10c2-48f6-9ec7-31f2162b898b.png"
+                        alt="巨大建築の構造を確認するためのガイドビジュアル" loading="lazy" decoding="async">
+                </div>
+            </div>
+            <div class="build-guide-copy">
+                <div class="build-section-heading">
+                    <p>Build Guide</p>
+                    <h2 id="guide-heading">巨大建築は、順番で破綻しにくくなる。</h2>
+                </div>
+                <ol class="build-guide-steps">
+                    <li>
+                        <span>01</span>
+                        <div>
+                            <h3>テーマと用途を決める</h3>
+                            <p>神殿、城、倉庫など役割を先に決めると、必要な大きさと装飾の方向がぶれません。最初に「誰が使う建物か」を一言で決めます。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>02</span>
+                        <div>
+                            <h3>遠景のシルエットを置く</h3>
+                            <p>塔、屋根、壁の高さをざっくり配置し、遠くから見たときの主役を決めます。細部より先に、外形の強さを確認します。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>03</span>
+                        <div>
+                            <h3>素材を二〜三系統に絞る</h3>
+                            <p>石、木、装飾材を増やしすぎると全体が散ります。主素材、補助素材、差し色だけに絞ると大きな建築でもまとまりやすいです。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>04</span>
+                        <div>
+                            <h3>反復で秩序を作る</h3>
+                            <p>柱の間隔、窓の幅、灯りの位置をそろえると、巨大でも雑多に見えません。同じ単位を繰り返して、建物にリズムを作ります。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>05</span>
+                        <div>
+                            <h3>光と導線で仕上げる</h3>
+                            <p>入口、階段、通路にだけ光を集めると、視線と移動の流れが自然にまとまります。最後は夜に見直して、暗さと明るさの差を調整します。</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <div id="cta" data-cta-config='{
+            "kicker":"START BUILDING",
+            "title":"次は、あなたの景色を建てよう",
+            "body":"壮大な建築は、テーマ、輪郭、素材、反復、光の順で整えると迷いにくくなります。最初の一ブロックから、景色として残る建物を育てていきましょう。",
+            "sub":"素材集めから始めるなら、サバイバルガイドで土台を整えてから戻ってこられます。",
+            "primary":{"text":"公式サイトで建築を始める","href":"https://www.minecraft.net/ja-jp","target":"_blank","rel":"noopener noreferrer"},
+            "secondary":{"text":"サバイバルで素材集めを見る","href":"survival.html"}
+        }'></div>
+    </main>
+
+    <div id="footer"
+        data-footer-links='[{"text":"Back to Home","href":"index.html"},{"text":"View all license information","href":"licenses.html"}]'>
+    </div>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/progressbar.min.js"></script>
+    <script src="js/media-ready.js"></script>
+    <script src="js/initial-loading.js"></script>
+    <script src="js/loading-overlay.js"></script>
+    <script src="js/skeleton-ui.js"></script>
+    <script src="js/ui-motion.js"></script>
+    <script src="js/anchor-scroll.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/safe-dom.js"></script>
+    <script src="js/header-include.js"></script>
+    <script src="js/cta-include.js"></script>
+    <script src="js/footer-include.js"></script>
 </body>
 
 </html>
