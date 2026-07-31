@@ -9,6 +9,5 @@ upload-api.html
 .vscode/
 test-results/
 .hintrc
-async_cloudflareworkers/
 docs/
 .wrangler/
