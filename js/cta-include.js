@@ -33,30 +33,33 @@ function renderCtaContent(ctaTarget) {
 
     try {
         const config = JSON.parse(raw);
+        const translate = window.SitePreferences && typeof window.SitePreferences.translateText === "function"
+            ? window.SitePreferences.translateText
+            : (value) => value;
 
         if (kicker) {
             if (config.kicker) {
                 kicker.style.display = "";
-                setSafeText(kicker, config.kicker);
+                setSafeText(kicker, translate(config.kicker));
             } else {
                 kicker.style.display = "none";
             }
         }
 
-        if (title && config.title) setSafeText(title, config.title);
-        if (body && config.body) setSafeText(body, config.body);
+        if (title && config.title) setSafeText(title, translate(config.title));
+        if (body && config.body) setSafeText(body, translate(config.body));
 
         if (sub) {
             if (config.sub) {
                 sub.style.display = "";
-                setSafeText(sub, config.sub);
+                setSafeText(sub, translate(config.sub));
             } else {
                 sub.style.display = "none";
             }
         }
 
-        applySafeLink(primary, config.primary);
-        applySafeLink(secondary, config.secondary);
+        applySafeLink(primary, config.primary && { ...config.primary, text: translate(config.primary.text) });
+        applySafeLink(secondary, config.secondary && { ...config.secondary, text: translate(config.secondary.text) });
     } catch (error) {
         console.error("Invalid data-cta-config:", error);
     }
@@ -92,6 +95,7 @@ async function includeCta(target, path) {
         }
 
         renderCtaContent(target);
+        document.dispatchEvent(new CustomEvent("sitepreferencescontentready", { detail: { target } }));
     } catch (error) {
         console.error(error);
     }

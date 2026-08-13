@@ -104,6 +104,10 @@
     background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, #ffffff);
 }
 
+:root[data-color-scheme="dark"] .gradation::before {
+    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, #11161d);
+}
+
 
 
 .survival,
@@ -127,6 +131,10 @@
 .build {
     margin-top: 50px;
     background-color: #ffffff;
+}
+
+:root[data-color-scheme="dark"] .build {
+    background-color: #11161d;
 }
 
 .survival .view-card-shell,

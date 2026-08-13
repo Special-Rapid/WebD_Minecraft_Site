@@ -57,7 +57,10 @@ function renderHeaderContent(headerTarget) {
     }
 
     try {
-        const config = JSON.parse(raw);
+        let config = JSON.parse(raw);
+        if (window.SitePreferences && typeof window.SitePreferences.localizeHeaderConfig === "function") {
+            config = window.SitePreferences.localizeHeaderConfig(config);
+        }
 
         if (config.headerClass) {
             header.className = String(config.headerClass);
@@ -120,6 +123,7 @@ async function includeHeader(target, path) {
         }
 
         renderHeaderContent(target);
+        document.dispatchEvent(new CustomEvent("sitepreferencescontentready", { detail: { target } }));
     } catch (error) {
         console.error(error);
     }

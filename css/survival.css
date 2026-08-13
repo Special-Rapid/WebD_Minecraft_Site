@@ -27,6 +27,25 @@ body.survival-detail-page header {
     box-shadow: 0 14px 36px rgba(74, 56, 22, 0.08);
 }
 
+:root[data-color-scheme="dark"] body.survival-detail-page {
+    --survival-bg: #182117;
+    --survival-surface: rgba(32, 43, 30, 0.94);
+    --survival-surface-alt: #273424;
+    --survival-frame: #73805d;
+    --survival-frame-strong: #b99457;
+    --survival-copy: #edf3df;
+    --survival-copy-soft: #c1ceb4;
+    --survival-ink-wash: rgba(222, 239, 205, 0.08);
+    --survival-card-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+    --survival-card-shadow-strong: 0 28px 60px rgba(0, 0, 0, 0.36);
+    --survival-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+    background: linear-gradient(180deg, #1d291b 0%, var(--survival-bg) 18%, #121b14 100%);
+}
+
+:root[data-color-scheme="dark"] body.survival-detail-page header {
+    background: linear-gradient(180deg, rgba(24, 33, 23, 0.94), rgba(19, 28, 18, 0.88));
+}
+
 body.survival-detail-page header .container {
     gap: 24px;
 }

@@ -87,6 +87,7 @@ async function includeFooter(target, path) {
         }
 
         renderFooterLinks(target);
+        document.dispatchEvent(new CustomEvent("sitepreferencescontentready", { detail: { target } }));
     } catch (error) {
         console.error(error);
     }

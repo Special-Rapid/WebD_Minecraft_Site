@@ -43,6 +43,49 @@
     box-shadow: none;
 }
 
+:root[data-color-scheme="light"] .build-detail-page {
+    --build-bg: #f1eee7;
+    --build-bg2: #e3ddd2;
+    --build-surface: #fffdf8;
+    --build-surface-2: #f3ece0;
+    --build-border: #b8a889;
+    --build-gold: #9c6b22;
+    --build-gold-dim: #79511a;
+    --build-stone: #4b443a;
+    --build-text: #39342d;
+    --build-text-dim: #6c6255;
+    --build-heading: #1f1d1a;
+    background: var(--build-bg);
+}
+
+:root[data-color-scheme="light"] .build-detail-page main,
+:root[data-color-scheme="light"] .build-hero,
+:root[data-color-scheme="light"] .build-detail-page footer {
+    background: var(--build-bg);
+}
+
+:root[data-color-scheme="light"] .build-detail-page .build-site-header {
+    background: linear-gradient(180deg, rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.34));
+    border-bottom-color: rgba(57, 52, 45, 0.12);
+}
+
+:root[data-color-scheme="light"] .build-brand,
+:root[data-color-scheme="light"] .build-brand h1,
+:root[data-color-scheme="light"] .build-detail-page header .build-nav li a {
+    color: #302c26;
+    text-shadow: none;
+}
+
+:root[data-color-scheme="light"] .build-detail-page .site-preferences {
+    border-left-color: rgba(57, 52, 45, 0.2);
+}
+
+:root[data-color-scheme="light"] .build-detail-page .site-preferences__button {
+    background: rgba(255, 253, 248, 0.8);
+    border-color: rgba(57, 52, 45, 0.3);
+    color: #302c26;
+}
+
 .build-detail-page .build-site-header .container {
     max-width: 1380px;
     padding: 0 24px;

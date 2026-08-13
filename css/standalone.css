@@ -102,3 +102,35 @@ body.not-found-page a {
 body.not-found-page a:hover {
     text-decoration: underline;
 }
+
+:root[data-color-scheme="dark"] body.licenses-page {
+    background-color: #11161d;
+    color: #e7edf4;
+}
+
+:root[data-color-scheme="dark"] body.licenses-page .container {
+    background-color: #171e27;
+}
+
+:root[data-color-scheme="dark"] body.licenses-page :is(h1, h2, .license-item h3) {
+    color: #f4f7fb;
+}
+
+:root[data-color-scheme="dark"] body.licenses-page h2 {
+    border-bottom-color: #405062;
+}
+
+:root[data-color-scheme="dark"] .license-item {
+    background-color: #202a36;
+    border-left-color: #c79557;
+}
+
+:root[data-color-scheme="dark"] .license-item p,
+:root[data-color-scheme="dark"] body.licenses-page footer a {
+    color: #c6d0dc;
+}
+
+:root[data-color-scheme="dark"] body.not-found-page {
+    background-color: #11161d;
+    color: #e7edf4;
+}
