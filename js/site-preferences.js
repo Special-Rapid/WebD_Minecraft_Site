@@ -10,6 +10,7 @@
 
     const textTranslations = {
         "再読み込み": "Reload",
+        "© 2026 新快速(Special-Rapid)": "© 2026 Special-Rapid",
         "Explore": "Explore",
         "初日の動き方、拠点づくり、探索の順番まで、迷いやすい判断をまとめて学べます。": "Learn the decisions that matter most: your first day, a reliable base, and the order to explore.",
         "最初に何を集め、どこで止まり、次に何を目指すか。初心者でも動きやすい実用ガイドです。": "What to gather first, when to pause, and what to aim for next—a practical guide for new players.",
@@ -44,6 +45,7 @@
         "次の冒険先を、カードで選ぼう": "Choose your next adventure from a card",
         "最初の夜を越える準備から、拠点づくり、資源集め、次の遠征先まで。今の進み具合に合わせて入口を選べるサバイバルガイドです。": "From surviving the first night to building a base, gathering resources, and choosing an expedition, this guide lets you pick a route for your current progress.",
         "スタートガイドを見る": "View the start guide",
+        "スタートガイド": "Start guide",
         "注目カードを開く": "Open featured cards",
         "5 つの入口": "5 starting routes",
         "初日・拠点・探索": "First day · base · exploration",
@@ -229,6 +231,10 @@
         languageSource: supportedLanguages.has(stored(storageKeys.language)) ? "manual" : "auto",
     };
 
+    // Apply before the stylesheet is parsed so the selected device/manual theme never flashes.
+    document.documentElement.dataset.colorScheme = state.theme;
+    document.documentElement.lang = state.language;
+
     function translateText(value) {
         if (state.language !== "en" || typeof value !== "string") return value;
         return textTranslations[value] || value;
@@ -285,6 +291,58 @@
         if (state.language === "en" && titles[view]) document.title = titles[view];
     }
 
+    function updateLocalizedAttributes() {
+        if (state.language !== "en") return;
+        const attributes = {
+            "サバイバルページ内メニュー": "Survival page navigation",
+            "前のバイオームへ": "Previous biome",
+            "次のバイオームへ": "Next biome",
+            "草原でサバイバルを始めるプレイヤーの風景": "Player starting a Survival world in the plains",
+            "洞窟で鉄鉱石を見つけたサバイバルの序盤": "Early Survival player finding iron ore in a cave",
+            "畑と家畜が揃ったサバイバル農場": "Survival farm with crops and livestock",
+            "たいまつで照らされた安全な洞窟探索ルート": "Safe cave route lit with torches",
+            "木造のスターターハウスと小さな拠点": "Wooden starter house and small base",
+            "装備強化に向けたエンチャント周辺のサバイバル風景": "Survival scene around enchanting for a gear upgrade",
+            "畑と家畜が揃った春のサバイバル農場": "Spring Survival farm with crops and livestock",
+            "花に囲まれた木造のスターターハウス": "Wooden starter house surrounded by flowers",
+            "緑に囲まれた森のバイオーム": "Forest biome surrounded by greenery",
+            "夜に明かりが灯る村のある平原": "Plains with a village lit at night",
+            "海辺に建てた小さなサバイバル拠点": "Small Survival base built by the sea",
+            "小さな拠点が見える雪山のバイオーム": "Snowy mountain biome with a small base in view",
+            "水辺と湿地が広がる沼地のサバイバル風景": "Survival swamp landscape with water and wetlands",
+            "盾を作るクラフトのイメージ": "Crafting a shield",
+            "たいまつ作成のイメージ": "Crafting torches",
+            "チェスト作成のイメージ": "Crafting a chest",
+            "エンチャント部屋のイメージ": "Enchanting room",
+            "ネザー準備のイメージ": "Preparing for the Nether",
+            "マインクラフトのPVP戦闘シーン": "Minecraft PVP combat scene",
+            "マインクラフトPVPの上級者イメージ": "Advanced Minecraft PVP player",
+            "PVPの振り返りイメージ": "Reviewing a PVP match",
+            "夕暮れの湖畔にそびえる巨大なマインクラフト建築": "Grand Minecraft build by a lake at dusk",
+            "巨大な城郭と湖畔の建築を広く見渡す": "Wide view of a grand castle and lakeside build",
+            "夕暮れの光を受ける建築の左側ディテール": "Left-side building detail in dusk light",
+            "近景で見る建築の街並みディテール": "Close view of building streetscape details",
+            "巨大建築の構造を確認するためのガイドビジュアル": "Guide visual for checking a grand build's structure",
+        };
+        document.querySelectorAll("[alt], [aria-label]").forEach((element) => {
+            ["alt", "aria-label"].forEach((attribute) => {
+                const source = element.getAttribute(attribute);
+                if (source && attributes[source]) element.setAttribute(attribute, attributes[source]);
+            });
+        });
+
+        const descriptions = {
+            home: "Welcome to a Minecraft fan site with guides for Survival, PVP, and Build playstyles.",
+            survival: "A Survival portal for learning the essentials of staying alive, building a base, and exploring.",
+            pvp: "A practical Minecraft PVP guide from combat fundamentals to advanced techniques.",
+            build: "An immersive visual guide to Minecraft construction, scale, and worldbuilding through grand temples.",
+        };
+        const view = document.documentElement.dataset.viewTheme;
+        if (descriptions[view]) {
+            document.querySelectorAll('meta[name="description"], meta[property="og:description"]').forEach((meta) => meta.content = descriptions[view]);
+        }
+    }
+
     function updateControls(root) {
         (root || document).querySelectorAll("[data-site-preferences]").forEach((controls) => {
             controls.setAttribute("aria-label", state.language === "en" ? "Display preferences" : "表示設定");
@@ -292,6 +350,8 @@
             const languageToggle = controls.querySelector("[data-language-toggle]");
             const themeLabel = controls.querySelector("[data-theme-label]");
             const languageLabel = controls.querySelector("[data-language-label]");
+            const autoButton = controls.querySelector("[data-preferences-auto]");
+            const autoLabel = controls.querySelector("[data-auto-label]");
             if (themeToggle) {
                 const next = state.theme === "dark" ? "light" : "dark";
                 themeToggle.setAttribute("aria-pressed", String(state.theme === "dark"));
@@ -299,10 +359,15 @@
             }
             if (languageToggle) {
                 languageToggle.setAttribute("aria-pressed", String(state.language === "en"));
-                languageToggle.setAttribute("aria-label", state.language === "en" ? "日本語に切り替え" : "Switch to English");
+                languageToggle.setAttribute("aria-label", state.language === "en" ? "Switch to Japanese" : "Switch to English");
+            }
+            if (autoButton) {
+                autoButton.hidden = state.themeSource === "auto" && state.languageSource === "auto";
+                autoButton.setAttribute("aria-label", state.language === "en" ? "Use device preferences" : "端末の設定に戻す");
             }
             if (themeLabel) themeLabel.textContent = state.language === "en" ? (state.theme === "dark" ? "Light" : "Dark") : (state.theme === "dark" ? "ライト" : "ダーク");
             if (languageLabel) languageLabel.textContent = state.language === "en" ? "JA" : "EN";
+            if (autoLabel) autoLabel.textContent = state.language === "en" ? "Auto" : "自動";
         });
     }
 
@@ -310,6 +375,7 @@
         document.documentElement.dataset.colorScheme = state.theme;
         updateMetadata();
         applyTextTranslations();
+        updateLocalizedAttributes();
         updateControls();
         document.dispatchEvent(new CustomEvent("sitepreferenceschange", { detail: { ...state } }));
     }
@@ -336,7 +402,11 @@
             setTheme(state.theme === "dark" ? "light" : "dark");
             return;
         }
-        if (event.target.closest("[data-language-toggle]")) setLanguage(state.language === "ja" ? "en" : "ja");
+        if (event.target.closest("[data-language-toggle]")) {
+            setLanguage(state.language === "ja" ? "en" : "ja");
+            return;
+        }
+        if (event.target.closest("[data-preferences-auto]")) window.SitePreferences.resetToAutomatic();
     });
 
     if (window.matchMedia) {
@@ -356,7 +426,7 @@
             const controls = document.createElement("div");
             controls.className = "site-preferences site-preferences--standalone";
             controls.dataset.sitePreferences = "";
-            controls.innerHTML = '<button class="site-preferences__button" type="button" data-theme-toggle><span aria-hidden="true">☾</span><span data-theme-label></span></button><button class="site-preferences__button" type="button" data-language-toggle><span data-language-label></span></button>';
+            controls.innerHTML = '<button class="site-preferences__control" type="button" data-theme-toggle><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 15.3A8.5 8.5 0 0 1 8.7 3.5 8.5 8.5 0 1 0 20.5 15.3Z" /></svg><span class="site-preferences__text" data-theme-label></span></button><button class="site-preferences__control site-preferences__control--language" type="button" data-language-toggle><span data-language-label></span></button><button class="site-preferences__control site-preferences__control--auto" type="button" data-preferences-auto hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 11a8 8 0 0 0-14.9-4M4 5v4h4M4 13a8 8 0 0 0 14.9 4M20 19v-4h-4" /></svg><span class="site-preferences__text" data-auto-label></span></button>';
             document.body.appendChild(controls);
             updateControls(controls);
         }
@@ -364,6 +434,7 @@
 
     document.addEventListener("sitepreferencescontentready", (event) => {
         applyTextTranslations(event.detail && event.detail.target);
+        updateLocalizedAttributes();
         updateControls(event.detail && event.detail.target);
     });
 

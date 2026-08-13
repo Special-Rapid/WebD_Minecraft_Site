@@ -77,12 +77,10 @@
 }
 
 :root[data-color-scheme="light"] .build-detail-page .site-preferences {
-    border-left-color: rgba(57, 52, 45, 0.2);
+    border-color: rgba(57, 52, 45, 0.2);
 }
 
-:root[data-color-scheme="light"] .build-detail-page .site-preferences__button {
-    background: rgba(255, 253, 248, 0.8);
-    border-color: rgba(57, 52, 45, 0.3);
+:root[data-color-scheme="light"] .build-detail-page .site-preferences__control {
     color: #302c26;
 }
 
