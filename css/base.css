@@ -60,7 +60,10 @@ body {
 .site-header-actions {
     display: flex;
     align-items: center;
+    flex: 0 0 auto;
     gap: 22px;
+    min-width: 0;
+    white-space: nowrap;
 }
 
 .site-preferences {
@@ -238,6 +241,8 @@ header h1 {
 
 header ul {
     display: flex;
+    flex: 0 0 auto;
+    align-items: center;
     column-gap: 40px;
     justify-content: space-between;
     list-style: none;
@@ -248,6 +253,10 @@ header ul li a {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     transition: color 0.3s ease;
+}
+
+header .site-header-actions > [data-header-nav]:not([hidden]) {
+    display: flex;
 }
 
 header .container ul li:nth-child(1) a:hover {
@@ -286,8 +295,7 @@ header .container ul li:nth-child(5) a:hover {
         text-align: center;
     }
 
-    header [data-header-nav],
-    header ul[data-header-nav][class] {
+    header .site-header-actions > [data-header-nav]:not([hidden]) {
         display: none;
     }
 }
