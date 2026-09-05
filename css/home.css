@@ -21,6 +21,19 @@
 }
 
 /* 02 Home Sections */
+:root {
+    --home-surface: #ffffff;
+    --home-transition-void: #000000;
+    --home-build-foreground: #000000;
+    --home-build-text-shadow: #ffffff;
+}
+
+:root[data-color-scheme="dark"] {
+    --home-surface: #11161d;
+    --home-build-foreground: #e8edf3;
+    --home-build-text-shadow: #000000;
+}
+
 .firstview {
     position: relative;
     width: 100%;
@@ -101,11 +114,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, #ffffff);
-}
-
-:root[data-color-scheme="dark"] .gradation::before {
-    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, #11161d);
+    background: linear-gradient(180deg, transparent, transparent, transparent, transparent, transparent, var(--home-surface));
 }
 
 
@@ -130,11 +139,7 @@
 
 .build {
     margin-top: 50px;
-    background-color: #ffffff;
-}
-
-:root[data-color-scheme="dark"] .build {
-    background-color: #11161d;
+    background-color: var(--home-surface);
 }
 
 .survival .view-card-shell,
@@ -225,7 +230,7 @@
 
 .build h1 {
     font-size: 160px;
-    color: #000000;
+    color: var(--home-build-foreground);
 }
 
 .survival h1 span,
@@ -274,8 +279,8 @@
 
 .build-p1 {
     font-size: 16px;
-    color: #000000;
-    text-shadow: 1px 1px 3px #ffffff;
+    color: var(--home-build-foreground);
+    text-shadow: 1px 1px 3px var(--home-build-text-shadow);
 }
 
 .build-p2 {
@@ -283,8 +288,8 @@
     font-size: 18px;
     font-weight: 600;
     line-height: 1.55;
-    color: #000000;
-    text-shadow: 1px 1px 3px #ffffff;
+    color: var(--home-build-foreground);
+    text-shadow: 1px 1px 3px var(--home-build-text-shadow);
     max-width: 540px;
 }
 
@@ -304,15 +309,15 @@
 }
 
 .gradation2::before {
-    background: linear-gradient(180deg, #ffffff, transparent, transparent, transparent, #000000);
+    background: linear-gradient(180deg, var(--home-surface), transparent, transparent, transparent, var(--home-transition-void));
 }
 
 .gradation3::before {
-    background: linear-gradient(180deg, #000000, transparent, transparent, transparent, transparent, transparent, #ffffff);
+    background: linear-gradient(180deg, var(--home-transition-void), transparent, transparent, transparent, transparent, transparent, var(--home-surface));
 }
 
 .gradation4::before {
-    background: linear-gradient(180deg, #ffffff, transparent, transparent, transparent, transparent);
+    background: linear-gradient(180deg, var(--home-surface), transparent, transparent, transparent, transparent);
 }
 
 @media (max-width: 1024px) {
