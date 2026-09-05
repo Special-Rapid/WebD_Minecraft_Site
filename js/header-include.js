@@ -99,28 +99,8 @@ function renderHeaderContent(headerTarget) {
 }
 
 async function includeHeader(target, path) {
-    const loadText = typeof window.__siteInitialLoadFetchText === "function"
-        ? window.__siteInitialLoadFetchText
-        : async function fallbackLoadText(url, options) {
-            const response = await fetch(url, options);
-            if (!response.ok) {
-                throw new Error(`Failed to load ${url}: ${response.status}`);
-            }
-
-            return response.text();
-        };
-
     try {
-        const html = await loadText(path, { cache: "no-cache" }, target.dataset.loadingTaskId);
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const scripts = doc.querySelectorAll("script");
-        scripts.forEach((script) => script.remove());
-
-        target.innerHTML = "";
-        while (doc.body.firstChild) {
-            target.appendChild(doc.body.firstChild);
-        }
+        await window.SiteComponentInclude.loadIntoTarget(target, path);
 
         renderHeaderContent(target);
         document.dispatchEvent(new CustomEvent("sitepreferencescontentready", { detail: { target } }));

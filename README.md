@@ -24,7 +24,7 @@ https://mc.snkisk.com
 - 動画の progress 表示は段階的に前進するが、待機解除条件は厳格動画判定のまま維持
 - ヒーロー動画の再生維持は通常時の再試行を避け、初回開始・初期待機完了・可視復帰時だけ再確認
 - `js/deferred-media.js` で非クリティカル画像を初期待機完了後かつ可視近傍で挿入できる
-- `data-initial-load-media` を付けたメディアは優先コンテンツとして扱い、画像は `fetchpriority="high"` と対応する `preload` をセット
+- `data-initial-load-media` を付けたメディアは優先コンテンツとして扱い、画像は `fetchpriority="high"` をセット
 - 画像・動画領域ごとのSkeleton UIと失敗時の再読み込みボタン
 - `components/header.html` / `components/cta.html` / `components/footer.html` を各ページ設定つきで差し込む共通コンポーネント構成
 - `css/style.css` をエントリにした CSS 分割構成

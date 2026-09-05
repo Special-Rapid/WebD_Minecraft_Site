@@ -12,8 +12,6 @@
         href="https://images.snkisk.com/WebD_Minecraft_Site/images/1a4b69f1-ac7e-4141-9ecd-f3a7cae6f08b.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image"
-        href="https://images.snkisk.com/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png">
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <title>Minecraft Fan Site</title>
     <meta property="og:site_name" content="Minecraft Fan Site">
@@ -50,7 +48,7 @@
                 <div class="skeleton-media__placeholder" aria-hidden="true"></div>
                 <button class="skeleton-media__retry" type="button" hidden>再読み込み</button>
                 <img src="https://images.snkisk.com/WebD_Minecraft_Site/images/6e95871d-75c4-47f2-b802-4e98f5a0ea36.png"
-                    alt="" data-initial-load-media>
+                    alt="" fetchpriority="high" data-initial-load-media>
             </div>
             <div class="fadein">
                 <div class="section1-container">
@@ -124,6 +122,7 @@
     <script src="js/home-page.js"></script>
     <script src="js/main.js"></script>
     <script src="js/safe-dom.js"></script>
+    <script src="js/component-include.js"></script>
     <script src="js/header-include.js"></script>
     <script src="js/cta-include.js"></script>
     <script src="js/footer-include.js"></script>

@@ -66,33 +66,8 @@ function renderCtaContent(ctaTarget) {
 }
 
 async function includeCta(target, path) {
-    const loadText = typeof window.__siteInitialLoadFetchText === "function"
-        ? window.__siteInitialLoadFetchText
-        : async function fallbackLoadText(url, options) {
-            const response = await fetch(url, options);
-            if (!response.ok) {
-                throw new Error(`Failed to load ${url}: ${response.status}`);
-            }
-
-            return response.text();
-        };
-
     try {
-        const html = await loadText(path, { cache: "no-cache" }, target.dataset.loadingTaskId);
-
-        // DOMParserを使用してHTMLを安全にパース
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-
-        // scriptタグを削除（セキュリティ対策）
-        const scripts = doc.querySelectorAll("script");
-        scripts.forEach((script) => script.remove());
-
-        // パースされたドキュメントのボディの内容をターゲットに移す
-        target.innerHTML = "";
-        while (doc.body.firstChild) {
-            target.appendChild(doc.body.firstChild);
-        }
+        await window.SiteComponentInclude.loadIntoTarget(target, path);
 
         renderCtaContent(target);
         document.dispatchEvent(new CustomEvent("sitepreferencescontentready", { detail: { target } }));
